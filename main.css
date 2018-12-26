@@ -13,6 +13,17 @@ main section {
   margin-top: 20px;
 }
 
+
+ul.committee img.profile {
+  width: 120px;
+  margin: 10px;
+}
+
+ul.committee li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
