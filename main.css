@@ -12,10 +12,17 @@ main section {
   padding-top: 60px;
 }
 
+main section>h2 {
+  margin-bottom: 30px;
+}
 
 ul.committee img.profile {
   width: 120px;
   margin: 10px;
+}
+
+ul.committee>li {
+  align-items: center;
 }
 
 ul.committee li {
