@@ -82,8 +82,8 @@ function rawRowToRow(rawHeader, rawRow) {
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
-  if (fac1) { facilitators.push(fac1) }
-  if (fac2) { facilitators.push(fac2) }
+  if (fac1 && fac1.indexOf('?') < 0) { facilitators.push(fac1) }
+  if (fac2 && fac2.indexOf('?') < 0) { facilitators.push(fac2) }
   return {
     title,
     date: new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, '')),
