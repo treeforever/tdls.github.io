@@ -29,7 +29,7 @@ async function assembleEvent(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr>
     <td>${ev.date}</td>
-    <td>${ev.title}</td>
+    <td>${ev.title} ${ev.video ? `<a href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}</td>
     <td>${ev.lead}</td>
     <td>${ev.facilitators.join(', ')}</td>
     <td>${ev.venue}</td>
@@ -79,6 +79,7 @@ function rawRowToRow(rawHeader, rawRow) {
   const title = rawRow[rawHeader.indexOf('Title')];
   const venue = rawRow[rawHeader.indexOf('Venue')];
   const lead = rawRow[rawHeader.indexOf('Lead')];
+  const video = rawRow[rawHeader.indexOf('Youtube Link')];
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
@@ -90,7 +91,8 @@ function rawRowToRow(rawHeader, rawRow) {
     lead,
     venue,
     facilitators,
-    subjectMatterArea: rawRow[rawHeader.indexOf('Subject Matter Area')]
+    subjectMatterArea: rawRow[rawHeader.indexOf('Subject Matter Area')],
+    video
   }
 }
 
