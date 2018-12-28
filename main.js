@@ -3,10 +3,25 @@ assembleEvent(document.getElementById('upcoming-events'), document.getElementByI
 async function assembleEvent(upcomingElem, pastElem) {
   const events = await getEvents();
   const [pastEvents, futureEvents] = splitEvents(events);
-  const t = `
+
+  upcomingElem.innerHTML = `
+  <ul class="list-group">
+  ${
+    futureEvents.map(ev => `
+    <li class="list-group-item">
+    <p>${ev.date}</p>
+    <h5>${ev.title}</h5>
+    Lead: ${ev.lead}${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.join(', ')}
+    </li>
+    `).join('')
+    }
+  </ul>
+  `;
+
+  pastElem.innerHTML = `
   <table id="past-event-list">
   <thead><tr>${
-    ['Date', 'Title', 'Lead', 'Facilitator 1', 'Facilitator 2', 'Venue'].map(lbl => `
+    ['Date', 'Title', 'Lead', 'Facilitators', 'Venue'].map(lbl => `
   <th>${lbl}</th>
   `).join('')
     }</tr></thead>
@@ -16,27 +31,26 @@ async function assembleEvent(upcomingElem, pastElem) {
     <td>${ev.date}</td>
     <td>${ev.title}</td>
     <td>${ev.lead}</td>
-    <td>${ev.facilitator1}</td>
-    <td>${ev.facilitator2}</td>
+    <td>${ev.facilitators.join(', ')}</td>
     <td>${ev.venue}</td>
   </tr>
   `).join('')}
   </tbody>
   </table>
 `;
-  pastElem.innerHTML = t;
   $(pastElem.querySelector('#past-event-list')).DataTable();
 }
 
 function splitEvents(events) {
-  events = events.sort((e1, e2) => e2.date - e1.date);
-  const past = [];
-  const future = [];
+  let past = [];
+  let future = [];
   events.forEach(e => {
     if (e.date > new Date()) { future.push(e); }
     else { past.push(e); }
   });
-  console.log(past);
+  past = past.sort((e1, e2) => e2.date - e1.date);
+  future = future.sort((e1, e2) => e1.date - e2.date);
+
   return [past, future];
 }
 
@@ -65,13 +79,17 @@ function rawRowToRow(rawHeader, rawRow) {
   const title = rawRow[rawHeader.indexOf('Title')];
   const venue = rawRow[rawHeader.indexOf('Venue')];
   const lead = rawRow[rawHeader.indexOf('Lead')];
+  const facilitators = [];
+  const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
+  const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
+  if (fac1) { facilitators.push(fac1) }
+  if (fac2) { facilitators.push(fac2) }
   return {
     title,
     date: new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, '')),
     lead,
     venue,
-    facilitator1: rawRow[rawHeader.indexOf('Facilitator 1')],
-    facilitator2: rawRow[rawHeader.indexOf('Facilitator 2')],
+    facilitators,
     subjectMatterArea: rawRow[rawHeader.indexOf('Subject Matter Area')]
   }
 }
