@@ -71,7 +71,7 @@ async function getRawData() {
 async function getEvents() {
   const data = await getRawData();
   const [rawHeader, ...rawRows] = data.values;
-  const events = rawRows.map(rawR => rawRowToRow(rawHeader, rawR)).filter(e => e.title && e.venue && e.lead);
+  const events = rawRows.map(rawR => rawRowToRow(rawHeader, rawR)).filter(e => e.title && e.lead);
   return events;
 }
 
