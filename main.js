@@ -99,3 +99,6 @@ function rawRowToRow(rawHeader, rawRow) {
 
 
 // https://spreadsheets.google.com/feeds/list/1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE/1/public/values?alt=json
+// TODO: implement scrolling
+
+// https://stackoverflow.com/questions/32395988/highlight-menu-item-when-scrolling-down-to-section/32396543
