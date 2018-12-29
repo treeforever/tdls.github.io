@@ -1,13 +1,14 @@
-assembleEvent(document.getElementById('upcoming-events'), document.getElementById('past-events'));
+assembleEvents(document.getElementById('upcoming-events'), document.getElementById('past-events'));
 
-async function assembleEvent(upcomingElem, pastElem) {
+async function assembleEvents(upcomingElem, pastElem) {
   const events = await getEvents();
   const [pastEvents, futureEvents] = splitEvents(events);
 
   upcomingElem.innerHTML = `
   <ul class="list-group">
   ${
-    futureEvents.map(ev => `
+    // display only first 5
+    futureEvents.slice(0, 5).map(ev => `
     <li class="list-group-item">
     <p>${ev.date}</p>
     <h5>${ev.title}</h5>
