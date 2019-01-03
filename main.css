@@ -1,11 +1,50 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
 
 body {
+  /* Padding below the footer and lighter body text */
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+  --classics-color:  rgb(87, 173, 212);
+  --regular-color: #000000;
+  --fasttrack-color: rgb(126, 189, 118);
+}
+
+.legend {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  line-height: 1em;
+}
+
+.legend.regular {
+  background-color: var(--regular-color);
+}
+
+.legend.classics {
+  background-color: var(--classics-color);
+}
+
+.legend.fasttrack {
+  background-color: var(--fasttrack-color);
+}
+
+.upcoming-event-list .title {
+  font-weight: bold;
+}
+
+.upcoming-event-list .event-classics .title {
+  color:  var(--classics-color);
+}
+
+
+.upcoming-event-list .event-fasttrack .title {
+  color:  var(--fasttrack-color);
+}
+
+
+#events h3 {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 main section {
@@ -30,50 +69,3 @@ ul.committee li {
   margin-bottom: 10px;
 }
 
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: 400;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.05rem;
-}
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 40em) {
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
-}

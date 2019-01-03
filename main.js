@@ -3,19 +3,38 @@ document.addEventListener('DOMContentLoaded', () => {
   assembleEvents(document.getElementById('upcoming-events'), document.getElementById('past-events'));
 })
 
+const WEEKDAYS = [
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+]
+
+const MONTH_NAMES = [
+  "Jan", "Feb", "Mar", "April", "May", "Jun",
+  "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+];
+
+
+function pad(num) {
+  return num < 10 ? '0' + num : num;
+}
+
+function toShortDateString(d) {
+  return `${d.getYear() + 1900}-${pad(d.getMonth())}-${pad(d.getDate())}`;
+}
+
 
 async function assembleEvents(upcomingElem, pastElem) {
   const events = await getEvents();
   const [pastEvents, futureEvents] = splitEvents(events);
 
   upcomingElem.innerHTML = `
-  <ul class="list-group">
+  <ul class="list-group upcoming-event-list">
   ${
     // display only first 5
     futureEvents.slice(0, 5).map(ev => `
-    <li class="list-group-item">
-    <p>${ev.date}</p>
-    <h5>${ev.title}</h5>
+    <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''}">
+    <p>${WEEKDAYS[ev.date.getDay()]}, 
+    ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>
+    <h5 class="title">${ev.title}</h5>
     Lead: ${ev.lead}${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.join(', ')}
     </li>
     `).join('')
@@ -33,7 +52,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   <tbody>
   ${pastEvents.map(ev => `
   <tr>
-    <td>${ev.date}</td>
+    <td>${toShortDateString(ev.date)}</td>
     <td>${ev.title} ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}</td>
     <td>${ev.lead}</td>
     <td>${ev.facilitators.join(', ')}</td>
@@ -80,6 +99,20 @@ async function getEvents() {
   return events;
 }
 
+function getEventType(title) {
+  if(!title) {
+    return null;
+  }
+  const titleLower = title.toLowerCase();
+  if (titleLower.startsWith('[classics]')) {
+    return "classics";
+  } else if (titleLower.startsWith('[fasttrack]')) {
+    return 'fasttrack';
+  } else {
+    return 'regular';
+  }
+}
+
 function rawRowToRow(rawHeader, rawRow) {
   const title = rawRow[rawHeader.indexOf('Title')];
   const venue = rawRow[rawHeader.indexOf('Venue')];
@@ -88,6 +121,7 @@ function rawRowToRow(rawHeader, rawRow) {
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
+  const type = getEventType(title);
   if (fac1 && fac1.indexOf('?') < 0) { facilitators.push(fac1) }
   if (fac2 && fac2.indexOf('?') < 0) { facilitators.push(fac2) }
   return {
@@ -97,7 +131,8 @@ function rawRowToRow(rawHeader, rawRow) {
     venue,
     facilitators,
     subjectMatterArea: rawRow[rawHeader.indexOf('Subject Matter Area')],
-    video
+    video,
+    type
   }
 }
 
