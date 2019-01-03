@@ -1,4 +1,8 @@
-assembleEvents(document.getElementById('upcoming-events'), document.getElementById('past-events'));
+
+document.addEventListener('DOMContentLoaded', () => {
+  assembleEvents(document.getElementById('upcoming-events'), document.getElementById('past-events'));
+})
+
 
 async function assembleEvents(upcomingElem, pastElem) {
   const events = await getEvents();
