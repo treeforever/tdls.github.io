@@ -34,7 +34,11 @@ async function assembleEvents(upcomingElem, pastElem) {
     <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''}">
     <p>${WEEKDAYS[ev.date.getDay()]}, 
     ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>
-    <h5 class="title">${ev.title}</h5>
+    <h5 class="title">
+      ${ev.title}
+      ${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
+  
+    </h5>
     Lead: ${ev.lead}${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.join(', ')}
     </li>
     `).join('')
@@ -53,7 +57,10 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr>
     <td>${toShortDateString(ev.date)}</td>
-    <td>${ev.title} ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}</td>
+    <td>${ev.title} 
+    ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}
+    ${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
+    </td>
     <td>${ev.lead}</td>
     <td>${ev.facilitators.join(', ')}</td>
     <td>${ev.venue}</td>
@@ -118,6 +125,7 @@ function rawRowToRow(rawHeader, rawRow) {
   const venue = rawRow[rawHeader.indexOf('Venue')];
   const lead = rawRow[rawHeader.indexOf('Lead')];
   const video = rawRow[rawHeader.indexOf('Youtube Link')];
+  const paper = rawRow[rawHeader.indexOf('Paper Reference')];
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
@@ -132,7 +140,8 @@ function rawRowToRow(rawHeader, rawRow) {
     facilitators,
     subjectMatterArea: rawRow[rawHeader.indexOf('Subject Matter Area')],
     video,
-    type
+    type,
+    paper
   }
 }
 
