@@ -56,7 +56,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   `;
 
   pastElem.innerHTML = `
-  <table id="past-event-list">
+  <table class="table table-striped table-condensed" id="past-event-list">
   <thead><tr>${
     ['Date', 'Title', 'Lead', 'Facilitators', 'Venue'].map(lbl => `
   <th>${lbl}</th>
@@ -65,14 +65,14 @@ async function assembleEvents(upcomingElem, pastElem) {
   <tbody>
   ${pastEvents.map(ev => `
   <tr>
-    <td>${toShortDateString(ev.date)}</td>
-    <td>${ev.title} 
+    <td class="align-middle">${toShortDateString(ev.date)}</td>
+    <td class="align-middle">${ev.title} 
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
     &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
     </td>
-    <td>${ev.lead}</td>
-    <td>${ev.facilitators.join(', ')}</td>
-    <td>${ev.venue}</td>
+    <td class="align-middle">${ev.lead}</td>
+    <td class="align-middle">${ev.facilitators.join(', ')}</td>
+    <td class="align-middle">${ev.venue}</td>
   </tr>
   `).join('')}
   </tbody>
@@ -81,7 +81,10 @@ async function assembleEvents(upcomingElem, pastElem) {
 
   // load up DataTable for cool gadgets such as pagination, sorting and search
   $(pastElem.querySelector('#past-event-list')).DataTable({
-    "order": [[ 0, "desc" ]]
+    order: [[ 0, "desc" ]],
+    columnDefs: [
+      { "width": "70", "targets": 0 }
+    ]
   });
 }
 
