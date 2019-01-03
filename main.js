@@ -21,6 +21,10 @@ function toShortDateString(d) {
   return `${d.getYear() + 1900}-${pad(d.getMonth())}-${pad(d.getDate())}`;
 }
 
+function isTentative(ev) {
+  return ev.title.indexOf('?') >= 0 ||
+  ev.lead.indexOf('?') >=0;
+}
 
 async function assembleEvents(upcomingElem, pastElem) {
   const events = await getEvents();
@@ -31,7 +35,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${
     // display only first 5
     futureEvents.slice(0, 5).map(ev => `
-    <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''}">
+    <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
     <p>${WEEKDAYS[ev.date.getDay()]}, 
     ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>
     <h5 class="title">
@@ -39,7 +43,8 @@ async function assembleEvents(upcomingElem, pastElem) {
       ${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
   
     </h5>
-    Lead: ${ev.lead}${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.join(', ')}
+    ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>`: ''}
+    ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}
     </li>
     `).join('')
     }
@@ -58,8 +63,8 @@ async function assembleEvents(upcomingElem, pastElem) {
   <tr>
     <td>${toShortDateString(ev.date)}</td>
     <td>${ev.title} 
-    ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}
-    ${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
+    ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
+    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
     </td>
     <td>${ev.lead}</td>
     <td>${ev.facilitators.join(', ')}</td>
@@ -69,7 +74,9 @@ async function assembleEvents(upcomingElem, pastElem) {
   </tbody>
   </table>
 `;
-  $(pastElem.querySelector('#past-event-list')).DataTable();
+  $(pastElem.querySelector('#past-event-list')).DataTable({
+    "order": [[ 0, "desc" ]]
+  });
 }
 
 function splitEvents(events) {
@@ -79,7 +86,7 @@ function splitEvents(events) {
     if (e.date > new Date()) { future.push(e); }
     else { past.push(e); }
   });
-  past = past.sort((e1, e2) => e2.date - e1.date);
+  past = past.sort((e1, e2) => e1.date - e2.date);
   future = future.sort((e1, e2) => e1.date - e2.date);
 
   return [past, future];
@@ -96,13 +103,17 @@ async function getRawData() {
     cache: 'default'
   });
   const raw = await resp.json();
+  console.log(JSON.stringify(raw, null, 2));
   return raw;
 }
 
 async function getEvents() {
   const data = await getRawData();
   const [rawHeader, ...rawRows] = data.values;
-  const events = rawRows.map(rawR => rawRowToRow(rawHeader, rawR)).filter(e => e.title && e.lead);
+  const events = rawRows.map(
+    rawR => rawRowToRow(rawHeader, rawR)).filter(
+      e => e.title && e.lead
+  );
   return events;
 }
 

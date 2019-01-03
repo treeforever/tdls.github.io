@@ -4,9 +4,16 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
-  --classics-color:  rgb(87, 173, 212);
+  --classics-color:  rgb(67, 139, 172);
   --regular-color: #000000;
-  --fasttrack-color: rgb(126, 189, 118);
+  --fasttrack-color: rgb(49, 150, 35);
+  --tentative-background: repeating-linear-gradient(
+    -45deg,
+    #fff,
+    rgb(235, 235, 235) 10px,
+    #fff 10px,
+    #eee 20px
+  );
 }
 
 .legend {
@@ -26,6 +33,14 @@ body {
 
 .legend.fasttrack {
   background-color: var(--fasttrack-color);
+}
+
+.legend.tentative {
+  background: var(--tentative-background);
+}
+
+.upcoming-event-list>.tentative {
+  background: var(--tentative-background);
 }
 
 .upcoming-event-list .title {
