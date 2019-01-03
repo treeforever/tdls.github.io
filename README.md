@@ -23,9 +23,9 @@ TL;DR: Make a pull request.
 
 
 1. Fork this repository.
-2. `git clone https://github.io/<YOUR-USERNAME>/tdls-website`
+2. `git clone https://github.com/<YOUR-USERNAME>/tdls-website`
 3. make changes, commit & push to your own fork
-4. Go to the webpage of your own fork (`https://github.io/<YOUR-USERNAME>/tdls-website`) and make a pull request to `https://github.io/tdls/tdls-website`.
+4. Go to the webpage of your own fork (`https://github.com/<YOUR-USERNAME>/tdls-website`) and make a pull request to `https://github.com/tdls/tdls-website`.
 5. We will be notified of you PR and review as soon as we can.
 
 ### If you have write permission to this repository
