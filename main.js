@@ -63,8 +63,8 @@ async function assembleEvents(upcomingElem, pastElem) {
   <tr>
     <td>${toShortDateString(ev.date)}</td>
     <td>${ev.title} 
-    ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
+    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
     </td>
     <td>${ev.lead}</td>
     <td>${ev.facilitators.join(', ')}</td>
