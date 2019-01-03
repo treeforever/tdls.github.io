@@ -1,5 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+  // main script entry point
   assembleEvents(document.getElementById('upcoming-events'), document.getElementById('past-events'));
 })
 
@@ -14,14 +15,17 @@ const MONTH_NAMES = [
 
 
 function pad(num) {
+  // pad single digit number with zero
   return num < 10 ? '0' + num : num;
 }
 
 function toShortDateString(d) {
+  // returns YYYY-MM-DD
   return `${d.getYear() + 1900}-${pad(d.getMonth())}-${pad(d.getDate())}`;
 }
 
 function isTentative(ev) {
+  // broadly speaking, a question mark indicates uncertainty
   return ev.title.indexOf('?') >= 0 ||
   ev.lead.indexOf('?') >=0;
 }
@@ -74,12 +78,15 @@ async function assembleEvents(upcomingElem, pastElem) {
   </tbody>
   </table>
 `;
+
+  // load up DataTable for cool gadgets such as pagination, sorting and search
   $(pastElem.querySelector('#past-event-list')).DataTable({
     "order": [[ 0, "desc" ]]
   });
 }
 
 function splitEvents(events) {
+  // split into the past and future
   let past = [];
   let future = [];
   events.forEach(e => {
@@ -98,20 +105,23 @@ async function getRawData() {
   const KEY = 'AIzaSyAUMihCUtNS35espxycitPYrTE_78W93Ps';
   const SHEET_VALUE_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Schedule?key=${KEY}`;
 
+  // get raw sheet data in JSON
   const resp = await fetch(SHEET_VALUE_URL, {
     method: 'GET',
     cache: 'default'
   });
   const raw = await resp.json();
-  console.log(JSON.stringify(raw, null, 2));
   return raw;
 }
 
 async function getEvents() {
   const data = await getRawData();
   const [rawHeader, ...rawRows] = data.values;
+
+  // convert raw JSON rows to our own event data type
   const events = rawRows.map(
     rawR => rawRowToRow(rawHeader, rawR)).filter(
+      //only care about rows that have both title and lead
       e => e.title && e.lead
   );
   return events;
@@ -141,6 +151,8 @@ function rawRowToRow(rawHeader, rawRow) {
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
   const type = getEventType(title);
+
+  // broadly speaking, a question mark indicates uncertainty
   if (fac1 && fac1.indexOf('?') < 0) { facilitators.push(fac1) }
   if (fac2 && fac2.indexOf('?') < 0) { facilitators.push(fac2) }
   return {
