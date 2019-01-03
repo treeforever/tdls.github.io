@@ -15,12 +15,13 @@ And navigate to `http://127.0.0.1:8080`
 
 Note: only 8080 may work due to domain restrictions on Google Key. Similarly, only `127.0.0.1` may work, instead of `localhost` or `0.0.0.0`.
 
+
+
 ## Contribution Guideline
 
-TL;DR: Make a pull request. 
+*TL;DR: Make a pull request.*
 
 ### If you do not have write permission to this repository
-
 
 1. Fork this repository.
 2. `git clone https://github.com/<YOUR-USERNAME>/tdls-website`
@@ -49,3 +50,6 @@ git push --set-upstream origin <BRANCH_NAME>
 
 And make a pull request from your branch.
 
+## Assumptions
+
+To simplify & modernize JS code, a lot of ES2017 gimmicks are being appplied directly without a transpiler, so this website does not work on old or esoteric browsers such as IE 11 or Opera Mini. The underlying assumption is that the vast majority of visitors interested in our events use modern mainstream browsers such as Chrome, Safari or Edge.
