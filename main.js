@@ -30,7 +30,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr>
     <td>${ev.date}</td>
-    <td>${ev.title} ${ev.video ? `<a href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}</td>
+    <td>${ev.title} ${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-youtube"></i></a>` : ''}</td>
     <td>${ev.lead}</td>
     <td>${ev.facilitators.join(', ')}</td>
     <td>${ev.venue}</td>
