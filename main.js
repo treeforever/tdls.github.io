@@ -1,7 +1,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // main script entry point
-  assembleEvents(document.getElementById('upcoming-events'), document.getElementById('past-events'));
+  assembleEvents(
+    document.getElementById('upcoming-events'),
+    document.getElementById('past-events')
+  );
 })
 
 const WEEKDAYS = [
@@ -22,7 +25,7 @@ function pad(num) {
 
 function toShortDateString(d) {
   // returns YYYY-MM-DD
-  return `${d.getYear() + 1900}-${pad(d.getMonth())}-${pad(d.getDate())}`;
+  return `${d.getYear() + 1900}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 function isTentative(ev) {
