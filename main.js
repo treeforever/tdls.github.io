@@ -85,7 +85,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   $(pastElem.querySelector('#past-event-list')).DataTable({
     order: [[0, "desc"]],
     columnDefs: [
-      { "width": "70", "targets": 0 }
+      { "width": "75", "targets": 0 }
     ]
   });
 }
