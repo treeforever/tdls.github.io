@@ -66,7 +66,8 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr>
     <td class="align-middle">${toShortDateString(ev.date)}</td>
-    <td class="align-middle">${ev.title} 
+    <td class="align-middle">${ev.title}
+    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a>` : ''}
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
     &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
     </td>
@@ -150,6 +151,7 @@ function rawRowToRow(rawHeader, rawRow) {
   const lead = rawRow[rawHeader.indexOf('Lead')];
   const video = rawRow[rawHeader.indexOf('Youtube Link')];
   const paper = rawRow[rawHeader.indexOf('Paper Reference')];
+  const slides = rawRow[rawHeader.indexOf('Slides Link')];
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
@@ -167,7 +169,8 @@ function rawRowToRow(rawHeader, rawRow) {
     subjectMatterArea: rawRow[rawHeader.indexOf('Subject Matter Area')],
     video,
     type,
-    paper
+    paper,
+    slides
   }
 }
 
