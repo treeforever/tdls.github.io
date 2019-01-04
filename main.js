@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const WEEKDAYS = [
-  'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+  'Sunday', 'Monday', 'Tuesday', 'Wednesday',
+  'Thursday', 'Friday', 'Saturday'
 ]
 
 const MONTH_NAMES = [
@@ -27,7 +28,7 @@ function toShortDateString(d) {
 function isTentative(ev) {
   // broadly speaking, a question mark indicates uncertainty
   return ev.title.indexOf('?') >= 0 ||
-  ev.lead.indexOf('?') >=0;
+    ev.lead.indexOf('?') >= 0;
 }
 
 async function assembleEvents(upcomingElem, pastElem) {
@@ -44,10 +45,10 @@ async function assembleEvents(upcomingElem, pastElem) {
     ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>
     <h5 class="title">
       ${ev.title}
-      ${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
+      ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
   
     </h5>
-    ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>`: ''}
+    ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>` : ''}
     ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}
     </li>
     `).join('')
@@ -82,7 +83,7 @@ async function assembleEvents(upcomingElem, pastElem) {
 
   // load up DataTable for cool gadgets such as pagination, sorting and search
   $(pastElem.querySelector('#past-event-list')).DataTable({
-    order: [[ 0, "desc" ]],
+    order: [[0, "desc"]],
     columnDefs: [
       { "width": "70", "targets": 0 }
     ]
@@ -127,12 +128,12 @@ async function getEvents() {
     rawR => rawRowToRow(rawHeader, rawR)).filter(
       //only care about rows that have both title and lead
       e => e.title && e.lead
-  );
+    );
   return events;
 }
 
 function getEventType(title) {
-  if(!title) {
+  if (!title) {
     return null;
   }
   const titleLower = title.toLowerCase();
