@@ -18,29 +18,26 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">TDLS</a>
+      <a class="navbar-brand" href="#welcome">TDLS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#welcome">Welcome</a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#events">Events & Recordings</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#community">Community</a>
+            <a class="nav-link" href="#events">Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#areas">Subject Areas</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#get_engaged">Get Engaged</a>
+          </li>
         </ul>
         <ul class="navbar-nav pull-right">
           <li class="nav-item">
-            <a class="nav-link" href="#committee">About Us</a>
+            <a class="nav-link" href="#about_us">About Us</a>
           </li>
         </ul>
       </div>
@@ -55,18 +52,10 @@
             <div class="row">
               <div class="col-md-3"><img src="images/tdls_logo.svg" style="width: 100%" /></div>
               <div class="col-md-9">
-                <h1>Toronto Deep Learning Series (TDLS)</h1>
+                <h1>Toronto Deep Learning Series (#TDLS)</h1>
                 <p class="lead">
                   Community of intellectually curious individuals centered around technical review and discussion
                   of advances in machine learning.</p>
-                <hr>
-                <p>Welcoming, supportive community of machine learning practitioners and researchers, coming from
-                  industry and academia, with an array of experience, from avid learners to experts in their fields.
-                </p>
-                <p> Our group is centred around consistent meetings focused on meticulous but friendly discussions of
-                  advances in machine learning (typically scientific publications), covering both intuitive
-                  understanding and foundational mathematical details.
-                </p>
               </div>
             </div>
           </div>
@@ -74,6 +63,7 @@
       </div>
     </section>
     <section id="events" class="container">
+      <hr>
       <h2>Events</h2>
 
       <h5>Legend</h5>
@@ -93,25 +83,14 @@
       </article>
     </section>
 
-    <section id="community" class="container">
-      <h2>Our community in numbers! </h2>
-      <div class="row">
-        <div class="col-xl-4 col-lg-6">
-          <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=1837496004&amp;format=interactive"></iframe>
-        </div>
-        <div class="col-xl-4 col-lg-6">
-          <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=1981502753&amp;format=interactive"></iframe>
-        </div>
-        <div class="col-xl-4 col-lg-6">
-          <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=2092973435&amp;format=interactive"></iframe>
-        </div>
-      </div>
-    </section>
-
     <section id="areas" class="container">
+      <hr>
+      <h2>Streams</h2>
+      <i>under construction</i>
+
+      <h2>Subject Matter Areas</h2>
       <div class="row">
         <div class="col-lg-6">
-          <h2>Subject Matter Areas</h2>
           <dl>
             <dt>General Areas of Machine Learning</dt>
             <dd>
@@ -155,109 +134,205 @@
     </section>
 
 
-    <section id="committee" class="container">
-      <h2>TDLS Steering Committee</h2>
+    <section class="container" id="get_engaged">
+      <hr>
+      <h2>Get Engaged</h2>
+      <p><b>Are you an individual interested in leading/facilitating discussions at TDLS?</b> Please send us an email or tweet at us with any poential topics that you want to cover</p>
+      <p><b>Are you a company interested in hosting TDLS?</b> Please send us an email or tweet at us and we'll get back to you as soon as possible</p>
+      <p><b>Are you an individual with ideas about how to make this site better?</b> Please go ahead to our GitHub repos and do any modifications you like through a Pull Request</p>
+      <p><b>Do you want to tell us what content/papers to cover?</b> Please send us an email or tweet at us with your favorite paper and we put it on our list</p>
 
-      <ul class="list-unstyled committee row">
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/amir.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Amir Feizpour <a href="https://www.linkedin.com/in/amirfzpr/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Founder and Head of Operations
-            </p>
-          </div>
-        </li>
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/ehsan.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Ehsan Amjadian <a href="https://www.linkedin.com/in/ehsanamjadian/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Online Content Lead
-            </p>
-          </div>
-        </li>
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/felipe.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Felipe Perez
-              <a href="https://www.linkedin.com/in/felipe-perez-/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Venue Coordinator and Industrial Relationships Lead
-            </p>
-          </div>
-        </li>
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/gordon.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Gordon Gibson
-              <a href="https://www.linkedin.com/in/gordon-gibson-874b3130/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Content Coordinator and “Fasttrack” Stream Lead
-            </p>
-          </div>
-        </li>
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/helen.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Helen Ngo
-              <a href="https://www.linkedin.com/in/helen-ngo/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Discussion Panel Coordinator and Academic Relationships Lead
-            </p>
-          </div>
-        </li>
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/lindsay.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Lindsay Brin
-              <a href="https://www.linkedin.com/in/lindsaydbrin/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Chief Phrasing Officer and Inclusivity Encouragement Lead
-            </p>
-          </div>
-        </li>
-        <li class="media col-md-6">
-          <img class="profile rounded-circle" src="images/xiyang.jpeg" class="mr-3" />
-          <div class="media-body">
-            <h4>Xiyang Chen
-              <a href="https://www.linkedin.com/in/xiyangchen/">
-                <i class="fa fa-linkedin-square"></i>
-              </a>
-            </h4>
-            <p class="lead">
-              Content Coordinator and “Classics” Stream Lead
-            </p>
-          </div>
-        </li>
-      </ul>
+      Info for potential host companies | Host checklist | Info for discussion leads | Info for discussion failitators
     </section>
+
+
+    <section class="container" id="about_us">
+      <hr>
+      <h2>About Us</h2>
+      <p>Welcoming, supportive community of machine learning practitioner and researchers, coming from
+      industry and academia, with an array of experience, from avid learners to experts in their fields.
+      Our group is centred around consistent meetings focused on meticulous but friendly discussions of
+      advances in machine learning (typically scientific publications), covering both intuitive
+      understanding and foundational mathematical details.
+      </p>
+
+      <h3>Our community in numbers! </h3>
+      <div class="row">
+        <div class="col-xl-4 col-lg-6">
+          <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=1837496004&amp;format=interactive"></iframe>
+        </div>
+        <div class="col-xl-4 col-lg-6">
+          <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=1981502753&amp;format=interactive"></iframe>
+        </div>
+        <div class="col-xl-4 col-lg-6">
+          <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=2092973435&amp;format=interactive"></iframe>
+        </div>
+      </div>
+
+      <h3>Steering Committee</h3>
+
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/amir.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Amir Feizpour <a href="https://www.linkedin.com/in/amirfzpr/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Founder and Head of Operations
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/ehsan.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Ehsan Amjadian <a href="https://www.linkedin.com/in/ehsanamjadian/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Online Content Coordinator and "Authors" Stream Lead
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/felipe.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Felipe Perez <a href="https://www.linkedin.com/in/felipe-perez-/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Industrial Relationships Lead
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/gordon.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Gordon Gibson <a href="https://www.linkedin.com/in/gordon-gibson-874b3130/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Content Coordinator and “Fasttrack” Stream Lead
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/helen.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Helen Ngo <a href="https://www.linkedin.com/in/helen-ngo/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Discussion Panel Coordinator and Academic Relationships Lead
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/lindsay.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Lindsay Brin <a href="https://www.linkedin.com/in/lindsaydbrin/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Chief Phrasing Officer and Inclusivity Encouragement Lead
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/xiyang.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Xiyang Chen <a href="https://www.linkedin.com/in/xiyangchen/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Content Coordinator and “Classics” Stream Lead
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Website Contributors</h3>
+      <i>under construction</i>
+    </section>
+    <hr>
   </main>
 
-  <div class="modal fade" id="event-popup" tabindex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
-  </div>
 
-  <footer class="container">
-    <p class="float-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2018-2019 TDLS.</p>
+  <footer class="footer">
+    <div class="footer navbar-expand-lg navbar-dark fixed-bottom" style="opacity:0.8; background: gray; margin-top:10px">
+      <div class="row">
+        <div class="col-md-4">
+          &copy; 2018-2019 TDLS
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <div class="g-ytsubscribe" data-channelid="UCfk3pS8cCPxOgoleriIufyg" data-layout="default" data-theme="default" data-count="default"></div>
+            </li>            
+            <li class="list-inline-item">
+              <a href="https://www.youtube.com/c/TorontoDeepLearningSeries", target="_blank">
+                <i class="fa fa-youtube fa-2x"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.reddit.com/user/tdls_to" target="_blank">
+                <i class="fa fa-reddit fa-2x"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/tdls_to" target="_blank">
+                <i class="fa fa-twitter fa-2x"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/TDLS", target="_blank">
+                <i class="fa fa-github fa-2x"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/tdls_to/", target="_blank">
+                <i class="fa fa-instagram fa-2x"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="mailto:tdls@torontomachinelearning.com", target="_blank">
+                <i class="fa fa-envelope fa-2x"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a href="#">Back to top</a>
+            </li>
+          </ul>
+        </div>        
+      </div>
+    </div>
+    <div class="modal fade" id="event-popup" tabindex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
+    </div>
   </footer>
 
   <!-- scripts below -->
@@ -273,6 +348,7 @@
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script> -->
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script> -->
   <script src="main.js"></script>
+  <script src="https://apis.google.com/js/platform.js"></script>
 </body>
 
 </html>

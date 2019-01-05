@@ -64,11 +64,24 @@ body {
   color:  var(--regular-color);
 }
 
-#past-event-list .event-classics, #past-event-list .event-classics a {
+.past-event-list .event-fasttrack .title {
+  color:  var(--fasttrack-color);
+}
+
+.past-event-list>.tentative {
+  background: var(--tentative-background);
+}
+
+.past-event-list .title {
+  font-weight: bold;
+}
+
+.past-event-list .event-classics .title {
   color:  var(--classics-color);
 }
 
-#past-event-list .event-fasttrack, #past-event-list .event-fasttrack {
+
+.past-event-list .event-fasttrack .title {
   color:  var(--fasttrack-color);
 }
 
@@ -116,16 +129,16 @@ main section>h2 {
   margin-bottom: 30px;
 }
 
-ul.committee img.profile {
-  width: 120px;
+img.profile {
+  width: 100px;
   margin: 10px;
 }
 
-ul.committee>li {
+div.committee {
   align-items: center;
 }
 
-ul.committee li {
+div.committee {
   margin-top: 10px;
   margin-bottom: 10px;
 }

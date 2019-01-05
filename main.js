@@ -155,17 +155,16 @@ async function assembleEvents(upcomingElem, pastElem) {
   <ul class="list-group upcoming-event-list">
   ${
     // display only first 5
-    futureEvents.slice(0, 5).map(ev => `
+    futureEvents.slice(0, 3).map(ev => `
     <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
     <p>
       ${WEEKDAYS[ev.date.getDay()]}, 
       ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
     </p>
     <h5 class="title">
-      <a href="#events/${getEventId(ev)}">
-        ${ev.title}
-      </a>
-      ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-pdf-o"></i></a>` : ''}
+
+      ${ev.title.toLowerCase()}
+      ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
   
     </h5>
     ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>` : ''}
@@ -177,7 +176,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   `;
 
   pastElem.innerHTML = `
-  <table class="table table-striped table-condensed" id="past-event-list">
+  <table class="table table-striped table-condensed past-event-list" id="past-event-list">
   <thead><tr>${
     ['Date', 'Title', 'Lead', 'Facilitators', 'Venue'].map(lbl => `
   <th>${lbl}</th>
@@ -187,11 +186,14 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr class="event-${ev.type}">
     <td class="align-middle">${toShortDateString(ev.date)}</td>
-    <td class="align-middle">
-    <a class="title" href="#events/${getEventId(ev)}">${ev.title}</a>
-    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a>` : ''}
-    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
-    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
+    <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
+    <p class="title"> 
+      ${ev.title.toLowerCase()}
+    </p>
+    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
+    &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-link fa-lg"></i></a>
     </td>
     <td class="align-middle">${ev.lead}</td>
     <td class="align-middle">${ev.facilitators.join(', ')}</td>
