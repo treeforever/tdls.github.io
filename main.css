@@ -76,11 +76,21 @@ body {
   font-style: italic;
 }
 
-.modal-dialog .modal-header .title {
-  line-height: 1.6em;
-  font-style: italic;
+.modal-dialog .modal-header {
+  text-align: center;
 }
 
+.modal-dialog .modal-header .title {
+  line-height: 1.4em;
+  /* font-style: italic; */
+  font-family: serif;
+  font-size: 2em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.modal-dialog .modal-header .title button {
+  font-family: sans-serif;
+}
 .modal-dialog.event-regular .modal-header .title {
   color:  var(--regular-color);
 }

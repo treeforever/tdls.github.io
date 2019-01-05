@@ -28,6 +28,10 @@ async function handleHashChange(newURL) {
   }
 }
 
+function stripLeadingCategory(evTitle) {
+  return evTitle.slice(evTitle.indexOf(']') + 1);
+}
+
 async function showEvent(eventId) {
   const events = await getEvents();
   const ev = events.find(ev => getEventId(ev) === eventId);
@@ -37,11 +41,7 @@ async function showEvent(eventId) {
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="title">
-              ${ev.title}
-            &nbsp;
-            <button 
-              type="button" id="copy-link" class="btn btn-secondary btn-sm"
-              >Copy link</button>
+              ${stripLeadingCategory(ev.title)}
           </h4>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -64,21 +64,24 @@ async function showEvent(eventId) {
               <dd class="col-sm-8">${ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}</dd>
             `}
             ${ev.paper ? `
-              <dt class="col-sm-4">Paper: </dt>
+              <dt class="col-sm-4">Paper: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.paper}"><i class="fa fa-file-pdf-o"></i></a></dd>
             ` : ''}
             ${ev.video ? `
-              <dt class="col-sm-4">Recording: </dt>
+              <dt class="col-sm-4">Recording: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a></dd>
             ` : ''}
             ${ev.slides ? `
-              <dt class="col-sm-4">Slides:</dt>
+              <dt class="col-sm-4">Slides: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a></dd>
             ` : ''}
             <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
           </dl>
         </div>
         <div class="modal-footer">
+          <button 
+          type="button" id="copy-link" class="btn btn-info"
+          >Copy link</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
