@@ -5,7 +5,33 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('upcoming-events'),
     document.getElementById('past-events')
   );
+
+  registerRoutes();
 })
+
+function registerRoutes() {
+  window.addEventListener("hashchange", ({ newURL }) => {
+    handleHashChange(newURL);
+  }, true);
+}
+
+async function handleHashChange(newURL) {
+  if (!newURL) {
+    return;
+  } else {
+    const hash = newURL.substring(newURL.indexOf('#') + 1);
+    if (hash.startsWith('events/')) {
+      const eventId = hash.substring('events/'.length);
+      await showEvent(eventId);
+    }
+  }
+}
+
+async function showEvent(eventId) {
+  const events = await getEvents();
+  const ev = events.find(ev => getEventId(ev) === eventId);
+  console.log(ev);
+}
 
 const WEEKDAYS = [
   'Sunday', 'Monday', 'Tuesday', 'Wednesday',
@@ -28,6 +54,11 @@ function toShortDateString(d) {
   return `${d.getYear() + 1900}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+function getEventId(ev) {
+  // TODO: this event hashing is not unique by date 
+  return "" + toShortDateString(ev.date);
+}
+
 function isTentative(ev) {
   // broadly speaking, a question mark indicates uncertainty
   return ev.title.indexOf('?') >= 0 ||
@@ -44,10 +75,14 @@ async function assembleEvents(upcomingElem, pastElem) {
     // display only first 5
     futureEvents.slice(0, 5).map(ev => `
     <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
-    <p>${WEEKDAYS[ev.date.getDay()]}, 
-    ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>
+    <p>
+      ${WEEKDAYS[ev.date.getDay()]}, 
+      ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
+    </p>
     <h5 class="title">
-      ${ev.title}
+      <a href="#events/${getEventId(ev)}">
+        ${ev.title}
+      </a>
       ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
   
     </h5>
@@ -122,17 +157,43 @@ async function getRawData() {
   return raw;
 }
 
-async function getEvents() {
-  const data = await getRawData();
-  const [rawHeader, ...rawRows] = data.values;
+function g(onResult) {
+  return new Promise((resolve) => {
 
-  // convert raw JSON rows to our own event data type
-  const events = rawRows.map(
-    rawR => rawRowToRow(rawHeader, rawR)).filter(
-      //only care about rows that have both title and lead
-      e => e.title && e.lead
-    );
-  return events;
+  });
+}
+
+let eventFetchStatus = 'unfetched';
+let eventFetchP = null;
+let allEvents;
+
+// cache-enabled, guarantees only one fetch
+function getEvents() {
+  if (eventFetchStatus === 'fetching') {
+    return eventFetchP;
+  } else if (eventFetchStatus === 'unfetched') {
+    eventFetchStatus = 'fetching';
+    eventFetchP = new Promise(async (resolve) => {
+      const data = await getRawData();
+      const [rawHeader, ...rawRows] = data.values;
+
+      // convert raw JSON rows to our own event data type
+      allEvents = rawRows.map(
+        rawR => rawRowToRow(rawHeader, rawR)).filter(
+          //only care about rows that have both title and lead
+          e => e.title && e.lead
+        );
+      eventFetchStatus = 'fetched';
+      resolve(allEvents);
+      eventFetchP = null;
+    });
+    return eventFetchP;
+  } else // fetched
+  {
+    return new Promise((resolve) => {
+      resolve(allEvents);
+    })
+  }
 }
 
 function getEventType(title) {
