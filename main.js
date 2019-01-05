@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   registerRoutes();
+  handleHashChange(window.location.href);
 })
 
 function registerRoutes() {
@@ -30,7 +31,74 @@ async function handleHashChange(newURL) {
 async function showEvent(eventId) {
   const events = await getEvents();
   const ev = events.find(ev => getEventId(ev) === eventId);
-  console.log(ev);
+  console.log(ev.slides);
+  $('#event-popup').html(`
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="title">
+              ${ev.title}
+            &nbsp;
+            <button 
+              type="button" id="copy-link" class="btn btn-secondary btn-sm"
+              >Copy link</button>
+          </h4>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+        </div>
+        <div class="modal-body ${isTentative(ev) ? 'tentative' : ''}">
+          <dl class="row">
+            <dt class="col-sm-4">Date:</dt> 
+            <dd class="col-sm-8">
+              ${WEEKDAYS[ev.date.getDay()]}, 
+              ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
+            </dd>
+            ${ev.lead.indexOf('?') < 0 ? `
+              <dt class="col-sm-4">Discussion lead</dt>
+              <dd class="col-sm-8"><strong>${ev.lead}</strong>` : ''}</dd>
+            ${ev.facilitators.length == 0 ? '' : `
+              <dt class="col-sm-4">Discussion facilitators</dt> 
+              <dd class="col-sm-8">${ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}</dd>
+            `}
+            ${ev.paper ? `
+              <dt class="col-sm-4">Paper: </dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.paper}"><i class="fa fa-file-pdf-o"></i></a></dd>
+            ` : ''}
+            ${ev.video ? `
+              <dt class="col-sm-4">Recording: </dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a></dd>
+            ` : ''}
+            ${ev.slides ? `
+              <dt class="col-sm-4">Slides:</dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a></dd>
+            ` : ''}
+            <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
+          </dl>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  `);
+
+  $('#event-popup #copy-link').on('click', () => {
+    copyToClipboard(window.location.href);
+    $('#event-popup #copy-link').popover({
+      content: 'Link to this event has been copied to clipboard.'
+    })
+  });
+
+  const onModalClose = (e) => {
+    history.pushState(null, null, '#events');
+    $('event-popup').off('onModalClose');
+  };
+
+  $('#event-popup').on('hidden.bs.modal', onModalClose);
+  $('#event-popup').modal();
 }
 
 const WEEKDAYS = [
@@ -65,6 +133,16 @@ function isTentative(ev) {
     ev.lead.indexOf('?') >= 0;
 }
 
+async function copyToClipboard(text) {
+  try {
+    const toCopy = text || location.href;
+    await navigator.clipboard.writeText(toCopy);
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+}
+
+
 async function assembleEvents(upcomingElem, pastElem) {
   const events = await getEvents();
   const [pastEvents, futureEvents] = splitEvents(events);
@@ -83,7 +161,7 @@ async function assembleEvents(upcomingElem, pastElem) {
       <a href="#events/${getEventId(ev)}">
         ${ev.title}
       </a>
-      ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
+      ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-pdf-o"></i></a>` : ''}
   
     </h5>
     ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>` : ''}
@@ -105,7 +183,8 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr>
     <td class="align-middle">${toShortDateString(ev.date)}</td>
-    <td class="align-middle">${ev.title}
+    <td class="align-middle">
+    <a href="#events/${getEventId(ev)}">${ev.title}</a>
     &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a>` : ''}
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
     &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
@@ -194,6 +273,12 @@ function getEvents() {
       resolve(allEvents);
     })
   }
+}
+
+const READABLE_EVENT_TYPE = {
+  'classics': 'Classics',
+  'fasttrack': 'Fast Track',
+  'regular': 'Main'
 }
 
 function getEventType(title) {

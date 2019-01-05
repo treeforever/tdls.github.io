@@ -47,12 +47,15 @@ body {
   font-weight: bold;
 }
 
-.upcoming-event-list .event-classics .title {
+.upcoming-event-list .event-classics .title a {
   color:  var(--classics-color);
 }
 
+.upcoming-event-list .event-regular .title a {
+  color:  var(--regular-color);
+}
 
-.upcoming-event-list .event-fasttrack .title {
+.upcoming-event-list .event-fasttrack .title a {
   color:  var(--fasttrack-color);
 }
 
