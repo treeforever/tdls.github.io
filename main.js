@@ -47,7 +47,7 @@ async function assembleEvents(upcomingElem, pastElem) {
     <p>${WEEKDAYS[ev.date.getDay()]}, 
     ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>
     <h5 class="title">
-      ${ev.title}
+      ${ev.title.toLowerCase()}
       ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
   
     </h5>
@@ -60,7 +60,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   `;
 
   pastElem.innerHTML = `
-  <table class="table table-striped table-condensed" id="past-event-list">
+  <table class="table table-striped table-condensed past-event-list" id="past-event-list">
   <thead><tr>${
     ['Date', 'Title', 'Lead', 'Facilitators', 'Venue'].map(lbl => `
   <th>${lbl}</th>
@@ -70,10 +70,13 @@ async function assembleEvents(upcomingElem, pastElem) {
   ${pastEvents.map(ev => `
   <tr>
     <td class="align-middle">${toShortDateString(ev.date)}</td>
-    <td class="align-middle">${ev.title}
-    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a>` : ''}
-    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
-    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
+    <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
+    <p class="title"> 
+      ${ev.title.toLowerCase()}
+    </p>
+    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
     </td>
     <td class="align-middle">${ev.lead}</td>
     <td class="align-middle">${ev.facilitators.join(', ')}</td>

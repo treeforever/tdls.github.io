@@ -52,7 +52,24 @@ body {
 }
 
 
-.upcoming-event-list .event-fasttrack .title {
+.past-event-list .event-fasttrack .title {
+  color:  var(--fasttrack-color);
+}
+
+.past-event-list>.tentative {
+  background: var(--tentative-background);
+}
+
+.past-event-list .title {
+  font-weight: bold;
+}
+
+.past-event-list .event-classics .title {
+  color:  var(--classics-color);
+}
+
+
+.past-event-list .event-fasttrack .title {
   color:  var(--fasttrack-color);
 }
 
