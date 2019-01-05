@@ -45,6 +45,7 @@ body {
 
 .upcoming-event-list .title {
   font-weight: bold;
+  font-style: italic;
 }
 
 .upcoming-event-list .event-regular, .upcoming-event-list .event-regular a {
@@ -71,6 +72,26 @@ body {
   color:  var(--fasttrack-color);
 }
 
+#past-event-list .title {
+  font-style: italic;
+}
+
+.modal-dialog .modal-header .title {
+  line-height: 1.6em;
+  font-style: italic;
+}
+
+.modal-dialog.event-regular .modal-header .title {
+  color:  var(--regular-color);
+}
+
+.modal-dialog.event-classics .modal-header .title {
+  color:  var(--classics-color);
+}
+
+.modal-dialog.event-fasttrack .modal-header .title {
+  color:  var(--fasttrack-color);
+}
 
 #events h3 {
   margin-top: 30px;

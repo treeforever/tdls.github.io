@@ -88,7 +88,7 @@ async function showEvent(eventId) {
   $('#event-popup #copy-link').on('click', () => {
     copyToClipboard(window.location.href);
     $('#event-popup #copy-link').popover({
-      content: 'Link to this event has been copied to clipboard.'
+      content: 'Link to this event was copied to clipboard.'
     })
   });
 
@@ -276,9 +276,9 @@ function getEvents() {
 }
 
 const READABLE_EVENT_TYPE = {
-  'classics': 'Classics',
-  'fasttrack': 'Fast Track',
-  'regular': 'Main'
+  'classics': 'Classics Stream',
+  'fasttrack': 'Fasttrack Stream',
+  'regular': 'Main Stream'
 }
 
 function getEventType(title) {
