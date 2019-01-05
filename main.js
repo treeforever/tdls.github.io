@@ -193,7 +193,7 @@ async function assembleEvents(upcomingElem, pastElem) {
     &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
     &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-    &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-link fa-lg"></i></a>
+    &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
     </td>
     <td class="align-middle">${ev.lead}</td>
     <td class="align-middle">${ev.facilitators.join(', ')}</td>
