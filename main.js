@@ -42,7 +42,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   <ul class="list-group upcoming-event-list">
   ${
     // display only first 5
-    futureEvents.slice(0, 5).map(ev => `
+    futureEvents.slice(0, 3).map(ev => `
     <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
     <p>${WEEKDAYS[ev.date.getDay()]}, 
     ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}</p>

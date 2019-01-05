@@ -70,16 +70,16 @@ main section>h2 {
   margin-bottom: 30px;
 }
 
-ul.committee img.profile {
-  width: 120px;
+img.profile {
+  width: 100px;
   margin: 10px;
 }
 
-ul.committee>li {
+div.committee {
   align-items: center;
 }
 
-ul.committee li {
+div.committee {
   margin-top: 10px;
   margin-bottom: 10px;
 }
