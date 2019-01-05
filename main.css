@@ -4,8 +4,8 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+  --regular-color: #5a5a5a;
   --classics-color:  rgb(67, 139, 172);
-  --regular-color: #000000;
   --fasttrack-color: rgb(49, 150, 35);
   --tentative-background: repeating-linear-gradient(
     -45deg,
@@ -45,12 +45,24 @@ body {
 
 .upcoming-event-list .title {
   font-weight: bold;
+  font-style: italic;
 }
 
-.upcoming-event-list .event-classics .title {
+.upcoming-event-list .event-regular, .upcoming-event-list .event-regular a {
+  color:  var(--regular-color);
+}
+
+.upcoming-event-list .event-classics, .upcoming-event-list .event-classics a {
   color:  var(--classics-color);
 }
 
+.upcoming-event-list .event-fasttrack, .upcoming-event-list .event-fasttrack a {
+  color:  var(--fasttrack-color);
+}
+
+#past-event-list .event-regular, #past-event-list .event-regular a {
+  color:  var(--regular-color);
+}
 
 .past-event-list .event-fasttrack .title {
   color:  var(--fasttrack-color);
@@ -73,6 +85,36 @@ body {
   color:  var(--fasttrack-color);
 }
 
+#past-event-list .title {
+  font-style: italic;
+}
+
+.modal-dialog .modal-header {
+  text-align: center;
+}
+
+.modal-dialog .modal-header .title {
+  line-height: 1.4em;
+  /* font-style: italic; */
+  font-family: serif;
+  font-size: 2em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.modal-dialog .modal-header .title button {
+  font-family: sans-serif;
+}
+.modal-dialog.event-regular .modal-header .title {
+  color:  var(--regular-color);
+}
+
+.modal-dialog.event-classics .modal-header .title {
+  color:  var(--classics-color);
+}
+
+.modal-dialog.event-fasttrack .modal-header .title {
+  color:  var(--fasttrack-color);
+}
 
 #events h3 {
   margin-top: 30px;
