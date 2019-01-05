@@ -40,7 +40,7 @@ async function showEvent(eventId) {
               ${ev.title}
             &nbsp;
             <button 
-              type="button" id="copy-link" class="btn btn-link btn-sm"
+              type="button" id="copy-link" class="btn btn-secondary btn-sm"
               >Copy link</button>
           </h4>
           
