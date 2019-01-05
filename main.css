@@ -5,7 +5,7 @@ body {
   padding-bottom: 3rem;
   color: #5a5a5a;
   --classics-color:  rgb(67, 139, 172);
-  --regular-color: #000000;
+  --regular-color: #5a5a5a;
   --fasttrack-color: rgb(49, 150, 35);
   --tentative-background: repeating-linear-gradient(
     -45deg,
@@ -47,15 +47,27 @@ body {
   font-weight: bold;
 }
 
-.upcoming-event-list .event-classics .title a {
-  color:  var(--classics-color);
-}
-
 .upcoming-event-list .event-regular .title a {
   color:  var(--regular-color);
 }
 
+.upcoming-event-list .event-classics .title a {
+  color:  var(--classics-color);
+}
+
 .upcoming-event-list .event-fasttrack .title a {
+  color:  var(--fasttrack-color);
+}
+
+#past-event-list .event-regular .title {
+  color:  var(--regular-color);
+}
+
+#past-event-list .event-classics .title {
+  color:  var(--classics-color);
+}
+
+#past-event-list .event-fasttrack .title {
   color:  var(--fasttrack-color);
 }
 

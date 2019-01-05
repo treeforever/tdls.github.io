@@ -40,7 +40,7 @@ async function showEvent(eventId) {
               ${ev.title}
             &nbsp;
             <button 
-              type="button" id="copy-link" class="btn btn-secondary btn-sm"
+              type="button" id="copy-link" class="btn btn-link btn-sm"
               >Copy link</button>
           </h4>
           
@@ -181,10 +181,10 @@ async function assembleEvents(upcomingElem, pastElem) {
     }</tr></thead>
   <tbody>
   ${pastEvents.map(ev => `
-  <tr>
+  <tr class="event-${ev.type}">
     <td class="align-middle">${toShortDateString(ev.date)}</td>
     <td class="align-middle">
-    <a href="#events/${getEventId(ev)}">${ev.title}</a>
+    <a class="title" href="#events/${getEventId(ev)}">${ev.title}</a>
     &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a>` : ''}
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o"></i></a>` : ''}
     &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a>` : ''}
