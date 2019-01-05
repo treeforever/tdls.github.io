@@ -33,7 +33,7 @@ async function showEvent(eventId) {
   const ev = events.find(ev => getEventId(ev) === eventId);
   console.log(ev.slides);
   $('#event-popup').html(`
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="title">
