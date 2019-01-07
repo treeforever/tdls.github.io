@@ -241,7 +241,8 @@ async function assembleEvents(upcomingElem, pastElem) {
     order: [[0, "desc"]],
     columnDefs: [
       { "width": "75", "targets": 0 }
-    ]
+    ],
+    pageLength: 5
   });
 }
 
