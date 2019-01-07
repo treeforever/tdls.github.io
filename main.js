@@ -190,10 +190,15 @@ async function assembleEvents(upcomingElem, pastElem) {
     <p class="title"> 
       ${ev.title.toLowerCase()}
     </p>
-    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
-    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
-    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
     &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
+    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
+    &nbsp;${ev.reddit ? `<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
+    &nbsp;${ev.code_official ? `<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+    &nbsp;${ev.code_unofficial ? `<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+    &nbsp;${ev.dataset1 ? `<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+    &nbsp;${ev.dataset2 ? `<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
     </td>
     <td class="align-middle">${ev.lead}</td>
     <td class="align-middle">${ev.facilitators.join(', ')}</td>
@@ -311,6 +316,11 @@ function rawRowToRow(rawHeader, rawRow) {
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
+  const dataset1 = rawRow[rawHeader.indexOf('Dataset Link 1')];
+  const dataset2 = rawRow[rawHeader.indexOf('Dataset Link 2')];
+  const code_official = rawRow[rawHeader.indexOf('Official Github Link')];
+  const code_unofficial = rawRow[rawHeader.indexOf('Unofficial Github Link')];
+  const reddit = rawRow[rawHeader.indexOf('Reddit Link')];
   const type = getEventType(title);
 
   // broadly speaking, a question mark indicates uncertainty
@@ -326,7 +336,12 @@ function rawRowToRow(rawHeader, rawRow) {
     video,
     type,
     paper,
-    slides
+    slides,
+    dataset1,
+    dataset2,
+    code_unofficial,
+    code_official,
+    reddit
   }
 }
 
