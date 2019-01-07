@@ -65,15 +65,35 @@ async function showEvent(eventId) {
             `}
             ${ev.paper ? `
               <dt class="col-sm-4">Paper: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.paper}"><i class="fa fa-file-pdf-o"></i></a></dd>
-            ` : ''}
-            ${ev.video ? `
-              <dt class="col-sm-4">Recording: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.video}"><i class="fa fa-play-circle"></i></a></dd>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a></dd>
             ` : ''}
             ${ev.slides ? `
               <dt class="col-sm-4">Slides: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o"></i></a></dd>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a></dd>
+            ` : ''}            
+            ${ev.video ? `
+              <dt class="col-sm-4">Recording: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a></dd>
+            ` : ''}
+            ${ev.reddit ? `
+              <dt class="col-sm-4">Reddit: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.reddit}"><i class="fa fa fa-reddit fa-lg"></i></a></dd>
+            ` : ''}     
+            ${ev.code_official ? `
+              <dt class="col-sm-4">Official Code: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a></dd>
+            ` : ''}
+            ${ev.code_unofficial ? `
+              <dt class="col-sm-4">Unofficial Code: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a></dd>
+            ` : ''}
+            ${ev.dataset1 ? `
+              <dt class="col-sm-4">${ev.dataset2 ? `Dataset 1` : `Dataset`}: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a></dd>
+            ` : ''}
+            ${ev.dataset2 ? `
+              <dt class="col-sm-4">Dataset 2: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a></dd>
             ` : ''}
             <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
           </dl>
@@ -178,7 +198,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   pastElem.innerHTML = `
   <table class="table table-striped table-condensed past-event-list" id="past-event-list">
   <thead><tr>${
-    ['Date', 'Title', 'Lead', 'Facilitators', 'Venue'].map(lbl => `
+    ['Date', 'Detail'].map(lbl => `
   <th>${lbl}</th>
   `).join('')
     }</tr></thead>
@@ -190,6 +210,7 @@ async function assembleEvents(upcomingElem, pastElem) {
     <p class="title"> 
       ${ev.title.toLowerCase()}
     </p>
+    <p><b>Lead:</b> ${ev.lead}, ${ev.facilitators.length != 0 ? `<b>Facilitators:</b> ${ev.facilitators.join(', ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
     &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
     &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
     &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
@@ -200,9 +221,6 @@ async function assembleEvents(upcomingElem, pastElem) {
     &nbsp;${ev.dataset1 ? `<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
     &nbsp;${ev.dataset2 ? `<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
     </td>
-    <td class="align-middle">${ev.lead}</td>
-    <td class="align-middle">${ev.facilitators.join(', ')}</td>
-    <td class="align-middle">${ev.venue}</td>
   </tr>
   `).join('')}
   </tbody>
