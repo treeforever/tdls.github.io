@@ -198,28 +198,37 @@ async function assembleEvents(upcomingElem, pastElem) {
   pastElem.innerHTML = `
   <table class="table table-striped table-condensed past-event-list" id="past-event-list">
   <thead><tr>${
-    ['Date', 'Detail'].map(lbl => `
+    ['Details'].map(lbl => `
   <th>${lbl}</th>
   `).join('')
-    }</tr></thead>
+    }</tr>
+  </thead>
   <tbody>
   ${pastEvents.map(ev => `
   <tr class="event-${ev.type}">
-    <td class="align-middle">${toShortDateString(ev.date)}</td>
     <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
-    <p class="title"> 
-      ${ev.title.toLowerCase()}
-    </p>
-    <p><b>Lead:</b> ${ev.lead}, ${ev.facilitators.length != 0 ? `<b>Facilitators:</b> ${ev.facilitators.join(', ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
-    &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
-    &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
-    &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
-    &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-    &nbsp;${ev.reddit ? `<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
-    &nbsp;${ev.code_official ? `<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-    &nbsp;${ev.code_unofficial ? `<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-    &nbsp;${ev.dataset1 ? `<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
-    &nbsp;${ev.dataset2 ? `<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+      <div class="row">
+        <div class="col-lg-2 col-sm-12">
+          ${toShortDateString(ev.date)}
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <p class="title">${ev.title.toLowerCase()}</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+          <p><b>Lead:</b> ${ev.lead}, ${ev.facilitators.length != 0 ? `<b>Facilitators:</b> ${ev.facilitators.join(', ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
+        </div> 
+        <div class="col-lg-3 col-sm-12">
+          &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
+          &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+          &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+          &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
+          &nbsp;${ev.reddit ? `<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
+          &nbsp;${ev.code_official ? `<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+          &nbsp;${ev.code_unofficial ? `<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+          &nbsp;${ev.dataset1 ? `<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+          &nbsp;${ev.dataset2 ? `<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+        </div>       
+      </div>
     </td>
   </tr>
   `).join('')}
