@@ -237,14 +237,39 @@ async function assembleEvents(upcomingElem, pastElem) {
 `;
 
   // load up DataTable for cool gadgets such as pagination, sorting and search
-  $(pastElem.querySelector('#past-event-list')).DataTable({
+  const dataTableElem = pastElem.querySelector('#past-event-list');
+  $(dataTableElem).DataTable({
     order: [[0, "desc"]],
+    // https://datatables.net/reference/option/dom
+    dom: `
+      <'row'<'col-sm-12 col-md-6'l>
+        <'col-sm-12 col-md-6 filter-tools' <"#subject-filter-area"> f>>
+      <'row'<'col-sm-12'tr>>
+      <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
       { "width": "75", "targets": 0 }
     ],
     pageLength: 5
   });
+
+  const subjectFilterElem = document.querySelector('#subject-filter-area');
+  subjectFilterElem.innerHTML = `
+    <div class="horizontal-elem">
+    Subject: 
+    </div>
+    <div class="horizontal-elem">
+      <select class="form-control form-control-sm">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  `;
 }
+
+
 
 function splitEvents(events) {
   // split into the past and future

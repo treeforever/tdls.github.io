@@ -116,6 +116,27 @@ body {
   color:  var(--fasttrack-color);
 }
 
+.filter-tools {
+  text-align: right;
+}
+
+#subject-filter-area {
+  min-width: 200px;
+  margin-right: 20px;
+}
+
+#subject-filter-area, #past-event-list_filter {
+  display: inline-block;
+}
+
+#subject-filter-area .horizontal-elem {
+  display: inline-block;
+}
+
+#subject-filter-area select {
+  display: inline-block;
+}
+
 #events h3 {
   margin-top: 30px;
   margin-bottom: 20px;
