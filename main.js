@@ -33,7 +33,7 @@ function stripLeadingCategory(evTitle) {
 }
 
 async function showEvent(eventId) {
-  const events = await getEvents();
+  const { events } = await getEventsAndSubjects();
   const ev = events.find(ev => getEventId(ev) === eventId);
   console.log(ev.slides);
   $('#event-popup').html(`
@@ -168,7 +168,7 @@ async function copyToClipboard(text) {
 
 
 async function assembleEvents(upcomingElem, pastElem) {
-  const events = await getEvents();
+  const { events } = await getEventsAndSubjects();
   const [pastEvents, futureEvents] = splitEvents(events);
 
   upcomingElem.innerHTML = `
@@ -182,10 +182,8 @@ async function assembleEvents(upcomingElem, pastElem) {
       ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
     </p>
     <h5 class="title">
-
       ${ev.title.toLowerCase()}
       ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
-  
     </h5>
     ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>` : ''}
     ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}
@@ -242,8 +240,8 @@ async function assembleEvents(upcomingElem, pastElem) {
     order: [[0, "desc"]],
     // https://datatables.net/reference/option/dom
     dom: `
-      <'row'<'col-sm-12 col-md-6'l>
-        <'col-sm-12 col-md-6 filter-tools' <"#subject-filter-area"> f>>
+      <'row'<'col-sm-12 col-md-5'l>
+        <'col-sm-12 col-md-7 filter-tools' <"#subject-filter-area"> f>>
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
@@ -252,6 +250,8 @@ async function assembleEvents(upcomingElem, pastElem) {
     pageLength: 5
   });
 
+  const { subjects } = await getEventsAndSubjects();
+  console.log(subjects);
   const subjectFilterElem = document.querySelector('#subject-filter-area');
   subjectFilterElem.innerHTML = `
     <div class="horizontal-elem">
@@ -259,11 +259,10 @@ async function assembleEvents(upcomingElem, pastElem) {
     </div>
     <div class="horizontal-elem">
       <select class="form-control form-control-sm">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option>All</option>
+        ${ subjects.map(s => `
+          <option>${s}</option>
+        `).join('') }
       </select>
     </div>
   `;
@@ -308,10 +307,10 @@ function g(onResult) {
 
 let eventFetchStatus = 'unfetched';
 let eventFetchP = null;
-let allEvents;
+let eventsAndSubjects = null;
 
 // cache-enabled, guarantees only one fetch
-function getEvents() {
+function getEventsAndSubjects() {
   if (eventFetchStatus === 'fetching') {
     return eventFetchP;
   } else if (eventFetchStatus === 'unfetched') {
@@ -321,20 +320,30 @@ function getEvents() {
       const [rawHeader, ...rawRows] = data.values;
 
       // convert raw JSON rows to our own event data type
-      allEvents = rawRows.map(
+      const events = rawRows.map(
         rawR => rawRowToRow(rawHeader, rawR)).filter(
           //only care about rows that have both title and lead
           e => e.title && e.lead
         );
+      const subjects = events.reduce((subjects, ev) => {
+        const newSubjects = [];
+        for (sub of ev.subjects) {
+          if(subjects.indexOf(sub) < 0) {
+            newSubjects.push(sub);
+          }
+        }
+        return subjects.concat(newSubjects);
+      }, []);
       eventFetchStatus = 'fetched';
-      resolve(allEvents);
+      eventsAndSubjects = { events, subjects };
+      resolve(eventsAndSubjects);
       eventFetchP = null;
     });
     return eventFetchP;
   } else // fetched
   {
     return new Promise((resolve) => {
-      resolve(allEvents);
+      resolve(eventsAndSubjects);
     })
   }
 }
@@ -369,16 +378,18 @@ function rawRowToRow(rawHeader, rawRow) {
   const facilitators = [];
   const fac1 = rawRow[rawHeader.indexOf('Facilitator 1')];
   const fac2 = rawRow[rawHeader.indexOf('Facilitator 2')];
+  // broadly speaking, a question mark indicates uncertainty
+  if (fac1 && fac1.indexOf('?') < 0) { facilitators.push(fac1) }
+  if (fac2 && fac2.indexOf('?') < 0) { facilitators.push(fac2) }
+
   const dataset1 = rawRow[rawHeader.indexOf('Dataset Link 1')];
   const dataset2 = rawRow[rawHeader.indexOf('Dataset Link 2')];
   const code_official = rawRow[rawHeader.indexOf('Official Github Link')];
   const code_unofficial = rawRow[rawHeader.indexOf('Unofficial Github Link')];
   const reddit = rawRow[rawHeader.indexOf('Reddit Link')];
   const type = getEventType(title);
+  const subjects = (rawRow[rawHeader.indexOf('Subject Matter Area')] || '').split(',').map(s => s.trim()).filter(s => s);
 
-  // broadly speaking, a question mark indicates uncertainty
-  if (fac1 && fac1.indexOf('?') < 0) { facilitators.push(fac1) }
-  if (fac2 && fac2.indexOf('?') < 0) { facilitators.push(fac2) }
   return {
     title,
     date: new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, '')),
@@ -391,6 +402,7 @@ function rawRowToRow(rawHeader, rawRow) {
     paper,
     slides,
     dataset1,
+    subjects,
     dataset2,
     code_unofficial,
     code_official,
