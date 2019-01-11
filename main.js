@@ -166,6 +166,15 @@ async function copyToClipboard(text) {
   }
 }
 
+$.fn.dataTable.ext.search.push((settings, data, dataIndex) => {
+  const val = $('#subject-filter').val();
+  if(!val || val === 'All') {
+    return true;
+  } else {
+    const subjects = data[0].split(',');
+    return !!subjects.find(s => s === val);
+  }
+});
 
 async function assembleEvents(upcomingElem, pastElem) {
   const { events } = await getEventsAndSubjects();
@@ -197,6 +206,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   <table class="table table-striped table-condensed past-event-list" id="past-event-list">
   <thead><tr>${
     ['Details'].map(lbl => `
+  <th></th>
   <th>${lbl}</th>
   `).join('')
     }</tr>
@@ -204,6 +214,9 @@ async function assembleEvents(upcomingElem, pastElem) {
   <tbody>
   ${pastEvents.map(ev => `
   <tr class="event-${ev.type}">
+    <td>
+    ${ev.subjects.join(', ')}
+    </td>
     <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
       <div class="row">
         <div class="col-lg-2 col-sm-12">
@@ -236,7 +249,7 @@ async function assembleEvents(upcomingElem, pastElem) {
 
   // load up DataTable for cool gadgets such as pagination, sorting and search
   const dataTableElem = pastElem.querySelector('#past-event-list');
-  $(dataTableElem).DataTable({
+  const table = $(dataTableElem).DataTable({
     order: [[0, "desc"]],
     // https://datatables.net/reference/option/dom
     dom: `
@@ -245,20 +258,20 @@ async function assembleEvents(upcomingElem, pastElem) {
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
-      { "width": "75", "targets": 0 }
+      // subjects
+      { visible: false, targets: [0] },
     ],
     pageLength: 5
   });
 
   const { subjects } = await getEventsAndSubjects();
-  console.log(subjects);
   const subjectFilterElem = document.querySelector('#subject-filter-area');
   subjectFilterElem.innerHTML = `
     <div class="horizontal-elem">
     Subject: 
     </div>
     <div class="horizontal-elem">
-      <select class="form-control form-control-sm">
+      <select id="subject-filter" class="form-control form-control-sm">
         <option>All</option>
         ${ subjects.map(s => `
           <option>${s}</option>
@@ -266,6 +279,11 @@ async function assembleEvents(upcomingElem, pastElem) {
       </select>
     </div>
   `;
+
+  const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
+  $(subjectFilterSelect).change(() => {
+    table.draw();
+  });
 }
 
 
