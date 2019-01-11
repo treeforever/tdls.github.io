@@ -167,3 +167,30 @@ div.committee {
 #steering-committee {
   text-align: center;
 }
+
+footer {
+  text-align: center;
+  color: #fff;
+  line-height: 1.1em;
+}
+
+footer .floater {
+  opacity: 0.7; 
+  background: #000;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  /* margin-top:10px; */
+}
+
+footer .social-buttons {
+  display: inline;
+}
+
+@media (max-width: 576px) { 
+  footer .copyright, footer .back-to-top {
+    display: none;
+  }
+  footer {
+    font-size: 0.7em;
+  }
+}

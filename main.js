@@ -274,7 +274,7 @@ async function assembleEvents(upcomingElem, pastElem) {
     Subject: 
     </div>
     <div class="horizontal-elem">
-      <select id="subject-filter" class="selectpicker" multiple>
+      <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
         ${ subjects.map(s => `
           <option>${s}</option>
         `).join('') }
