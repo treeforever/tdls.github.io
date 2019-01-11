@@ -33,8 +33,8 @@ function stripLeadingCategory(evTitle) {
 }
 
 async function showEvent(eventId) {
-  const { events } = await getEventsAndSubjects();
-  const ev = events.find(ev => getEventId(ev) === eventId);
+  const { pastEvents } = await getEventsAndSubjects();
+  const ev = pastEvents.find(ev => getEventId(ev) === eventId);
   $('#event-popup').html(`
   <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
       <div class="modal-content">
@@ -181,8 +181,7 @@ function matchAll(queries, candidates) {
 }
 
 async function assembleEvents(upcomingElem, pastElem) {
-  const { events } = await getEventsAndSubjects();
-  const [pastEvents, futureEvents] = splitEvents(events);
+  const { pastEvents, futureEvents }  = await getEventsAndSubjects();
 
   upcomingElem.innerHTML = `
   <ul class="list-group upcoming-event-list">
@@ -320,12 +319,6 @@ async function getRawData() {
   return raw;
 }
 
-function g(onResult) {
-  return new Promise((resolve) => {
-
-  });
-}
-
 let eventFetchStatus = 'unfetched';
 let eventFetchP = null;
 let eventsAndSubjects = null;
@@ -346,7 +339,11 @@ function getEventsAndSubjects() {
           //only care about rows that have both title and lead
           e => e.title && e.lead
         );
-      const subjects = events.reduce((subjects, ev) => {
+
+      eventFetchStatus = 'fetched';
+      const [ pastEvents, futureEvents ] = splitEvents(events);
+
+      const subjects = pastEvents.reduce((subjects, ev) => {
         const newSubjects = [];
         for (sub of ev.subjects) {
           if(subjects.indexOf(sub) < 0) {
@@ -355,8 +352,8 @@ function getEventsAndSubjects() {
         }
         return subjects.concat(newSubjects);
       }, []);
-      eventFetchStatus = 'fetched';
-      eventsAndSubjects = { events, subjects };
+
+      eventsAndSubjects = { pastEvents, futureEvents, subjects };
       resolve(eventsAndSubjects);
       eventFetchP = null;
     });
