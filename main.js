@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // main script entry point
   assembleEvents(
     document.getElementById('upcoming-events'),
-    document.getElementById('past-events')
+    document.getElementById('past-events'),
+    document.getElementById('site-contributors')
   );
 
   registerRoutes();
@@ -180,7 +181,7 @@ function matchAll(queries, candidates) {
   return queries.every(q => !!candidates.find(c => c === q));
 }
 
-async function assembleEvents(upcomingElem, pastElem) {
+async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   const { pastEvents, futureEvents }  = await getEventsAndSubjects();
 
   upcomingElem.innerHTML = `
@@ -286,9 +287,27 @@ async function assembleEvents(upcomingElem, pastElem) {
   $(subjectFilterSelect).on('changed.bs.select', () => {
     table.draw();
   });
+
+  const contributors = await getContributors();
+
+  contributorsElem.innerHTML = `
+  <ul>
+  ${contributors.map(c => `
+    <li><strong>${c.login}<strong>: ${c.contributions}</li>
+  `).join('\n')}
+  </ul>
+  `
 }
 
-
+async function getContributors() {
+  const url  = `https://api.github.com/repos/TDLS/tdls.github.io/contributors`;
+  const resp = await fetch(url, {
+    method: 'GET',
+    cache: 'default'
+  });
+  const raw = await resp.json();
+  return raw;
+}
 
 function splitEvents(events) {
   // split into the past and future
@@ -305,7 +324,6 @@ function splitEvents(events) {
 }
 
 async function getRawData() {
-
   const SHEET_ID = '1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE';
   const KEY = 'AIzaSyAUMihCUtNS35espxycitPYrTE_78W93Ps';
   const SHEET_VALUE_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Schedule?key=${KEY}`;
