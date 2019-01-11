@@ -172,7 +172,7 @@ $.fn.dataTable.ext.search.push((_, data) => {
   if(!val || val.length === 0) {
     return true;
   } else {
-    const subjects = data[0].split(',');
+    const subjects = data[1].split(',');
     return matchAll(val, subjects);
   }
 });
@@ -211,6 +211,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   <thead><tr>${
     ['Details'].map(lbl => `
   <th></th>
+  <th></th>
   <th>${lbl}</th>
   `).join('')
     }</tr>
@@ -218,6 +219,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   <tbody>
   ${pastEvents.map(ev => `
   <tr class="event-${ev.type}">
+    <td>
+    ${toShortDateString(ev.date)}
+    </td>
     <td>
     ${ev.subjects.join(', ')}
     </td>
@@ -262,8 +266,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
+      { orderSequence: [ "desc" ], targets: [ 0 ] },
       // subjects
-      { visible: false, targets: [0] },
+      { visible: false, targets: [0, 1] },
     ],
     pageLength: 5
   });
