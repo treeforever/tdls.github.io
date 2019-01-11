@@ -186,6 +186,11 @@ footer .social-buttons {
   display: inline;
 }
 
+section h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 576px) { 
   footer .copyright, footer .back-to-top {
     display: none;
