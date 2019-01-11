@@ -35,7 +35,6 @@ function stripLeadingCategory(evTitle) {
 async function showEvent(eventId) {
   const { events } = await getEventsAndSubjects();
   const ev = events.find(ev => getEventId(ev) === eventId);
-  console.log(ev.slides);
   $('#event-popup').html(`
   <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
       <div class="modal-content">
@@ -166,15 +165,20 @@ async function copyToClipboard(text) {
   }
 }
 
-$.fn.dataTable.ext.search.push((settings, data, dataIndex) => {
+// subject filter implementation
+$.fn.dataTable.ext.search.push((_, data) => {
   const val = $('#subject-filter').val();
-  if(!val || val === 'All') {
+  if(!val || val.length === 0) {
     return true;
   } else {
     const subjects = data[0].split(',');
-    return !!subjects.find(s => s === val);
+    return matchAll(val, subjects);
   }
 });
+
+function matchAll(queries, candidates) {
+  return queries.every(q => !!candidates.find(c => c === q));
+}
 
 async function assembleEvents(upcomingElem, pastElem) {
   const { events } = await getEventsAndSubjects();
@@ -271,8 +275,7 @@ async function assembleEvents(upcomingElem, pastElem) {
     Subject: 
     </div>
     <div class="horizontal-elem">
-      <select id="subject-filter" class="form-control form-control-sm">
-        <option>All</option>
+      <select id="subject-filter" class="selectpicker" multiple>
         ${ subjects.map(s => `
           <option>${s}</option>
         `).join('') }
@@ -281,7 +284,7 @@ async function assembleEvents(upcomingElem, pastElem) {
   `;
 
   const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
-  $(subjectFilterSelect).change(() => {
+  $(subjectFilterSelect).on('changed.bs.select', () => {
     table.draw();
   });
 }
