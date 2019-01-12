@@ -294,14 +294,20 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   });
 
   const contributors = await getContributors();
-
   contributorsElem.innerHTML = `
-  <ul>
+  <div class="row">
   ${contributors.map(c => `
-    <li><strong>${c.login}<strong>: ${c.contributions}</li>
+    <div class="media-top"> 
+      <div class="col-lg-3 col-sm-6">
+        <a href=${c.html_url} target=_blank><strong><img class="rounded-circle" src=${c.avatar_url} class="mr-3" width="50px" /><strong></a> 
+          <div class="media-body">
+            <p>${c.contributions}</p>
+          </div>
+      </div>
+    </div>
   `).join('\n')}
-  </ul>
-  `
+
+  </div>`
 }
 
 async function getContributors() {
