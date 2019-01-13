@@ -137,6 +137,18 @@ body {
   display: inline-block;
 }
 
+#get-engaged .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+
+#get-engaged .row > [class*='col-'] {
+  display: flex;
+}
+
 #events h3 {
   margin-top: 30px;
   margin-bottom: 20px;
