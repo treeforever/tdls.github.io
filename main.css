@@ -156,6 +156,9 @@ body {
 
 .person-name .fa-linkedin-square {
   color: #007bff;
+  vertical-align: super;
+  font-size: 0.9em;
+
 }
 
 a.person-name {
