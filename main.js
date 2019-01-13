@@ -416,8 +416,11 @@ const getLinkedInProfiles = fetchOnlyOnce(async () => {
   const linkedInProfileByName = {};
   const [rawHeader, ...rawRows] = data.values;
   rawRows.forEach(r => {
-    linkedInProfileByName[r[rawHeader.indexOf('Name')].trim()] = 
-      r[rawHeader.indexOf('LinkedIn')].trim();
+    const name = r[rawHeader.indexOf('Name')];
+    const link = r[rawHeader.indexOf('LinkedIn')];
+    if(link) {
+      linkedInProfileByName[name.trim()] =  link.trim();
+    }
   });
   return linkedInProfileByName;
 });
