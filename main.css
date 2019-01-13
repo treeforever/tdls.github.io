@@ -4,7 +4,7 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
-  --regular-color: #5a5a5a;
+  --main-color: #5a5a5a;
   --classics-color:  rgb(67, 139, 172);
   --fasttrack-color: rgb(49, 150, 35);
   --tentative-background: repeating-linear-gradient(
@@ -23,8 +23,8 @@ body {
   line-height: 1em;
 }
 
-.legend.regular {
-  background-color: var(--regular-color);
+.legend.main {
+  background-color: var(--main-color);
 }
 
 .legend.classics {
@@ -48,8 +48,8 @@ body {
   font-style: italic;
 }
 
-.upcoming-event-list .event-regular, .upcoming-event-list .event-regular a {
-  color:  var(--regular-color);
+.upcoming-event-list .event-main, .upcoming-event-list .event-main a {
+  color:  var(--main-color);
 }
 
 .upcoming-event-list .event-classics, .upcoming-event-list .event-classics a {
@@ -60,8 +60,8 @@ body {
   color:  var(--fasttrack-color);
 }
 
-#past-event-list .event-regular, #past-event-list .event-regular a {
-  color:  var(--regular-color);
+#past-event-list .event-main, #past-event-list .event-main a {
+  color:  var(--main-color);
 }
 
 .past-event-list .event-fasttrack .title {
@@ -104,8 +104,8 @@ body {
 .modal-dialog .modal-header .title button {
   font-family: sans-serif;
 }
-.modal-dialog.event-regular .modal-header .title {
-  color:  var(--regular-color);
+.modal-dialog.event-main .modal-header .title {
+  color:  var(--main-color);
 }
 
 .modal-dialog.event-classics .modal-header .title {

@@ -251,7 +251,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
           ${toShortDateString(ev.date)}
         </div>
         <div class="col-lg-4 col-sm-12">
-          <p class="title">${ev.title.toLowerCase()}</p>
+          <p class="title">
+            <a class="title" href="#events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
+          </p>
         </div>
         <div class="col-lg-3 col-sm-12">
           <p><b>Lead:</b> ${await nameToLink(ev.lead)}, 
@@ -456,7 +458,7 @@ function fetchOnlyOnce(fetcher) {
 const READABLE_EVENT_TYPE = {
   'classics': 'Classics Stream',
   'fasttrack': 'Fasttrack Stream',
-  'regular': 'Main Stream'
+  'main': 'Main Stream'
 }
 
 function getEventType(title) {
@@ -492,7 +494,7 @@ function rawRowToRow(rawHeader, rawRow) {
   const code_official = rawRow[rawHeader.indexOf('Official Github Link')];
   const code_unofficial = rawRow[rawHeader.indexOf('Unofficial Github Link')];
   const reddit = rawRow[rawHeader.indexOf('Reddit Link')];
-  const type = getEventType(title);
+  const type = rawRow[rawHeader.indexOf('Stream')];
   const subjects = (rawRow[rawHeader.indexOf('Subject Matter Area')] || '').split(',').map(s => s.trim()).filter(s => s);
 
   return {

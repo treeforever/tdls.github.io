@@ -120,7 +120,72 @@
       <hr>
       <h2>Events</h2>
 
-      <span class="legend regular">&nbsp;</span> Main Stream (recent papers) | <span class="legend classics"></span> Classics Stream (concept-defining papers) | <span class="legend fasttrack"></span> Fasttrack Stream (bleeding edge & trending papers) | <span class="legend tentative"></span> Tentative
+      <h3>Legend</h3>
+      <span class="legend main">&nbsp;</span> <a href="#modal_main_stream" data-toggle="modal">Main Stream</a> | 
+      <span class="legend classics"></span> <a href="#modal_classics_stream" data-toggle="modal">Classics Stream</a> | 
+      <span class="legend fasttrack"></span> <a href="#modal_fast_stream" data-toggle="modal">Fasttrack Stream</a> | 
+      <span class="legend tentative"></span> Tentative
+
+      <div class="modal" tabindex="-1" role="dialog" id="modal_main_stream">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Main Stream</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                In this stream we read recent papers within a few months up to a couple of years of publication 
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" role="dialog" id="modal_classics_stream">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Classics Stream</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                In this stream we read concept defining papers. These papers are usually older ones.  
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" role="dialog" id="modal_fast_stream">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Fasttrack Stream</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                In this stream we read recent papers within a few weeks of publication
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
      
       <h3>Upcoming</h3>
       <article id="upcoming-events">
@@ -254,11 +319,13 @@
               <div class="card-body">
                 <h5 class="card-title">Do you want to own a new stream at TDLS?</h5>
                 <p class="card-text">Please check out the details of what it takes and write to us with your ideas</p>
-                <a href="#">Details</a>
-                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20think%20you%20should%20cover%20X" target="_blank">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_own_stream">
+                  Details
+                </button>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20want%20to%20own%20a%20stream" target="_blank">
                   <i class="fa fa-twitter fa-2x"></i>
                 </a>
-                <a href="mailto:tdls@torontomachinelearning.com?subject:I%20think%20you%20should%20cover%20X", target="_blank">
+                <a href="mailto:tdls@torontomachinelearning.com?subject:%20I%20want%20to%20own%20a%20stream", target="_blank">
                   <i class="fa fa-envelope fa-2x"></i>
                 </a>  
               </div>
@@ -272,16 +339,52 @@
                 <a href="https://www.youtube.com/c/TorontoDeepLearningSeries", target="_blank">
                   <i class="fa fa-youtube fa-2x"></i>
                 </a>
-                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20think%20you%20should%20cover%20X" target="_blank">
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20" target="_blank">
                   <i class="fa fa-twitter fa-2x"></i>
                 </a>
-                <a href="mailto:tdls@torontomachinelearning.com?subject:I%20think%20you%20should%20cover%20X", target="_blank">
+                <a href="mailto:tdls@torontomachinelearning.com?subject:collaboration%20with%20meetups", target="_blank">
                   <i class="fa fa-envelope fa-2x"></i>
                 </a>  
               </div>
             </div>
           </div>  
         </div>
+
+        <div class="modal" tabindex="-1" role="dialog" id="modal_own_stream">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">What does it take to own a stream?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  <ul>
+                    <li>you define the stream including (why it should exist, what it includes, how it is done, who the target audience is, who the discussion panel can be, if the session format needs to be any different than typical, cadence, etc)</li>
+                    <li>you coordinate with the steering committee members to make sure that there's venue sorted out but you're not responsible to secure venue</li>
+                    <li>you coordinate with the steering committee members to ensure that the recording is sorted out but you're not responsible to secure that</li>
+                    <li>you coordinate with discussion leads and facilitators for your sessions</li> 
+                    <li>you coordinate with the discussion panel about the paper they will present</li>
+                    <li>you're responsible for communications with the panel members (initial set up, 2 weeks before, and post event, follow up if needed for the panel to send their slides in time for review and then the final version)</li>
+                    <li>you moderate the sessions in your stream</li>
+                  </ul>
+                </p>
+              </div>
+              <div class="modal-footer">
+                  <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20want%20to%20own%20a%20stream" target="_blank">
+                  <i class="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:%20I%20want%20to%20own%20a%20stream", target="_blank">
+                  <i class="fa fa-envelope fa-2x"></i>
+                </a>  
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </section>
 
 
