@@ -158,6 +158,10 @@ body {
   color: #007bff;
 }
 
+a.person-name {
+  color: #5a5a5a;
+}
+
 main section {
   padding-top: 60px;
 }
