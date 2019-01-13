@@ -148,7 +148,8 @@ function toShortDateString(d) {
 }
 
 function getEventId(ev) {
-  // TODO: this event hashing is not unique by date 
+  // TODO: this event hashing unique by date, but if we have two events
+  // on the same date in the future we are screwed 
   return "" + toShortDateString(ev.date);
 }
 
