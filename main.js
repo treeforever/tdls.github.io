@@ -172,7 +172,7 @@ $.fn.dataTable.ext.search.push((_, data) => {
   if(!val || val.length === 0) {
     return true;
   } else {
-    const subjects = data[1].split(',');
+    const subjects = data[1].split(',').map(s => s.trim());
     return matchAll(val, subjects);
   }
 });
