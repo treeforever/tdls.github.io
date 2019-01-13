@@ -108,8 +108,9 @@ async function showEvent(eventId) {
     </div>
   `);
 
-  $('#event-popup #copy-link').on('click', () => {
-    copyToClipboard(window.location.href);
+  $('#event-popup #copy-link').on('mouseup', async () => {
+    await copyToClipboard(window.location.href);
+
     $('#event-popup #copy-link').popover({
       content: 'Link to this event was copied to clipboard.',
       placement: 'left'
