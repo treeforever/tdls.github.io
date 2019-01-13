@@ -349,50 +349,61 @@ async function getRawData() {
   return raw;
 }
 
-let eventFetchStatus = 'unfetched';
-let eventFetchP = null;
-let eventsAndSubjects = null;
+
+const getEventsAndSubjects = fetchOnlyOnce(async () => {
+  const data = await getRawData();
+  const [rawHeader, ...rawRows] = data.values;
+
+  // convert raw JSON rows to our own event data type
+  const events = rawRows.map(
+    rawR => rawRowToRow(rawHeader, rawR)).filter(
+      //only care about rows that have both title and lead
+      e => e.title && e.lead
+    );
+
+  const [ pastEvents, futureEvents ] = splitEvents(events);
+
+  const subjects = pastEvents.reduce((subjects, ev) => {
+    const newSubjects = [];
+    for (sub of ev.subjects) {
+      if(subjects.indexOf(sub) < 0) {
+        newSubjects.push(sub);
+      }
+    }
+    return subjects.concat(newSubjects);
+  }, []);
+
+  return { pastEvents, futureEvents, subjects };
+});
+
 
 // cache-enabled, guarantees only one fetch
-function getEventsAndSubjects() {
-  if (eventFetchStatus === 'fetching') {
-    return eventFetchP;
-  } else if (eventFetchStatus === 'unfetched') {
-    eventFetchStatus = 'fetching';
-    eventFetchP = new Promise(async (resolve) => {
-      const data = await getRawData();
-      const [rawHeader, ...rawRows] = data.values;
+function fetchOnlyOnce(fetcher) {
+  let executeStatus = 'unfetched';
+  let executeP = null;
+  let cachedResult = null;
 
-      // convert raw JSON rows to our own event data type
-      const events = rawRows.map(
-        rawR => rawRowToRow(rawHeader, rawR)).filter(
-          //only care about rows that have both title and lead
-          e => e.title && e.lead
-        );
+  return () => {
+    if (executeStatus === 'fetching') {
+      return executeP;
+    } else if (executeStatus === 'unfetched') {
+      executeStatus = 'fetching';
+      executeP = new Promise(async (resolve) => {
+        cachedResult = await fetcher();
+        
+        executeStatus = 'fetched';
+        executeP = null;
 
-      eventFetchStatus = 'fetched';
-      const [ pastEvents, futureEvents ] = splitEvents(events);
+        resolve(cachedResult);
 
-      const subjects = pastEvents.reduce((subjects, ev) => {
-        const newSubjects = [];
-        for (sub of ev.subjects) {
-          if(subjects.indexOf(sub) < 0) {
-            newSubjects.push(sub);
-          }
-        }
-        return subjects.concat(newSubjects);
-      }, []);
-
-      eventsAndSubjects = { pastEvents, futureEvents, subjects };
-      resolve(eventsAndSubjects);
-      eventFetchP = null;
-    });
-    return eventFetchP;
-  } else // fetched
-  {
-    return new Promise((resolve) => {
-      resolve(eventsAndSubjects);
-    })
+      });
+      return executeP;
+    } else // fetched
+    {
+      return new Promise((resolve) => {
+        resolve(cachedResult);
+      });
+    }
   }
 }
 
