@@ -154,6 +154,10 @@ body {
   margin-bottom: 20px;
 }
 
+.person-name .fa-linkedin-square {
+  color: #007bff;
+}
+
 main section {
   padding-top: 60px;
 }

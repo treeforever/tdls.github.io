@@ -182,6 +182,20 @@ function matchAll(queries, candidates) {
   return queries.every(q => !!candidates.find(c => c === q));
 }
 
+async function nameToLink(name) {
+  const profiles = await getLinkedInProfiles();
+  const link = profiles[name];
+  if(!link) {
+    return name;
+  } else {
+    return `
+      <a class="person-name" href="${link}" target="_blank">${name} 
+      <i class="fa fa-linkedin-square"></i>
+      </a>
+    `;
+  }
+}
+
 async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   const { pastEvents, futureEvents }  = await getEventsAndSubjects();
 
@@ -189,20 +203,24 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   <ul class="list-group upcoming-event-list">
   ${
     // display only first 5
-    futureEvents.slice(0, 3).map(ev => `
-    <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
-    <p>
-      ${WEEKDAYS[ev.date.getDay()]}, 
-      ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
-    </p>
-    <h5 class="title">
-      ${ev.title.toLowerCase()}
-      ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
-    </h5>
-    ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${ev.lead}</strong>` : ''}
-    ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}
-    </li>
-    `).join('')
+    (await Promise.all(futureEvents.slice(0, 3).map(async ev => {
+      const leadLink = await nameToLink(ev.lead);
+      const facLinks = await Promise.all(ev.facilitators.map(nameToLink));
+      return `
+        <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
+        <p>
+          ${WEEKDAYS[ev.date.getDay()]}, 
+          ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
+        </p>
+        <h5 class="title">
+          ${ev.title.toLowerCase()}
+          ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
+        </h5>
+        ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${leadLink}</strong>` : ''}
+        ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + facLinks.map(f => `<strong>${f}</strong>`).join(', ')}
+        </li>
+      `;
+    }))).join('')
     }
   </ul>
   `;
@@ -218,7 +236,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
     }</tr>
   </thead>
   <tbody>
-  ${pastEvents.map(ev => `
+  ${(await Promise.all(pastEvents.map(async ev => `
   <tr class="event-${ev.type}">
     <td>
     ${toShortDateString(ev.date)}
@@ -235,7 +253,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
           <p class="title">${ev.title.toLowerCase()}</p>
         </div>
         <div class="col-lg-3 col-sm-12">
-          <p><b>Lead:</b> ${ev.lead}, ${ev.facilitators.length != 0 ? `<b>Facilitators:</b> ${ev.facilitators.join(', ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
+          <p><b>Lead:</b> ${await nameToLink(ev.lead)}, 
+          ${ev.facilitators.length != 0 ? `<b>Facilitators:</b> 
+          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(', ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
         </div> 
         <div class="col-lg-3 col-sm-12">
           &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
@@ -251,7 +271,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
       </div>
     </td>
   </tr>
-  `).join('')}
+  `))).join('')}
   </tbody>
   </table>
 `;
@@ -335,7 +355,7 @@ function splitEvents(events) {
   return [past, future];
 }
 
-async function getRawData() {
+async function getRawEventData() {
   const SHEET_ID = '1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE';
   const KEY = 'AIzaSyAUMihCUtNS35espxycitPYrTE_78W93Ps';
   const SHEET_VALUE_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Schedule?key=${KEY}`;
@@ -349,9 +369,23 @@ async function getRawData() {
   return raw;
 }
 
+async function getRawLinkedInData() {
+  const SHEET_ID = '1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE';
+  const KEY = 'AIzaSyAUMihCUtNS35espxycitPYrTE_78W93Ps';
+  const SHEET_VALUE_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Profiles?key=${KEY}`;
+
+  // get raw sheet data in JSON
+  const resp = await fetch(SHEET_VALUE_URL, {
+    method: 'GET',
+    cache: 'default'
+  });
+  const raw = await resp.json();
+  return raw;
+}
+
 
 const getEventsAndSubjects = fetchOnlyOnce(async () => {
-  const data = await getRawData();
+  const data = await getRawEventData();
   const [rawHeader, ...rawRows] = data.values;
 
   // convert raw JSON rows to our own event data type
@@ -374,6 +408,17 @@ const getEventsAndSubjects = fetchOnlyOnce(async () => {
   }, []);
 
   return { pastEvents, futureEvents, subjects };
+});
+
+const getLinkedInProfiles = fetchOnlyOnce(async () => {
+  const data = await getRawLinkedInData();
+  const linkedInProfileByName = {};
+  const [rawHeader, ...rawRows] = data.values;
+  rawRows.forEach(r => {
+    linkedInProfileByName[r[rawHeader.indexOf('Name')].trim()] = 
+      r[rawHeader.indexOf('LinkedIn')].trim();
+  });
+  return linkedInProfileByName;
 });
 
 
