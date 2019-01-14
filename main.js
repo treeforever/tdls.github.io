@@ -500,9 +500,11 @@ function rawRowToRow(rawHeader, rawRow) {
   const type = rawRow[rawHeader.indexOf('Stream')];
   const subjects = (rawRow[rawHeader.indexOf('Subject Matter Area')] || '').split(',').map(s => s.trim()).filter(s => s);
 
+  const dateAtNidnight = new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, ''));
+  const dateAtSeven = new Date(dateAtNidnight.getTime() + 19 * 60 * 60 * 1000);
   return {
     title,
-    date: new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, '')),
+    date: dateAtSeven,
     lead,
     venue,
     facilitators,
