@@ -217,7 +217,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
           ${ev.title.toLowerCase()}
           ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
         </h5>
-        ${ev.lead.indexOf('?') < 0 ? `Lead: <strong>${leadLink}</strong>` : ''}
+        ${ev.lead.indexOf('?') < 0 ? `Discussion Lead: <strong>${leadLink}</strong>` : ''}
         ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + facLinks.map(f => `<strong>${f}</strong>`).join(', ')}
         </li>
       `;
@@ -256,9 +256,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
           </p>
         </div>
         <div class="col-lg-3 col-sm-12">
-          <p><b>Lead:</b> ${await nameToLink(ev.lead)}, 
-          ${ev.facilitators.length != 0 ? `<b>Facilitators:</b> 
-          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(', ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
+          <p>Discussion lead by ${await nameToLink(ev.lead)}, 
+          ${ev.facilitators.length != 0 ? `and facilitated by 
+          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' and ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
         </div> 
         <div class="col-lg-3 col-sm-12">
           &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
@@ -323,10 +323,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   ${contributors.map(c => `
     <div class="media-top"> 
       <div class="col-lg-3 col-sm-6">
-        <a href=${c.html_url} target=_blank><strong><img class="rounded-circle" src=${c.avatar_url} class="mr-3" width="50px" /><strong></a> 
-          <div class="media-body">
-            <p>${c.contributions}</p>
-          </div>
+        <a href=${c.html_url} target=_blank data-toggle="tooltip" title="${c.login} contributed ${c.contributions} commit(s)"><strong><img class="rounded-circle" src=${c.avatar_url} class="mr-3" width="50px" /><strong></a> 
       </div>
     </div>
   `).join('\n')}
