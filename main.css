@@ -39,6 +39,24 @@ body {
   background: var(--tentative-background);
 }
 
+
+.legend-event-main{
+  color: var(--main-color);
+}
+
+.legend-event-classics{
+  color: var(--classics-color);
+}
+
+.legend-event-fasttrack{
+  color: var(--fasttrack-color);
+}
+
+.legend-event-tentative{
+  background: var(--tentative-background);
+}
+
+
 .upcoming-event-list>.tentative {
   background: var(--tentative-background);
 }
