@@ -457,7 +457,7 @@ function fetchOnlyOnce(fetcher) {
 
 const READABLE_EVENT_TYPE = {
   'classics': 'Classics Stream',
-  'fasttrack': 'Fasttrack Stream',
+  'fasttrack': 'Fast Track Stream',
   'main': 'Main Stream'
 }
 
