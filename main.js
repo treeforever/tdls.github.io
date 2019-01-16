@@ -171,7 +171,7 @@ async function copyToClipboard(text) {
 // subject filter implementation
 $.fn.dataTable.ext.search.push((_, data) => {
   const val = $('#subject-filter').val();
-  if(!val || val.length === 0) {
+  if (!val || val.length === 0) {
     return true;
   } else {
     const subjects = data[1].split(',').map(s => s.trim());
@@ -186,7 +186,7 @@ function matchAll(queries, candidates) {
 async function nameToLink(name) {
   const profiles = await getLinkedInProfiles();
   const link = profiles[name];
-  if(!link) {
+  if (!link) {
     return name;
   } else {
     return `
@@ -198,7 +198,7 @@ async function nameToLink(name) {
 }
 
 async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
-  const { pastEvents, futureEvents }  = await getEventsAndSubjects();
+  const { pastEvents, futureEvents } = await getEventsAndSubjects();
 
   upcomingElem.innerHTML = `
   <ul class="list-group upcoming-event-list">
@@ -290,7 +290,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
-      { orderSequence: [ "desc" ], targets: [ 0 ] },
+      { orderSequence: ["desc"], targets: [0] },
       // subjects
       { visible: false, targets: [0, 1] },
     ],
@@ -307,7 +307,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
       <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
         ${ subjects.map(s => `
           <option>${s}</option>
-        `).join('') }
+        `).join('')}
       </select>
     </div>
   `;
@@ -323,7 +323,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   ${contributors.map(c => `
     <div class="media-top"> 
       <div class="col-lg-3 col-sm-6">
-        <a href=${c.html_url} target=_blank data-toggle="tooltip" title="${c.login} contributed ${c.contributions} commit(s)"><strong><img class="rounded-circle" src=${c.avatar_url} class="mr-3" width="50px" /><strong></a> 
+        <a href="${c.html_url}" target="_blank" data-toggle="tooltip" title="${c.login} contributed ${c.contributions} commit(s)">
+          <img class="rounded-circle" src="${c.avatar_url}" class="mr-3" width="50px" />
+        </a> 
       </div>
     </div>
   `).join('\n')}
@@ -332,7 +334,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
 }
 
 async function getContributors() {
-  const url  = `https://api.github.com/repos/TDLS/tdls.github.io/contributors`;
+  const url = `https://api.github.com/repos/TDLS/tdls.github.io/contributors`;
   const resp = await fetch(url, {
     method: 'GET',
     cache: 'default'
@@ -395,12 +397,12 @@ const getEventsAndSubjects = fetchOnlyOnce(async () => {
       e => e.title && e.lead
     );
 
-  const [ pastEvents, futureEvents ] = splitEvents(events);
+  const [pastEvents, futureEvents] = splitEvents(events);
 
   const subjects = pastEvents.reduce((subjects, ev) => {
     const newSubjects = [];
     for (sub of ev.subjects) {
-      if(subjects.indexOf(sub) < 0) {
+      if (subjects.indexOf(sub) < 0) {
         newSubjects.push(sub);
       }
     }
@@ -417,8 +419,8 @@ const getLinkedInProfiles = fetchOnlyOnce(async () => {
   rawRows.forEach(r => {
     const name = r[rawHeader.indexOf('Name')];
     const link = r[rawHeader.indexOf('LinkedIn')];
-    if(link) {
-      linkedInProfileByName[name.trim()] =  link.trim();
+    if (link) {
+      linkedInProfileByName[name.trim()] = link.trim();
     }
   });
   return linkedInProfileByName;
@@ -438,7 +440,7 @@ function fetchOnlyOnce(fetcher) {
       executeStatus = 'fetching';
       executeP = new Promise(async (resolve) => {
         cachedResult = await fetcher();
-        
+
         executeStatus = 'fetched';
         executeP = null;
 
