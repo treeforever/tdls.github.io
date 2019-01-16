@@ -1,5 +1,6 @@
 # tdls-website
 Source code for TDLS website.
+[[!release]https://img.shields.io/badge/release-v.0.1.0-yellow.svg]
 
 ## Instructions
 
