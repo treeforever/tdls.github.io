@@ -53,3 +53,7 @@ And make a pull request from your branch.
 ## Assumptions
 
 To simplify & modernize JS code, a lot of ES2017 gimmicks are being applied directly without a transpiler, so this website does not work on old or esoteric browsers such as IE 11 or Opera Mini. The underlying assumption is that the vast majority of visitors interested in our events use modern mainstream browsers such as Chrome, Safari or Edge.
+
+## Suggestions
+
+To recommend changes to the website by the public it is advisable to create a fork and then making changes to the version of the website in that fork.
