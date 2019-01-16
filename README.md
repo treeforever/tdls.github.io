@@ -5,17 +5,17 @@ Source code for TDLS website.
 
 First, clone this repository from command line. 
 
-Use a static server of your choosing. For python 3 users, try
+To view the site on your local machine, use a static server of your choosing. For python 3 users, try running this (from the repository directory):
 
 ```python
 python -m http.server 8080
 ```
 
-And navigate to `http://127.0.0.1:8080`
+And then navigate to `http://127.0.0.1:8080`
 
 Note: only 8080 may work due to domain restrictions on Google Key. Similarly, only `127.0.0.1` may work, instead of `localhost` or `0.0.0.0`.
 
-
+(Troubleshooting note: If the events schedule does not load, this is likely the step that you are missing!)
 
 ## Contribution Guideline
 
@@ -31,17 +31,17 @@ Note: only 8080 may work due to domain restrictions on Google Key. Similarly, on
 
 ### If you have write permission to this repository
 
-In addition to the forking method, you can make a branch in git, commit and push to that branch. This can be achieved via the following commands
+In addition to the forking method, you can make a branch in git, commit and push to that branch. This can be achieved via the following commands:
 
 ```bash
-# assuming you are on latested master
+# assuming you are on the latest master
 
 git checkout -b <BRANCH_NAME>
 
-# make some changes
+# make some changes, then commit your changes
 
 git add -A .
-git commit -m "some new commit"
+git commit -m "<DESCRIPTIVE COMMIT MESSAGE!>"
 
 
 git push --set-upstream origin <BRANCH_NAME>
