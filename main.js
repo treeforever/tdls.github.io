@@ -38,6 +38,9 @@ function stripLeadingCategory(evTitle) {
 async function showEvent(eventId) {
   const { pastEvents, futureEvents } = await getEventsAndSubjects();
   const ev = futureEvents.find(ev => getEventId(ev) === eventId) || pastEvents.find(ev => getEventId(ev) === eventId);
+
+  const expired = eventExpired(ev);
+
   $('#event-popup').html(`
   <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
       <div class="modal-content">
@@ -57,6 +60,7 @@ async function showEvent(eventId) {
             <dd class="col-sm-8">
               ${WEEKDAYS[ev.date.getDay()]}, 
               ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
+              (${expired ? 'This is a past event.' : ''})
             </dd>
             ${ev.lead.indexOf('?') < 0 ? `
               <dt class="col-sm-4">Discussion lead</dt>
@@ -168,6 +172,10 @@ async function copyToClipboard(text) {
   } catch (err) {
     console.error('Failed to copy: ', err);
   }
+}
+
+function eventExpired(ev) {
+  return ev.date < new Date();
 }
 
 // subject filter implementation
@@ -375,7 +383,7 @@ function splitEvents(events) {
   let past = [];
   let future = [];
   events.forEach(e => {
-    if (e.date > new Date()) { future.push(e); }
+    if (!eventExpired(e)) { future.push(e); }
     else { past.push(e); }
   });
   past = past.sort((e1, e2) => e1.date - e2.date);
@@ -413,7 +421,7 @@ async function getRawLinkedInData() {
 }
 
 
-const getEventsAndSubjects = fetchOnlyOnce(async () => {
+const getEventsAndSubjects = runOnlyOnce(async () => {
   const data = await getRawEventData();
   const [rawHeader, ...rawRows] = data.values;
 
@@ -439,7 +447,7 @@ const getEventsAndSubjects = fetchOnlyOnce(async () => {
   return { pastEvents, futureEvents, subjects };
 });
 
-const getLinkedInProfiles = fetchOnlyOnce(async () => {
+const getLinkedInProfiles = runOnlyOnce(async () => {
   const data = await getRawLinkedInData();
   const linkedInProfileByName = {};
   const [rawHeader, ...rawRows] = data.values;
@@ -455,7 +463,7 @@ const getLinkedInProfiles = fetchOnlyOnce(async () => {
 
 
 // cache-enabled, guarantees only one fetch
-function fetchOnlyOnce(fetcher) {
+function runOnlyOnce(fetcher) {
   let executeStatus = 'unfetched';
   let executeP = null;
   let cachedResult = null;
