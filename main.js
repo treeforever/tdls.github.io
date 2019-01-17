@@ -60,14 +60,20 @@ async function showEvent(eventId) {
             <dd class="col-sm-8">
               ${WEEKDAYS[ev.date.getDay()]}, 
               ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
-              (${expired ? 'This is a past event.' : ''})
+              ${expired ? '(This is a past event.)' : ''}
             </dd>
+            ${!expired ? '' : `
+              <dt class="col-sm-4">Venue:</dt> 
+              <dd class="col-sm-8">
+                ${ev.venue}
+              </dd>  
+            `}
             ${ev.lead.indexOf('?') < 0 ? `
-              <dt class="col-sm-4">Discussion lead</dt>
-              <dd class="col-sm-8"><strong>${ev.lead}</strong>` : ''}</dd>
+              <dt class="col-sm-4">Discussion lead: <i class="fa fa-external-link"></i></dt>
+              <dd class="col-sm-8"><strong>${await nameToLink(ev.lead)}</strong>` : ''}</dd>
             ${ev.facilitators.length == 0 ? '' : `
-              <dt class="col-sm-4">Discussion facilitators</dt> 
-              <dd class="col-sm-8">${ev.facilitators.map(f => `<strong>${f}</strong>`).join(', ')}</dd>
+              <dt class="col-sm-4">Discussion facilitators: <i class="fa fa-external-link"></i></dt> 
+              <dd class="col-sm-8">${((await Promise.all(ev.facilitators.map(nameToLink))).map(f => `<strong>${f}</strong>`)).join(', ')}</dd>
             `}
             ${ev.paper ? `
               <dt class="col-sm-4">Paper: <i class="fa fa-external-link"></i></dt>
