@@ -244,6 +244,14 @@ div.committee {
   text-align: center;
 }
 
+.profile-list a {
+  color: #5a5a5a;
+}
+
+.profile-list .fa-linkedin-square {
+  color: #007bff;
+}
+
 footer {
   text-align: center;
   color: #fff;
