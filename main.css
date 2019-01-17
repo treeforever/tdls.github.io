@@ -108,9 +108,6 @@ body {
   color:  var(--main-color);
 }
 
-.past-event-list .event-fasttrack .title {
-  color:  var(--fasttrack-color);
-}
 
 .past-event-list>.tentative {
   background: var(--tentative-background);
@@ -118,6 +115,10 @@ body {
 
 .past-event-list .title {
   font-weight: bold;
+}
+
+.past-event-list .event-fasttrack .title {
+  color:  var(--fasttrack-color);
 }
 
 .past-event-list .event-classics .title {

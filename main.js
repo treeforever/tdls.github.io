@@ -272,20 +272,21 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
           </p>
         </div>
         <div class="col-lg-3 col-sm-12">
-          <p>Discussion lead by ${await nameToLink(ev.lead)}, 
-          ${ev.facilitators.length != 0 ? `and facilitated by 
-          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' and ')}, ` : ''}<b>Venue:</b> ${ev.venue}</p>
+          <p>Discussion lead by ${await nameToLink(ev.lead)} 
+          ${ev.facilitators.length != 0 ? ` and facilitated by 
+          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
+          <br />Venue: <strong>${ev.venue}</strong></p>
         </div> 
         <div class="col-lg-3 col-sm-12">
           &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
-          &nbsp;${ev.paper ? `<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
-          &nbsp;${ev.slides ? `<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
-          &nbsp;${ev.video ? `<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-          &nbsp;${ev.reddit ? `<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
-          &nbsp;${ev.code_official ? `<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-          &nbsp;${ev.code_unofficial ? `<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-          &nbsp;${ev.dataset1 ? `<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
-          &nbsp;${ev.dataset2 ? `<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+          ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+          ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+          ${ev.video ? `&nbsp;<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
+          ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
+          ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+          ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+          ${ev.dataset1 ? `&nbsp;<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+          ${ev.dataset2 ? `&nbsp;<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
         </div>       
       </div>
     </td>
