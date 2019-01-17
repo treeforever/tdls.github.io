@@ -36,8 +36,8 @@ function stripLeadingCategory(evTitle) {
 }
 
 async function showEvent(eventId) {
-  const { pastEvents } = await getEventsAndSubjects();
-  const ev = pastEvents.find(ev => getEventId(ev) === eventId);
+  const { pastEvents, futureEvents } = await getEventsAndSubjects();
+  const ev = futureEvents.find(ev => getEventId(ev) === eventId) || pastEvents.find(ev => getEventId(ev) === eventId);
   $('#event-popup').html(`
   <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
       <div class="modal-content">
