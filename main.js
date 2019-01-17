@@ -216,7 +216,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
           ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
         </p>
         <h5 class="title">
-          ${ev.title.toLowerCase()}
+          <a class="title" href="#events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
           ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
         </h5>
         ${ev.lead.indexOf('?') < 0 ? `Discussion Lead: <strong>${leadLink}</strong>` : ''}

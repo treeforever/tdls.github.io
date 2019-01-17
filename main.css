@@ -5,6 +5,8 @@ body {
   padding-bottom: 3rem;
   color: #5a5a5a;
   --main-color: #5a5a5a;
+  --authors-color: #754487;
+  --codereview-color: #b74803;
   --classics-color:  rgb(67, 139, 172);
   --fasttrack-color: rgb(49, 150, 35);
   --tentative-background: repeating-linear-gradient(
@@ -35,6 +37,14 @@ body {
   background-color: var(--fasttrack-color);
 }
 
+.legend.codereview {
+  background-color: var(--codereview-color);
+}
+
+.legend.authors {
+  background-color: var(--authors-color);
+}
+
 .legend.tentative {
   background: var(--tentative-background);
 }
@@ -50,6 +60,14 @@ body {
 
 .legend-event-fasttrack{
   color: var(--fasttrack-color);
+}
+
+.legend-event-codereview{
+  color: var(--codereview-color);
+}
+
+.legend-event-authors{
+  color: var(--authors-color);
 }
 
 .legend-event-tentative{
@@ -78,6 +96,14 @@ body {
   color:  var(--fasttrack-color);
 }
 
+.upcoming-event-list .event-codereview, .upcoming-event-list .event-codereview a {
+  color:  var(--codereview-color);
+}
+
+.upcoming-event-list .event-authors, .upcoming-event-list .event-authors a {
+  color:  var(--authors-color);
+}
+
 #past-event-list .event-main, #past-event-list .event-main a {
   color:  var(--main-color);
 }
@@ -101,6 +127,14 @@ body {
 
 .past-event-list .event-fasttrack .title {
   color:  var(--fasttrack-color);
+}
+
+.past-event-list .event-codereview .title {
+  color:  var(--codereview-color);
+}
+
+.past-event-list .event-authors .title {
+  color:  var(--authors-color);
 }
 
 #past-event-list .title {
