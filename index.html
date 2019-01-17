@@ -46,27 +46,43 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#events">Events</a>
-          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Events
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#streams">Streams</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#upcoming-events">Upcoming Sessions</a>
+              <a class="dropdown-item" href="#past-events">Past Sessions</a>
+            </div>
+          </li> 
           <li class="nav-item">
             <a class="nav-link" href="#areas">Subject Areas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#get-engaged">Get Engaged</a>
           </li>
-        </ul>
-        <ul class="navbar-nav pull-right">
-          <li class="nav-item">
-            <a class="nav-link" href="#about_us">About Us</a>
-          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              About Us
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#about_us">Who are we?</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#community">Our Community</a>
+              <a class="dropdown-item" href="#steering-committee">Steering Committee</a>
+              <a class="dropdown-item" href="#volunteers">Volunteers</a>
+              <a class="dropdown-item" href="#site-contributors">Website Contributors</a>
+            </div>
+          </l i> 
         </ul>
       </div>
     </nav>
   </header>
   <a name="top"></a>
   <main role="main">
-    <section id='testimony' class="container">
+    <section id="welcome" class="container">
       <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel" data-interval="8000">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -112,7 +128,7 @@
     </section>
 
 
-    <section id="welcome" class="container">
+    <section class="container">
       <div style="text-align: center">
         <h1>Toronto Deep Learning Series (#TDLS)</h1>
         <p class="lead">
@@ -126,14 +142,28 @@
       <hr>
       <h2>Events</h2>
 
-      <h3>Legend</h3>
-      <span class="legend main">&nbsp;</span> <a href="#modal_main_stream" data-toggle="modal" class="legend-event-main">Main
-        stream</a> |
-      <span class="legend classics"></span> <a href="#modal_classics_stream" data-toggle="modal" class="legend-event-classics">Classics
-        Stream</a> |
-      <span class="legend fasttrack"></span> <a href="#modal_fast_stream" data-toggle="modal" class="legend-event-fasttrack">Fast
-        Track Stream</a> |
-      <span class="legend tentative"></span> <span class="legend-event-tentative">Tentative Sessions</span>
+      <h3 id="streams">Legend</h3>
+      <span class="legend main">&nbsp;</span> 
+      <a href="#modal_main_stream" data-toggle="modal" class="legend-event-main">
+        Main stream
+      </a> |
+      <span class="legend classics"></span> 
+      <a href="#modal_classics_stream" data-toggle="modal" class="legend-event-classics">
+        Classics Stream</a> |
+      <span class="legend fasttrack"></span> 
+      <a href="#modal_fast_stream" data-toggle="modal" class="legend-event-fasttrack">
+        Fast Track Stream
+      </a> |
+      <span class="legend codereview"></span> 
+      <a href="#modal_codereview_stream" data-toggle="modal" class="legend-event-codereview">
+        Code Review Stream
+      </a> |
+      <span class="legend authors"></span> 
+      <a href="#modal_authors_stream" data-toggle="modal" class="legend-event-authors">
+        Authors Stream
+      </a> |
+      <span class="legend tentative"></span> 
+      <span class="legend-event-tentative">Tentative Sessions</span>
 
       <p>
         <i> (Click on stream name for more information) </i>
@@ -202,6 +232,46 @@
               <iframe style="width: 100%; min-height: 300px;" src="https://www.youtube.com/embed/1jkmNnHs18M"
                 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" role="dialog" id="modal_codereview_stream">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Main Stream</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                This stream is for reviewing implementations of papers.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" role="dialog" id="modal_authors_stream">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Classics Stream</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                This stream is for papers presented by the authors of them.
+              </p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -452,7 +522,7 @@
         conceptual understanding and foundational mathematical details.
       </p>
 
-      <h3>Our community in numbers! </h3>
+      <h3 id="community">Our community in numbers! </h3>
       <div class="row">
         <div class="col-xl-4 col-lg-6">
           <iframe width="100%" height="500" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRd4d6zw1vzw6OpKxvpYjpb6dNo4XDFgDcPqLPvYiWLndxDWEL-ZIXjF1aiYwrlY5kOGXhzqzQCsOUo/pubchart?oid=1837496004&amp;format=interactive"></iframe>
@@ -465,8 +535,8 @@
         </div>
       </div>
 
-      <h3>Steering Committee</h3>
-      <div class="row" id="steering-committee">
+      <h3 id="steering-committee">Steering Committee</h3>
+      <div class="row">
         <div class="col-lg-3 col-sm-6">
           <div class="media-top">
             <img class="profile rounded-circle" src="images/amir.jpeg" class="mr-3" width="120px" />
@@ -504,7 +574,7 @@
                 </a>
               </b>
               <p>
-                "Code Review" Stream Lead
+                "Classics" Stream Lead
               </p>
             </div>
           </div>
@@ -532,7 +602,7 @@
                 </a>
               </b>
               <p>
-                "Authors" and "Main" Stream Lead
+                "Main" Stream Lead
               </p>
             </div>
           </div>
@@ -553,19 +623,65 @@
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="media-top">
-            <img class="profile rounded-circle" src="images/xiyang.jpeg" class="mr-3" width="120px" />
+            <img class="profile rounded-circle" src="images/vik.jpeg" class="mr-3" width="120px" />
             <div class="media-body">
-              <b>Xiyang Chen <a href="https://www.linkedin.com/in/xiyangchen/">
+              <b>Vik Pant <a href="https://www.linkedin.com/in/vikpant/">
                   <i class="fa fa-linkedin-square"></i>
                 </a>
               </b>
               <p>
-                Head of Technology and “Classics” Stream Lead
+                “Authors” Stream Lead
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="media-top">
+            <img class="profile rounded-circle" src="images/xiyang.jpeg" class="mr-3" width="120px" />
+            <div class="media-body">
+              <b>Xiyang Chen <a href="https://www.linkedin.com/in/">
+                  <i class="fa fa-linkedin-square"></i>
+                </a>
+              </b>
+              <p>
+                Head of Technology and "Code Review" Stream Lead
               </p>
             </div>
           </div>
         </div>
       </div>
+
+      <h3 id="volunteers">Volunteers</h3>
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="media-top">
+              <img class="profile rounded-circle" src="images/paul.jpeg" class="mr-3" width="120px" />
+              <div class="media-body">
+                <b>Paul Finlay <a href="https://www.linkedin.com/in/paulfinlay314/">
+                    <i class="fa fa-linkedin-square"></i>
+                  </a>
+                </b>
+                <p>
+                  Sound Engineer
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="media-top">
+              <img class="profile rounded-circle" src="images/mark.jpeg" class="mr-3" width="120px" />
+              <div class="media-body">
+                <b>Mark Donaldson <a href="https://www.linkedin.com/in/markdonaldson888/">
+                    <i class="fa fa-linkedin-square"></i>
+                  </a>
+                </b>
+                <p>
+                  Social Media Lead
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       <h3>Website Contributors</h3>
       <article id="site-contributors">
