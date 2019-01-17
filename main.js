@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   assembleEvents(
     document.getElementById('upcoming-events'),
     document.getElementById('past-events'),
-    document.getElementById('site-contributors')
+    document.getElementById('site-contributors'),
+    document.getElementById('useful-links'),
+
   );
 
   registerRoutes();
@@ -197,7 +199,7 @@ async function nameToLink(name) {
   }
 }
 
-async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
+async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLinksElem) {
   const { pastEvents, futureEvents } = await getEventsAndSubjects();
 
   upcomingElem.innerHTML = `
@@ -331,6 +333,31 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem) {
   `).join('\n')}
 
   </div>`
+
+  usefulLinksElem.innerHTML = `
+  <div class="row">
+  ${[
+      ["Distill Pub", "https://distill.pub/about/"],
+      ["Papers with Code", "https://paperswithcode.com/"],
+      ["ArXiv", "https://arxiv.org/archive/cs"],
+      ["Arxiv Sanity", "http://www.arxiv-sanity.com/"],
+      ["State of the Art in AI", "https://www.stateoftheart.ai/"],
+    ].map(([name, link]) => `
+    <div class="col-lg-3 col-sm-6">
+      <a href="${link}" target="_blank">
+        <div class="card border-primary mb-3" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <p class="card-text"></p>
+            see more
+          </div>
+        </div>
+      </a>
+    </div>
+  `).join('\n')}
+  </div>
+  `;
+
 }
 
 async function getContributors() {
