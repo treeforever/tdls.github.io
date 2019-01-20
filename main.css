@@ -118,12 +118,12 @@ body {
 }
 
 .tdls-intro {
-  font-family: serif;
   max-width: 850px;
   color: #000;
 }
 
 .tdls-intro .title {
+  font-family: serif;
   font-size: 2em;
   font-weight: bold;
   margin-top: 30px;
