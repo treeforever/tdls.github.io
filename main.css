@@ -294,6 +294,11 @@ div.committee {
   border-right: none;
 }
 
+.legend-list li .fa {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
 .profile-list {
   text-align: center;
 }
