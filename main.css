@@ -25,6 +25,7 @@ h2.inline, h3.inline, h4.inline,h5.inline {
 #events .event-link {
   color: #5a5a5a;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .legend {
@@ -224,13 +225,15 @@ h2.inline, h3.inline, h4.inline,h5.inline {
 
 #past-event-list_length {
   display: inline-block;
-  margin-left: 1em;
+}
+
+#past-event-list_filter {
+  margin-right: 1em;
 }
 
 #subject-filter-area {
   min-width: 200px;
   margin-right: 2em;
-  margin-left: 2em;
 }
 
 #subject-filter-area, #past-event-list_filter {

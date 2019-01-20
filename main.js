@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   registerRoutes();
   handleHashChange(window.location.href);
   fixOffset();
-
 })
 
 function registerRoutes() {
@@ -394,6 +393,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
       ["ArXiv", "https://arxiv.org/archive/cs"],
       ["Arxiv Sanity", "http://www.arxiv-sanity.com/"],
       ["State of the Art in AI", "https://www.stateoftheart.ai/"],
+      ["TDLS Classic Papers", "https://docs.google.com/spreadsheets/d/1PTaFyE2AsgTd0p7A5aHvEw0lLzw-9OXJC8Wa1Bg10ug"],
     ].map(([name, link]) => `
     <div class="col-lg-3 col-sm-6">
       <a href="${link}" target="_blank">
