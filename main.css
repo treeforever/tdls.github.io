@@ -284,6 +284,16 @@ div.committee {
   margin-bottom: 10px;
 }
 
+.legend-list li {
+  padding-right: 0.8em;
+  border-right: #000 solid 1px;
+  line-height: 1em;
+}
+
+.legend-list li:last-child{
+  border-right: none;
+}
+
 .profile-list {
   text-align: center;
 }
