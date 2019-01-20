@@ -233,8 +233,8 @@ function venueToLink(name) {
     'Randstad Technologies': 'https://www.randstad.ca/our-divisions/technologies/',
     'Ryerson': 'https://www.ryerson.ca/',
     'Shopify': 'https://www.shopify.ca/',
-    'SAS': 'https://www.sas.com/en_ca/home.html'
-
+    'SAS': 'https://www.sas.com/en_ca/home.html',
+    'Aviva': 'https://www.aviva.ca/en/',
   }[name];
   if (!url) {
     return name;
