@@ -246,6 +246,11 @@ body {
   margin-bottom: 20px;
 }
 
+.carousel-caption {
+  opacity: 0.8;
+  background-color: #000 !important;
+}
+
 .person-name .fa-linkedin-square {
   color: #007bff;
   vertical-align: super;
