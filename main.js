@@ -65,7 +65,7 @@ async function showEvent(eventId) {
             ${!expired ? ` 
               <dt class="col-sm-4">Venue:</dt> 
               <dd class="col-sm-8">
-                Only visible to members
+                (Only open to members)
               </dd>`   : `
               <dt class="col-sm-4">Venue:</dt> 
               <dd class="col-sm-8">
@@ -120,7 +120,7 @@ async function showEvent(eventId) {
               <p>6:30-7:15,   algorithm review</p>
               <p>7:15-8:00,   results and discussions</p>
             </dd>`   : ''
-            }
+    }
           </dl>
         </div>
         <div class="modal-footer">
