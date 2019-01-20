@@ -62,7 +62,11 @@ async function showEvent(eventId) {
               ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
               ${expired ? '(This is a past event.)' : ''}
             </dd>
-            ${!expired ? '' : `
+            ${!expired ? ` 
+              <dt class="col-sm-4">Venue:</dt> 
+              <dd class="col-sm-8">
+                Only visible to members
+              </dd>`   : `
               <dt class="col-sm-4">Venue:</dt> 
               <dd class="col-sm-8">
                 ${ev.venue}
@@ -108,6 +112,15 @@ async function showEvent(eventId) {
               <dd class="col-sm-8"><a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a></dd>
             ` : ''}
             <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
+            ${!expired ? ` 
+            <dt class="col-sm-4">Agenda:</dt> 
+            <dd class="col-sm-8">
+              <p>5:30-6:15,   arrivals and socializing</p>
+              <p>6:15-6:30    intros and announcements</p>
+              <p>6:30-7:15,   algorithm review</p>
+              <p>7:15-8:00,   results and discussions</p>
+            </dd>`   : ''
+            }
           </dl>
         </div>
         <div class="modal-footer">
