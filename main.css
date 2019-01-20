@@ -18,6 +18,15 @@ body {
   );
 }
 
+h2.inline, h3.inline, h4.inline,h5.inline {
+  display: inline-block;
+}
+
+#events .event-link {
+  color: #5a5a5a;
+  text-decoration: underline;
+}
+
 .legend {
   width: 1em;
   height: 1em;
@@ -209,12 +218,19 @@ body {
 }
 
 .filter-tools {
-  text-align: right;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+#past-event-list_length {
+  display: inline-block;
+  margin-left: 1em;
 }
 
 #subject-filter-area {
   min-width: 200px;
-  margin-right: 20px;
+  margin-right: 2em;
+  margin-left: 2em;
 }
 
 #subject-filter-area, #past-event-list_filter {

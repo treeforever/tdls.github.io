@@ -340,8 +340,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     order: [[0, "desc"]],
     // https://datatables.net/reference/option/dom
     dom: `
-      <'row'<'col-sm-12 col-md-5'l>
-        <'col-sm-12 col-md-7 filter-tools' <"#subject-filter-area"> f>>
+      <'row'<'col-sm-12 col-md-12 filter-tools' f <"#subject-filter-area"> l>>
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
@@ -356,7 +355,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
   const subjectFilterElem = document.querySelector('#subject-filter-area');
   subjectFilterElem.innerHTML = `
     <div class="horizontal-elem">
-    Subject: 
+    Filter by subject: 
     </div>
     <div class="horizontal-elem">
       <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
