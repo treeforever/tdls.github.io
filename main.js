@@ -69,7 +69,7 @@ async function showEvent(eventId) {
               </dd>`   : `
               <dt class="col-sm-4">Venue:</dt> 
               <dd class="col-sm-8">
-                ${ev.venue}
+                ${venueToLink(ev.venue)}
               </dd>  
             `}
             ${ev.lead.indexOf('?') < 0 ? `
@@ -226,6 +226,27 @@ async function nameToLink(name) {
   }
 }
 
+function venueToLink(name) {
+  const url = {
+    'RBC': 'https://www.rbcroyalbank.com',
+    'Rangle': 'https://rangle.io',
+    'Randstad Technologies': 'https://www.randstad.ca/our-divisions/technologies/',
+    'Ryerson': 'https://www.ryerson.ca/',
+    'Shopify': 'https://www.shopify.ca/',
+    'SAS': 'https://www.sas.com/en_ca/home.html'
+
+  }[name];
+  if (!url) {
+    return name;
+  } else {
+    return `
+    <a class="venue-name" href="${url}" target="_blank">
+      ${name}&nbsp;<i class="fa fa-external-link"></i>
+    </a>
+    `;
+  }
+}
+
 async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLinksElem) {
   const { pastEvents, futureEvents } = await getEventsAndSubjects();
 
@@ -288,7 +309,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
           <p>Discussion lead by ${await nameToLink(ev.lead)} 
           ${ev.facilitators.length != 0 ? ` and facilitated by 
           ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
-          <br />Venue: <strong>${ev.venue}</strong></p>
+          <br />Venue: <strong>${venueToLink(ev.venue)}</strong></p>
         </div> 
         <div class="col-lg-3 col-sm-12">
           &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>

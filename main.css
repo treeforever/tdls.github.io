@@ -253,7 +253,7 @@ body {
 
 }
 
-a.person-name {
+a.person-name, a.venue-name {
   color: #5a5a5a;
 }
 
