@@ -136,12 +136,19 @@ body {
   text-align: center;
 }
 
-.tdls-intro .abstract {
+.tdls-intro .abstract, .tdls-intro .authors {
   max-width: 600px;
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
+}
+
+.tdls-intro .abstract {
+  text-align: center;
+}
+
+.tdls-intro .abstract h5 {
+  text-align: center;
 }
 
 .tdls-intro a {
