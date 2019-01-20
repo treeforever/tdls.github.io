@@ -116,12 +116,15 @@ async function showEvent(eventId) {
             ${!expired ? ` 
             <dt class="col-sm-4">Agenda:</dt> 
             <dd class="col-sm-8">
-              <p>5:30-6:15,   arrivals and socializing</p>
-              <p>6:15-6:30    intros and announcements</p>
-              <p>6:30-7:15,   algorithm review</p>
-              <p>7:15-8:00,   results and discussions</p>
+              <ul class="list-unstyled">
+                <li>5:30-6:15,   arrivals and socializing</li>
+                <li>6:15-6:30    intros and announcements</li>
+                <li>6:30-7:15,   algorithm review</li>
+                <li>7:15-8:00,   results and discussions</li>
+              </ul>
             </dd>`   : ''
     }
+            <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
           </dl>
         </div>
         <div class="modal-footer">
