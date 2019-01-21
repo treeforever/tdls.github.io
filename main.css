@@ -233,15 +233,22 @@ h2.inline, h3.inline, h4.inline,h5.inline {
 
 #subject-filter-area {
   min-width: 200px;
+}
+
+#subject-filter-area, #stream-filter-area {
   margin-right: 2em;
 }
 
-#subject-filter-area, #past-event-list_filter {
+#subject-filter-area, #past-event-list_filter, #stream-filter-area {
   display: inline-block;
 }
 
-#subject-filter-area .horizontal-elem {
+#subject-filter-area .horizontal-elem, #stream-filter-area .horizontal-elem {
   display: inline-block;
+}
+
+#stream-filter-area .dropdown {
+  width: 120px;
 }
 
 #subject-filter-area select {

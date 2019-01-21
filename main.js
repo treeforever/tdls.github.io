@@ -31,12 +31,8 @@ async function handleHashChange(newURL) {
   }
 }
 
-function stripLeadingCategory(evTitle) {
-  return evTitle.slice(evTitle.indexOf(']') + 1);
-}
-
 async function showEvent(eventId) {
-  const { pastEvents, futureEvents } = await getEventsAndSubjects();
+  const { pastEvents, futureEvents } = await getEventsAndGroupings();
   const ev = futureEvents.find(ev => getEventId(ev) === eventId) || pastEvents.find(ev => getEventId(ev) === eventId);
 
   const expired = eventExpired(ev);
@@ -46,7 +42,7 @@ async function showEvent(eventId) {
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="title">
-              ${stripLeadingCategory(ev.title)}
+              ${ev.title}
           </h4>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -211,6 +207,17 @@ $.fn.dataTable.ext.search.push((_, data) => {
   }
 });
 
+// stream filter implementation
+$.fn.dataTable.ext.search.push((_, data) => {
+  const val = $('#stream-filter').val();
+  if (!val || val.toLowerCase() === '[all]') {
+    return true;
+  } else {
+    const stream = data[2].trim();
+    return val === stream;
+  }
+});
+
 function matchAll(queries, candidates) {
   return queries.every(q => !!candidates.find(c => c === q));
 }
@@ -251,7 +258,7 @@ function venueToLink(name) {
 }
 
 async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLinksElem) {
-  const { pastEvents, futureEvents } = await getEventsAndSubjects();
+  const { pastEvents, futureEvents } = await getEventsAndGroupings();
 
   upcomingElem.innerHTML = `
   <ul class="list-group upcoming-event-list">
@@ -285,6 +292,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     ['Details'].map(lbl => `
   <th></th>
   <th></th>
+  <th></th>
   <th>${lbl}</th>
   `).join('')
     }</tr>
@@ -297,6 +305,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     </td>
     <td>
     ${ev.subjects.join(', ')}
+    </td>
+    <td>
+    ${ev.type}
     </td>
     <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
       <div class="row">
@@ -339,22 +350,22 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     order: [[0, "desc"]],
     // https://datatables.net/reference/option/dom
     dom: `
-      <'row'<'col-sm-12 col-md-12 filter-tools' f <"#subject-filter-area"> l>>
+      <'row'<'col-sm-12 col-md-12 filter-tools' f <"#stream-filter-area"> <"#subject-filter-area"> l>>
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
       { orderSequence: ["desc"], targets: [0] },
       // subjects
-      { visible: false, targets: [0, 1] },
+      { visible: false, targets: [0, 1, 2] },
     ],
     pageLength: 5
   });
 
-  const { subjects } = await getEventsAndSubjects();
+  const { subjects, streams } = await getEventsAndGroupings();
   const subjectFilterElem = document.querySelector('#subject-filter-area');
   subjectFilterElem.innerHTML = `
     <div class="horizontal-elem">
-    Filter by subject: 
+    By subject: 
     </div>
     <div class="horizontal-elem">
       <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
@@ -364,9 +375,27 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
       </select>
     </div>
   `;
-
   const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
   $(subjectFilterSelect).on('changed.bs.select', () => {
+    table.draw();
+  });
+
+  const streamFilterElem = document.querySelector('#stream-filter-area');
+  streamFilterElem.innerHTML = `
+    <div class="horizontal-elem">
+    By stream: 
+    </div>
+    <div class="horizontal-elem">
+      <select id="stream-filter" class="selectpicker">
+          <option>[All]</option>
+        ${ streams.map(s => `
+          <option>${s}</option>
+        `).join('')}
+      </select>
+    </div>
+  `;
+  const streamFilterSelect = streamFilterElem.querySelector('#stream-filter');
+  $(streamFilterSelect).on('changed.bs.select', () => {
     table.draw();
   });
 
@@ -465,7 +494,7 @@ async function getRawLinkedInData() {
 }
 
 
-const getEventsAndSubjects = runOnlyOnce(async () => {
+const getEventsAndGroupings = runOnlyOnce(async () => {
   const data = await getRawEventData();
   const [rawHeader, ...rawRows] = data.values;
 
@@ -488,7 +517,15 @@ const getEventsAndSubjects = runOnlyOnce(async () => {
     return subjects.concat(newSubjects);
   }, []);
 
-  return { pastEvents, futureEvents, subjects };
+  const streams = pastEvents.reduce((streams, ev) => {
+    const newStreams = [];
+    if (streams.indexOf(ev.type) < 0) {
+      newStreams.push(ev.type);
+    }
+    return streams.concat(newStreams);
+  }, []);
+
+  return { pastEvents, futureEvents, subjects, streams };
 });
 
 const getLinkedInProfiles = runOnlyOnce(async () => {
@@ -542,20 +579,6 @@ const READABLE_EVENT_TYPE = {
   'main': 'Main Stream'
 }
 
-function getEventType(title) {
-  if (!title) {
-    return null;
-  }
-  const titleLower = title.toLowerCase();
-  if (titleLower.startsWith('[classics]')) {
-    return "classics";
-  } else if (titleLower.startsWith('[fasttrack]')) {
-    return 'fasttrack';
-  } else {
-    return 'regular';
-  }
-}
-
 function rawRowToRow(rawHeader, rawRow) {
   const title = rawRow[rawHeader.indexOf('Title')];
   const venue = rawRow[rawHeader.indexOf('Venue')];
@@ -578,8 +601,8 @@ function rawRowToRow(rawHeader, rawRow) {
   const type = rawRow[rawHeader.indexOf('Stream')];
   const subjects = (rawRow[rawHeader.indexOf('Subject Matter Area')] || '').split(',').map(s => s.trim()).filter(s => s);
 
-  const dateAtNidnight = new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, ''));
-  const dateAtSeven = new Date(dateAtNidnight.getTime() + 19 * 60 * 60 * 1000);
+  const dateAtMidnight = new Date((rawRow[rawHeader.indexOf('Date')] || '').replace(/\./g, ''));
+  const dateAtSeven = new Date(dateAtMidnight.getTime() + 19 * 60 * 60 * 1000);
   return {
     title,
     date: dateAtSeven,
@@ -591,8 +614,8 @@ function rawRowToRow(rawHeader, rawRow) {
     type,
     paper,
     slides,
-    dataset1,
     subjects,
+    dataset1,
     dataset2,
     code_unofficial,
     code_official,
