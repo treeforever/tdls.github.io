@@ -75,6 +75,10 @@ async function showEvent(eventId) {
               <dt class="col-sm-4">Discussion facilitators: <i class="fa fa-external-link"></i></dt> 
               <dd class="col-sm-8">${((await Promise.all(ev.facilitators.map(nameToLink))).map(f => `<strong>${f}</strong>`)).join(', ')}</dd>
             `}
+            ${ev.video ? `
+            <dt class="col-sm-4">Recording: <i class="fa fa-external-link"></i></dt>
+            <dd class="col-sm-8">${ytThumbLink(ev.video)}</dd>
+          ` : ''}
             ${ev.paper ? `
               <dt class="col-sm-4">Paper: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a></dd>
@@ -83,10 +87,6 @@ async function showEvent(eventId) {
               <dt class="col-sm-4">Slides: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a></dd>
             ` : ''}            
-            ${ev.video ? `
-              <dt class="col-sm-4">Recording: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a></dd>
-            ` : ''}
             ${ev.reddit ? `
               <dt class="col-sm-4">Reddit: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.reddit}"><i class="fa fa fa-reddit fa-lg"></i></a></dd>
@@ -107,7 +107,6 @@ async function showEvent(eventId) {
               <dt class="col-sm-4">Dataset 2: <i class="fa fa-external-link"></i></dt>
               <dd class="col-sm-8"><a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a></dd>
             ` : ''}
-            <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
             ${!expired ? ` 
             <dt class="col-sm-4">Agenda:</dt> 
             <dd class="col-sm-8">
@@ -310,6 +309,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     ${ev.type}
     </td>
     <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
+      <div class="container">
       <div class="row">
         <div class="col-lg-2 col-sm-12">
           ${toShortDateString(ev.date)}
@@ -325,17 +325,23 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
           ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
           <br />Venue: <strong>${venueToLink(ev.venue)}</strong></p>
         </div> 
-        <div class="col-lg-3 col-sm-12">
-          &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
-          ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
-          ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
-          ${ev.video ? `&nbsp;<a target="_blank" href="${ev.video}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-          ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
-          ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-          ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-          ${ev.dataset1 ? `&nbsp;<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
-          ${ev.dataset2 ? `&nbsp;<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+        <div class="col-lg-1 col-12">
+          ${ev.video ? ytThumbLink(ev.video) : ''}
+        </div>
+        <div class="col-lg-2 col-12">
+          <div class="toolbar">
+            &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
+            ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+            ${ev.video ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
+            ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+            ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
+            ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+            ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+            ${ev.dataset1 ? `&nbsp;<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+            ${ev.dataset2 ? `&nbsp;<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+          </div>
         </div>       
+      </div>
       </div>
     </td>
   </tr>
@@ -463,6 +469,36 @@ function splitEvents(events) {
   future = future.sort((e1, e2) => e1.date - e2.date);
 
   return [past, future];
+}
+
+function getYouTubeId(url) {
+  let id = '';
+  url = url.replace(/(>|<)/gi, '').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+  if (url[2] !== undefined) {
+    id = url[2].split(/[^0-9a-z_\-]/i);
+    id = id[0];
+  }
+  else {
+    id = url;
+  }
+  return id;
+}
+
+function ytThumb(url) {
+  const id = getYouTubeId(url);
+  return `https://img.youtube.com/vi/${id}/0.jpg`;
+}
+
+function ytThumbLink(url) {
+  return `
+  <a class="youtube" href="${url}" target="_blank">
+    <div class="youtube-thumb-outer">
+      <img src="${ytThumb(url)}" />
+      <div class="overlay">
+      </div>
+    </div>
+  </a>
+  `
 }
 
 async function getRawEventData() {
