@@ -343,6 +343,16 @@ img.profile {
   margin: 10px;
 }
 
+
+@media (max-width: 576px) {
+  .community-charts .chart {
+    border-top: #888 dashed 1px;
+  }  
+  .community-charts .chart:first-child {
+    border-top: none;
+  }
+}
+
 div.committee {
   align-items: center;
 }
