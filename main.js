@@ -24,8 +24,8 @@ async function handleHashChange(newURL) {
     return;
   } else {
     const hash = newURL.substring(newURL.indexOf('#') + 1);
-    if (hash.startsWith('events/')) {
-      const eventId = hash.substring('events/'.length);
+    if (hash.startsWith('/events/')) {
+      const eventId = hash.substring('/events/'.length);
       await showEvent(eventId);
     }
   }
@@ -141,7 +141,7 @@ async function showEvent(eventId) {
   });
 
   const onModalClose = (e) => {
-    history.pushState(null, null, '#events');
+    history.pushState(null, null, '#/events');
     $('event-popup').off('onModalClose');
   };
 
@@ -273,7 +273,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
           ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
         </p>
         <h5 class="title">
-          <a class="title" href="#events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
+          <a class="title" href="#/events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
           ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
         </h5>
         ${ev.lead.indexOf('?') < 0 ? `Discussion Lead: <strong>${leadLink}</strong>` : ''}
@@ -316,7 +316,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
         </div>
         <div class="col-lg-4 col-sm-12">
           <p class="title">
-            <a class="title" href="#events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
+            <a class="title" href="#/events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
           </p>
         </div>
         <div class="col-lg-3 col-sm-12">
@@ -330,7 +330,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
         </div>
         <div class="col-lg-2 col-12">
           <div class="toolbar">
-            &nbsp;<a class="title" href="#events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
+            &nbsp;<a class="title" href="#/events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
             ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
             ${ev.video ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
             ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
