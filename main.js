@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   registerRoutes();
   handleHashChange(window.location.href);
   fixOffset();
+  fixNavbarCollapse();
 })
 
 function registerRoutes() {
@@ -29,6 +30,12 @@ async function handleHashChange(newURL) {
       await showEvent(eventId);
     }
   }
+}
+
+function fixNavbarCollapse() {
+  $('.navbar-collapse a:not(.dropdown-toggle)').on('click', function () {
+    $('.navbar-toggler').click(); //bootstrap 4.x
+  });
 }
 
 async function showEvent(eventId) {
