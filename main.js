@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('past-events'),
     document.getElementById('site-contributors'),
     document.getElementById('useful-links'),
+    document.getElementById('sma-links')
   );
 
   registerRoutes();
@@ -244,6 +245,34 @@ async function nameToLink(name) {
   }
 }
 
+const SMA = [
+  ['General Areas of Machine Learning', [
+    ['Deep Learning', 'various architectures, explainability, relation to geometry, etc'],
+    ['Reinforcement Learning'],
+    ['Generative Adversarial Networks'],
+    ['Quantum Machine Learning'],
+    ['Representation Learning', 'auto-encoders, transfer learning, etc'],
+    ['General Machine Learning Theory'],
+  ]],
+  ['Applications of Machine Learning', [
+    ['Natural Language Processing'],
+    ['Natural Language Generation'],
+    ['NN on Graph'],
+    ['ML in health care'],
+    ['NN on Source Code'],
+    ['Recommender Engines'],
+    ['Computer Vision'],
+    ['Speech Recognition']
+  ]],
+  ['Other Statistical Methods', [
+    ['Bayesian Statistics'],
+    ['Experimental Design'],
+    ['Graphical Models'],
+    ['Bayesian Networks'],
+    ['Information Geometry']
+  ]]
+];
+
 function venueToLink(name) {
   const url = {
     'RBC': 'https://www.rbcroyalbank.com',
@@ -265,7 +294,8 @@ function venueToLink(name) {
   }
 }
 
-async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLinksElem) {
+async function assembleEvents(
+  upcomingElem, pastElem, contributorsElem, usefulLinksElem, smaLinksElem) {
   const { pastEvents, futureEvents } = await getEventsAndGroupings();
 
   upcomingElem.innerHTML = `
@@ -467,6 +497,21 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     </div>
   `).join('\n')}
   </div>
+  `;
+
+  smaLinksElem.innerHTML = `
+    <dl>
+    ${SMA.map(([g, areas]) => `
+    <dt>${g}</dt>
+    <dd>
+      <ul class="list-unstyled">
+      ${areas.map(([title, desc]) => `
+      <li>${title}${desc ? `(${desc})` : ''}</li>
+      `).join('')}
+      </ul>
+    </dd>
+    `).join('')}
+  </dl>
   `;
 
 }
