@@ -277,6 +277,10 @@ h2.inline, h3.inline, h4.inline,h5.inline {
   min-width: 200px;
 }
 
+.dropdown.active {
+  border: 4px solid yellow;
+}
+
 #subject-filter-area, #stream-filter-area {
   margin-right: 2em;
 }

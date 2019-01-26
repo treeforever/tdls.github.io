@@ -28,6 +28,8 @@ async function handleHashChange(newURL) {
     if (hash.startsWith('/events/')) {
       const eventId = hash.substring('/events/'.length);
       await showEvent(eventId);
+    } else if (hash.startsWith('/subjects/')) {
+      const subject = hash.substring('/subjects/'.length);
     }
   }
 }
@@ -216,7 +218,7 @@ $.fn.dataTable.ext.search.push((_, data) => {
 // stream filter implementation
 $.fn.dataTable.ext.search.push((_, data) => {
   const val = $('#stream-filter').val();
-  if (!val || val.toLowerCase() === '[all]') {
+  if (!val || val.toLowerCase() === 'all') {
     return true;
   } else {
     const stream = data[2].trim();
@@ -280,8 +282,11 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
           ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
         </p>
         <h5 class="title">
-          <a class="title" href="#/events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
-          ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
+          <a class="title" href="#/events/${getEventId(ev)}">
+            ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
+            ${ev.title.toLowerCase()}
+          </a>
+           ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
         </h5>
         ${ev.lead.indexOf('?') < 0 ? `Discussion Lead: <strong>${leadLink}</strong>` : ''}
         ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + facLinks.map(f => `<strong>${f}</strong>`).join(', ')}
@@ -323,7 +328,9 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
         </div>
         <div class="col-lg-4 col-sm-12">
           <p class="title">
-            <a class="title" href="#/events/${getEventId(ev)}">${ev.title.toLowerCase()}</a>
+            <a class="title" href="#/events/${getEventId(ev)}">
+              ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
+              ${ev.title.toLowerCase()}</a>
           </p>
         </div>
         <div class="col-lg-3 col-sm-12">
@@ -390,6 +397,11 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
   `;
   const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
   $(subjectFilterSelect).on('changed.bs.select', () => {
+    if ($(subjectFilterSelect).val() && $(subjectFilterSelect).val().length > 0) {
+      $(subjectFilterSelect).parent().addClass('active');
+    } else {
+      $(subjectFilterSelect).parent().removeClass('active');
+    }
     table.draw();
   });
 
@@ -400,7 +412,7 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
     </div>
     <div class="horizontal-elem">
       <select id="stream-filter" class="selectpicker">
-          <option>[All]</option>
+          <option value="all">[All]</option>
         ${ streams.map(s => `
           <option>${s}</option>
         `).join('')}
@@ -409,6 +421,11 @@ async function assembleEvents(upcomingElem, pastElem, contributorsElem, usefulLi
   `;
   const streamFilterSelect = streamFilterElem.querySelector('#stream-filter');
   $(streamFilterSelect).on('changed.bs.select', () => {
+    if ($(streamFilterSelect).val() !== 'all') {
+      $(streamFilterSelect).parent().addClass('active');
+    } else {
+      $(streamFilterSelect).parent().removeClass('active');
+    }
     table.draw();
   });
 
@@ -617,9 +634,11 @@ function runOnlyOnce(fetcher) {
 }
 
 const READABLE_EVENT_TYPE = {
-  'classics': 'Classics Stream',
-  'fasttrack': 'Fast Track Stream',
-  'main': 'Main Stream'
+  'classics': 'Classics',
+  'fasttrack': 'Fast Track',
+  'main': 'Main Stream',
+  'authors': 'Authors Stream',
+  'code-review': 'Code Review'
 }
 
 function rawRowToRow(rawHeader, rawRow) {
