@@ -16,6 +16,7 @@ body {
     #fff 10px,
     #eee 20px
   );
+  position: relative;
 }
 
 h2.inline, h3.inline, h4.inline,h5.inline {
