@@ -153,7 +153,8 @@ async function showEvent(eventId) {
 
     $('#event-popup #copy-link').popover({
       content: 'Link to this event was copied to clipboard.',
-      placement: 'left'
+      placement: 'left',
+      trigger: 'focus'
     })
   });
 
