@@ -31,6 +31,13 @@ async function handleHashChange(newURL) {
       await showEvent(eventId);
     } else if (hash.startsWith('/subjects/')) {
       const subject = hash.substring('/subjects/'.length);
+      const pastEventsElem = document.getElementById('past-events');
+      $('#subject-filter').val(subject);
+      $('#subject-filter').change();
+
+      setTimeout(() => {
+        pastEventsElem.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
     }
   }
 }
@@ -211,7 +218,7 @@ $.fn.dataTable.ext.search.push((_, data) => {
   if (!val || val.length === 0) {
     return true;
   } else {
-    const subjects = data[1].split(',').map(s => s.trim());
+    const subjects = data[1].split(',').map(s => spacedToDashed(s.trim()));
     return matchAll(val, subjects);
   }
 });
@@ -272,6 +279,10 @@ const SMA = [
     ['Information Geometry']
   ]]
 ];
+
+function spacedToDashed(s) {
+  return s.toLowerCase().replace(/ /g, '-');
+}
 
 function venueToLink(name) {
   const url = {
@@ -400,7 +411,7 @@ async function assembleEvents(
     order: [[0, "desc"]],
     // https://datatables.net/reference/option/dom
     dom: `
-      <'row'<'col-sm-12 col-md-12 filter-tools' f <"#stream-filter-area"> <"#subject-filter-area"> l>>
+      <'row'<'col-sm-12 col-md-12 filter-tools' <"#stream-filter-area"> <"#subject-filter-area"> f l>>
       <'row'<'col-sm-12'tr>>
       <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
     columnDefs: [
@@ -420,7 +431,7 @@ async function assembleEvents(
     <div class="horizontal-elem">
       <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
         ${ subjects.map(s => `
-          <option>${s}</option>
+          <option value="${spacedToDashed(s)}">${s}</option>
         `).join('')}
       </select>
     </div>
@@ -460,19 +471,21 @@ async function assembleEvents(
   });
 
   const contributors = await getContributors();
-  contributorsElem.innerHTML = `
-  <div class="row">
-  ${contributors.map(c => `
-    <div class="media-top"> 
-      <div class="col-lg-3 col-sm-6">
-        <a href="${c.html_url}" target="_blank" data-toggle="tooltip" title="${c.login} contributed ${c.contributions} commit(s)">
-          <img class="rounded-circle" src="${c.avatar_url}" class="mr-3" width="50px" />
-        </a> 
+  if (contributors && contributors.length) {
+    contributorsElem.innerHTML = `
+    <div class="row">
+    ${contributors.map(c => `
+      <div class="media-top"> 
+        <div class="col-lg-3 col-sm-6">
+          <a href="${c.html_url}" target="_blank" data-toggle="tooltip" title="${c.login} contributed ${c.contributions} commit(s)">
+            <img class="rounded-circle" src="${c.avatar_url}" class="mr-3" width="50px" />
+          </a> 
+        </div>
       </div>
-    </div>
-  `).join('\n')}
-
-  </div>`
+    `).join('\n')}
+  
+    </div>`
+  }
 
   usefulLinksElem.innerHTML = `
   <div class="row">
@@ -506,7 +519,10 @@ async function assembleEvents(
     <dd>
       <ul class="list-unstyled">
       ${areas.map(([title, desc]) => `
-      <li>${title}${desc ? `(${desc})` : ''}</li>
+      <li>
+        ${subjects.indexOf(title) < 0 ? title : `<a href="/#/subjects/${spacedToDashed(title)}">${title}</a>`}
+         ${desc ? `(${desc})` : ''}
+      </li>
       `).join('')}
       </ul>
     </dd>

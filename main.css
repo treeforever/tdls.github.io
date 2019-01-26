@@ -313,6 +313,10 @@ h2.inline, h3.inline, h4.inline,h5.inline {
   display: flex;
 }
 
+#sma-links a {
+  color: var(--main-color);
+}
+
 #get-engaged h4 {
   font-style: italic;
   margin-bottom: 1em;
