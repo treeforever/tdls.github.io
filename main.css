@@ -309,6 +309,12 @@ h2.inline, h3.inline, h4.inline,h5.inline {
   display: flex;
 }
 
+#get-engaged h4 {
+  font-style: italic;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
 #events h3 {
   margin-top: 30px;
   margin-bottom: 20px;
