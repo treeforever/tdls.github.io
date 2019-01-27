@@ -410,8 +410,6 @@ async function assembleEvents(
   `;
 
   const cards = await Promise.all(pastEvents.map(async (ev, index) => {
-    console.log(index);
-
     const cardTitle = `<h5><a class="card-title" href="#/events/${getEventId(ev)}">
       ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
       ${ev.title.toLowerCase()}</a></h5>`
@@ -441,11 +439,18 @@ async function assembleEvents(
   </div>`
 
   const slidesCount = Math.ceil(cards.length / cardsCountPerSlide);
-  const nonActiveCarousels = Array.from({ length: slidesCount }).map((item, index) => `
+  const nonActiveCarousels = Array.from({ length: slidesCount }).map((item, index) => {
+    const currentCards = cards.slice(cardsCountPerSlide * (index + 1), cardsCountPerSlide * (index + 2))
+    const getPaddedLastSlide = () => {
+      const lastSlideCardsNum = cards.length % cardsCountPerSlide;
+      return [...currentCards, ...cards.slice(0, cardsCountPerSlide - lastSlideCardsNum)];
+    }
+    return `
   <div class="carousel-item">
-    <div class="card-deck">${cards.slice(cardsCountPerSlide * (index + 1), cardsCountPerSlide * (index + 2)).join('\n')}</div>
+    <div class="card-deck">${  index !== slidesCount - 2 ? currentCards.join('\n') : getPaddedLastSlide().join('\n')}</div>
   </div>    
-    `)
+    `
+  })
 
   const carousel = `
   <div id="past-events-carousel" class="carousel slide" data-ride="carousel">
