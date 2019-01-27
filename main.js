@@ -415,6 +415,7 @@ async function assembleEvents(
     const cardTitle = `<h5><a class="card-title" href="#/events/${getEventId(ev)}">
       ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
       ${ev.title.toLowerCase()}</a></h5>`
+
     const description = `<p class="card-text">Discussion lead by ${await nameToLink(ev.lead)} 
       ${ev.facilitators.length != 0 ? ` and facilitated by 
       ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
@@ -422,7 +423,7 @@ async function assembleEvents(
 
     return (`
           <div class="card">
-            <img class="card-img-top" src=${ev.video ? ytThumb(ev.video) : ''} alt="Card image cap">
+            <img class="card-img-top" src=${ev.video ? ytThumb(ev.video) : 'images/placeholder.jpg'} alt="Card image cap">
             <div class="card-body">
               ${cardTitle}
               ${description}
@@ -431,30 +432,34 @@ async function assembleEvents(
           </div>`)
   }))
 
-  const cardCountPerSlide = 5;
-  const activeCarousel = `<div class="card-deck">
-${cards.slice(0, cardCountPerSlide).join('\n')}
-</div>`
-  const nonActiveCarousel = `<div class="card-deck">
-${cards.slice(cardCountPerSlide, cardCountPerSlide * 2).join('\n')}
-</div>`
+  const cardsCountPerSlide = 3;
+  const activeCarousel = `
+  <div class="carousel-item active">
+    <div class="card-deck">
+      ${cards.slice(0, cardsCountPerSlide).join('\n')}
+    </div>
+  </div>`
+
+  const slidesCount = Math.ceil(cards.length / cardsCountPerSlide);
+  const nonActiveCarousels = Array.from({ length: slidesCount }).map((item, index) => `
+  <div class="carousel-item">
+    <div class="card-deck">${cards.slice(cardsCountPerSlide * (index + 1), cardsCountPerSlide * (index + 2)).join('\n')}</div>
+  </div>    
+    `)
+
   const carousel = `
   <div id="past-events-carousel" class="carousel slide" data-ride="carousel">
-    <a class="past-events-carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="past-events-carousel-control-prev" href="#past-events-carousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="past-events-carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="past-events-carousel-control-next" href="#past-events-carousel" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        ${activeCarousel}
-      </div>
-      <div class="carousel-item">
-        ${nonActiveCarousel}
-      </div>
+      ${activeCarousel}
+      ${nonActiveCarousels}
     </div>
   </div>
   `
