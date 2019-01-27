@@ -437,6 +437,10 @@ section h3 {
   margin-bottom: 20px;
 }
 
+#useful-links > ul {
+  list-style-type: none;
+}
+
 @media (max-width: 576px) { 
   footer .copyright, footer .back-to-top {
     display: none;
