@@ -489,7 +489,7 @@ async function assembleEvents(
   }
 
   usefulLinksElem.innerHTML = `
-  <div class="row">
+  <ul>
   ${[
       ["Distill Pub", "https://distill.pub/about/"],
       ["Papers with Code", "https://paperswithcode.com/"],
@@ -498,19 +498,13 @@ async function assembleEvents(
       ["State of the Art in AI", "https://www.stateoftheart.ai/"],
       ["TDLS Classic Papers", "https://docs.google.com/spreadsheets/d/1PTaFyE2AsgTd0p7A5aHvEw0lLzw-9OXJC8Wa1Bg10ug"],
     ].map(([name, link]) => `
-    <div class="col-lg-3 col-sm-6">
+    <li>
       <a href="${link}" target="_blank">
-        <div class="card border-primary mb-3" style="width: 100%;">
-          <div class="card-body">
-            <h5 class="card-title">${name}</h5>
-            <p class="card-text"></p>
-            see more
-          </div>
-        </div>
+        <p class="card-title">${name}</p> 
       </a>
-    </div>
+    </li>
   `).join('\n')}
-  </div>
+  </ul>
   `;
 
   smaLinksElem.innerHTML = `
