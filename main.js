@@ -339,72 +339,130 @@ async function assembleEvents(
   </ul>
   `;
 
-  pastElem.innerHTML = `
-  <table class="table table-striped table-condensed past-event-list" id="past-event-list">
-  <thead><tr>${
+  // here
+  const pastEventsTable = `
+    <table class="table table-striped table-condensed past-event-list" id="past-event-list">
+    <thead><tr>${
     ['Details'].map(lbl => `
-  <th></th>
-  <th></th>
-  <th></th>
-  <th>${lbl}</th>
-  `).join('')
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>${lbl}</th>
+    `).join('')
     }</tr>
-  </thead>
-  <tbody>
-  ${(await Promise.all(pastEvents.map(async ev => `
-  <tr class="event-${ev.type}">
-    <td>
-    ${toShortDateString(ev.date)}
-    </td>
-    <td>
-    ${ev.subjects.join(', ')}
-    </td>
-    <td>
-    ${ev.type}
-    </td>
-    <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
-      <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-sm-12">
-          ${toShortDateString(ev.date)}
-        </div>
-        <div class="col-lg-4 col-sm-12">
-          <p class="title">
-            <a class="title" href="#/events/${getEventId(ev)}">
-              ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
-              ${ev.title.toLowerCase()}</a>
-          </p>
-        </div>
-        <div class="col-lg-3 col-sm-12">
-          <p>Discussion lead by ${await nameToLink(ev.lead)} 
-          ${ev.facilitators.length != 0 ? ` and facilitated by 
-          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
-          <br />Venue: <strong>${venueToLink(ev.venue)}</strong></p>
-        </div> 
-        <div class="col-lg-1 col-12">
-          ${ev.video ? ytThumbLink(ev.video) : ''}
-        </div>
-        <div class="col-lg-2 col-12">
-          <div class="toolbar">
-            &nbsp;<a class="title" href="#/events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
-            ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
-            ${ev.video ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-            ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
-            ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
-            ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-            ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-            ${ev.dataset1 ? `&nbsp;<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
-            ${ev.dataset2 ? `&nbsp;<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+    </thead>
+    <tbody>
+    ${(await Promise.all(pastEvents.map(async ev =>
+      `
+    <tr class="event-${ev.type}">
+      <td>
+      ${toShortDateString(ev.date)}
+      </td>
+      <td>
+      ${ev.subjects.join(', ')}
+      </td>
+      <td>
+      ${ev.type}
+      </td>
+      <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
+        <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-sm-12">
+            ${toShortDateString(ev.date)}
           </div>
-        </div>       
+          <div class="col-lg-4 col-sm-12">
+            <p class="title">
+              <a class="title" href="#/events/${getEventId(ev)}">
+                ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
+                ${ev.title.toLowerCase()}</a>
+            </p>
+          </div>
+          <div class="col-lg-3 col-sm-12">
+            <p>Discussion lead by ${await nameToLink(ev.lead)} 
+            ${ev.facilitators.length != 0 ? ` and facilitated by 
+            ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
+            <br />Venue: <strong>${venueToLink(ev.venue)}</strong></p>
+          </div> 
+          <div class="col-lg-1 col-12">
+            ${ev.video ? ytThumbLink(ev.video) : ''}
+          </div>
+          <div class="col-lg-2 col-12">
+            <div class="toolbar">
+              &nbsp;<a class="title" href="#/events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
+              ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
+              ${ev.video ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
+              ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+              ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
+              ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+              ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
+              ${ev.dataset1 ? `&nbsp;<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+              ${ev.dataset2 ? `&nbsp;<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
+            </div>
+          </div>       
+        </div>
+        </div>
+      </td>
+    </tr>
+    `
+    ))).join('')}
+    </tbody>
+    </table>
+  `;
+
+  const cards = await Promise.all(pastEvents.map(async (ev, index) => {
+    console.log(index);
+
+    const cardTitle = `<h5><a class="card-title" href="#/events/${getEventId(ev)}">
+      ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
+      ${ev.title.toLowerCase()}</a></h5>`
+    const description = `<p class="card-text">Discussion lead by ${await nameToLink(ev.lead)} 
+      ${ev.facilitators.length != 0 ? ` and facilitated by 
+      ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
+      <br />Venue: <strong>${venueToLink(ev.venue)}</strong></p>`
+
+    return (`
+          <div class="card">
+            <img class="card-img-top" src=${ev.video ? ytThumb(ev.video) : ''} alt="Card image cap">
+            <div class="card-body">
+              ${cardTitle}
+              ${description}
+              <p class="card-text"><small class="text-muted">${toShortDateString(ev.date)}</small></p>
+            </div>
+          </div>`)
+  }))
+
+  const cardCountPerSlide = 5;
+  const activeCarousel = `<div class="card-deck">
+${cards.slice(0, cardCountPerSlide).join('\n')}
+</div>`
+  const nonActiveCarousel = `<div class="card-deck">
+${cards.slice(cardCountPerSlide, cardCountPerSlide * 2).join('\n')}
+</div>`
+  const carousel = `
+  <div id="past-events-carousel" class="carousel slide" data-ride="carousel">
+    <a class="past-events-carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="past-events-carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        ${activeCarousel}
       </div>
+      <div class="carousel-item">
+        ${nonActiveCarousel}
       </div>
-    </td>
-  </tr>
-  `))).join('')}
-  </tbody>
-  </table>
-`;
+    </div>
+  </div>
+  `
+
+
+
+  // pastElem.innerHTML = pastEventsTable
+  pastElem.innerHTML = carousel
 
   // load up DataTable for cool gadgets such as pagination, sorting and search
   const dataTableElem = pastElem.querySelector('#past-event-list');
@@ -427,16 +485,16 @@ async function assembleEvents(
   const subjectFilterElem = document.querySelector('#subject-filter-area');
   subjectFilterElem.innerHTML = `
     <div class="horizontal-elem">
-    By subject: 
+            By subject:
     </div>
-    <div class="horizontal-elem">
-      <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
-        ${ subjects.map(s => `
+          <div class="horizontal-elem">
+            <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
+              ${subjects.map(s => `
           <option value="${spacedToDashed(s)}">${s}</option>
         `).join('')}
-      </select>
-    </div>
-  `;
+            </select>
+          </div>
+          `;
   const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
   $(subjectFilterSelect).on('changed.bs.select', () => {
     if ($(subjectFilterSelect).val() && $(subjectFilterSelect).val().length > 0) {
@@ -450,17 +508,17 @@ async function assembleEvents(
   const streamFilterElem = document.querySelector('#stream-filter-area');
   streamFilterElem.innerHTML = `
     <div class="horizontal-elem">
-    By stream: 
+            By stream:
     </div>
-    <div class="horizontal-elem">
-      <select id="stream-filter" class="selectpicker">
-          <option value="all">[All]</option>
-        ${ streams.map(s => `
+          <div class="horizontal-elem">
+            <select id="stream-filter" class="selectpicker">
+              <option value="all">[All]</option>
+              ${streams.map(s => `
           <option>${s}</option>
         `).join('')}
-      </select>
-    </div>
-  `;
+            </select>
+          </div>
+          `;
   const streamFilterSelect = streamFilterElem.querySelector('#stream-filter');
   $(streamFilterSelect).on('changed.bs.select', () => {
     if ($(streamFilterSelect).val() !== 'all') {
@@ -490,7 +548,7 @@ async function assembleEvents(
 
   usefulLinksElem.innerHTML = `
   <ul>
-  ${[
+            ${[
       ["Distill Pub", "https://distill.pub/about/"],
       ["Papers with Code", "https://paperswithcode.com/"],
       ["ArXiv", "https://arxiv.org/archive/cs"],
@@ -504,12 +562,12 @@ async function assembleEvents(
       </a>
     </li>
   `).join('\n')}
-  </ul>
-  `;
+          </ul>
+          `;
 
   smaLinksElem.innerHTML = `
     <dl>
-    ${SMA.map(([g, areas]) => `
+            ${SMA.map(([g, areas]) => `
     <dt>${g}</dt>
     <dd>
       <ul class="list-unstyled">
@@ -522,8 +580,8 @@ async function assembleEvents(
       </ul>
     </dd>
     `).join('')}
-  </dl>
-  `;
+          </dl>
+          `;
 
 }
 
@@ -572,13 +630,13 @@ function ytThumb(url) {
 function ytThumbLink(url) {
   return `
   <a class="youtube" href="${url}" target="_blank">
-    <div class="youtube-thumb-outer">
-      <img src="${ytThumb(url)}" />
-      <div class="overlay">
-      </div>
-    </div>
-  </a>
-  `
+            <div class="youtube-thumb-outer">
+              <img src="${ytThumb(url)}" />
+              <div class="overlay">
+              </div>
+            </div>
+          </a>
+          `
 }
 
 async function getRawEventData() {
@@ -768,9 +826,9 @@ function fixOffset() {
     /**
      * If the provided href is an anchor which resolves to an element on the
      * page, scroll to it.
-     * @param  {String} href
-     * @return {Boolean} - Was the href an anchor.
-     */
+ * @param  {String} href
+ * @return {Boolean} - Was the href an anchor.
+      */
     scrollIfAnchor: function (href, pushToHistory) {
       let match, rect, anchorOffset;
 
@@ -821,7 +879,7 @@ function fixOffset() {
   );
 }
 
-// https://spreadsheets.google.com/feeds/list/1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE/1/public/values?alt=json
-// TODO: implement scrolling
+    // https://spreadsheets.google.com/feeds/list/1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE/1/public/values?alt=json
+    // TODO: implement scrolling
 
-// https://stackoverflow.com/questions/32395988/highlight-menu-item-when-scrolling-down-to-section/32396543
+    // https://stackoverflow.com/questions/32395988/highlight-menu-item-when-scrolling-down-to-section/32396543
