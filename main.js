@@ -695,7 +695,7 @@ const READABLE_EVENT_TYPE = {
   'fasttrack': 'Fast Track',
   'main': 'Main Stream',
   'authors': 'Authors Stream',
-  'code-review': 'Code Review'
+  'codereview': 'Code Review'
 }
 
 function rawRowToRow(rawHeader, rawRow) {
