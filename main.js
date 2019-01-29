@@ -78,7 +78,7 @@ async function showEvent(eventId) {
             ${!expired ? ` 
               <dt class="col-sm-4">Venue:</dt> 
               <dd class="col-sm-8">
-                (Open only to TDLS members)
+                (TDLS Members: please refer to Slack or the calendar invite for location)
               </dd>`   : `
               <dt class="col-sm-4">Venue:</dt> 
               <dd class="col-sm-8">
