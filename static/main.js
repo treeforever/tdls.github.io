@@ -102,7 +102,7 @@ async function showEvent(eventId) {
             ` : ''}
             ${ev.slides ? `
               <dt class="col-sm-4">Slides: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a></dd>
+              <dd class="col-sm-8"><a target="_blank" href="/static/${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a></dd>
             ` : ''}            
             ${ev.reddit ? `
               <dt class="col-sm-4">Reddit: <i class="fa fa-external-link"></i></dt>
@@ -390,7 +390,7 @@ async function assembleEvents(
             &nbsp;<a class="title" href="#/events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
             ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
             ${ev.video ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-            ${ev.slides ? `&nbsp;<a target="_blank" href="${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
+            ${ev.slides ? `&nbsp;<a target="_blank" href="/static/${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
             ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
             ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
             ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}

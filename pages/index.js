@@ -1,0 +1,823 @@
+import Head from 'next/head'
+
+
+export default () => (
+  [
+    <Head>
+      <title>Toronto Deep Learning Series #TDLS</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <link rel="canonical" href="./index.html" />
+      <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" />
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="Community of intellectually curious individuals centered around technical review and discussion of advances in machine learning." />
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" crossOrigin="anonymous" />
+      <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css" />
+
+      <link href="static/main.css" rel="stylesheet" />
+      <link rel="icon" type="image/png" href="static/images/tdls_logo.png" />
+    </Head>,
+    <header id="main-navbar">
+      <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a className="navbar-brand" href="#welcome"><img src="static/images/tdls_logo.svg" style={{ height: "30px" }} /> TDLS</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Events
+            </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a className="dropdown-item" href="#streams">Streams</a>
+                <div className="dropdown-divider"></div>
+                <a className="dropdown-item" href="#upcoming-events">Upcoming Sessions</a>
+                <a className="dropdown-item" href="#past-events">Past Sessions</a>
+              </div>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#areas">Subject Areas</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#get-engaged">Get Engaged</a>
+            </li>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About Us
+            </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a className="dropdown-item" href="#about_us">Who are we?</a>
+                <div className="dropdown-divider"></div>
+                <a className="dropdown-item" href="#community">Our Community</a>
+                <a className="dropdown-item" href="#steering-committee">Steering Committee</a>
+                <a className="dropdown-item" href="#volunteers">Volunteers</a>
+                <a className="dropdown-item" href="#site-contributors">Website Contributors</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>,
+    <main role="main">
+      <section id="welcome">
+        <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+          <ol className="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img className="d-block w-100" src="static/images/slide_02.jpeg" alt="Second slide" />
+              <div className="carousel-caption d-none d-md-block bg-dark">
+                <h5>#tdls: intellectually curious individuals</h5>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img className="d-block w-100" src="static/images/slide_01.jpeg" alt="First slide" />
+              <div className="carousel-caption d-none d-md-block bg-dark">
+                <h5>#tdls: welcoming & supportive community</h5>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img className="d-block w-100" src="static/images/slide_03.jpeg" alt="Third slide" />
+              <div className="carousel-caption d-none d-md-block bg-dark">
+                <h5>#tdls: engaging technical discussions</h5>
+              </div>
+            </div>
+          </div>
+          <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+        <a className="scroll-button" href="#intro"><span></span></a>
+
+      </section>
+
+
+      <section className="container tdls-intro" id="intro">
+        <h1 className="title">Toronto Deep Learning Series (#TDLS)</h1>
+        <div className="abstract">
+          <p className="lead">
+            TDLS is a community of intellectually curious individuals, centered around technical
+            review and discussion
+            of advances in machine learning.
+      </p>
+          <p>
+            <a className="btn" href="#events">Our events...</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="events" className="container">
+        <hr />
+        <h2 className="inline">Events</h2>
+        &nbsp;(<a className="event-link" href="#upcoming-events">Upcoming</a>,
+    <a className="event-link" href="#past-events">Past</a>)
+    <p>We meet twice a week to review advances in machine learning in various "streams".
+      <br />
+          Click on each stream name to
+      know more about them and then explore our upcoming and past events.</p>
+        <ul className="list-inline legend-list" id="streams">
+          <li className="list-inline-item">
+            <a href="" className="legend-event-main" data-toggle="modal" data-target="#modal_main_stream">
+              <span className="legend main">&nbsp;</span>
+              &nbsp;Main stream<i className="fa fa-question"></i>
+            </a>
+          </li>
+          <li className="list-inline-item">
+            <a href="" data-toggle="modal" className="legend-event-classics" data-target="#modal_classics_stream">
+              <span className="legend classics"></span>
+              &nbsp;Classics Stream<i className="fa fa-question"></i>
+            </a>
+          </li>
+          <li className="list-inline-item">
+            <a href="" data-toggle="modal" className="legend-event-fasttrack" data-target="#modal_fast_stream">
+              <span className="legend fasttrack"></span>
+              &nbsp;Fast Track Stream<i className="fa fa-question"></i>
+            </a>
+          </li>
+          <li className="list-inline-item">
+            <a href="" data-toggle="modal" className="legend-event-codereview" data-target="#modal_codereview_stream">
+              <span className="legend codereview"></span>
+              &nbsp;Code Review Stream<i className="fa fa-question"></i>
+            </a>
+          </li>
+          <li className="list-inline-item">
+            <a href="" data-toggle="modal" className="legend-event-authors" data-target="#modal_authors_stream">
+              <span className="legend authors"></span>
+              &nbsp;Authors Stream<i className="fa fa-question"></i>
+            </a>
+          </li>
+          <li className="list-inline-item">
+            <span className="legend tentative"></span>&nbsp;
+            <span className="legend-event-tentative">Tentative Sessions</span>
+          </li>
+        </ul>
+        <div className="modal" tabIndex="-1" role="dialog" id="modal_main_stream">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Main Stream</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p>
+                  This stream is for recent papers. For these papers, our discussions are typically within a few months
+                  or up to a couple of years of publication.
+            </p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal" tabIndex="-1" role="dialog" id="modal_classics_stream">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Classics Stream</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p>
+                  This stream is for concept defining papers. These papers are typically older than those in the Main
+                  Stream.
+            </p>
+                <p>For inspiration, check out our <a href="https://docs.google.com/spreadsheets/d/1PTaFyE2AsgTd0p7A5aHvEw0lLzw-9OXJC8Wa1Bg10ug"
+                  target="_blank">classic paper list <i className="fa fa-external-link"></i></a>.</p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal" tabIndex="-1" role="dialog" id="modal_fast_stream">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Fast Track Stream</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body yt-player">
+                <p>
+                  This stream is for recent papers within a few weeks of publication.
+            </p>
+                <p>
+                  In our main stream, we build in time for revisions to settle and speakers to prepare. But when new
+                  papers seem particularly important to the machine learning community, we want to discuss them sooner!
+                  Hence, the Fast Track stream.
+            </p>
+                <iframe style={{ width: '100%', minHeight: '300px' }} src="https://www.youtube.com/embed/1jkmNnHs18M"
+                  frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen></iframe>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal" tabIndex="-1" role="dialog" id="modal_codereview_stream">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Main Stream</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p>
+                  This stream is for reviewing implementations of papers.
+            </p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal" tabIndex="-1" role="dialog" id="modal_authors_stream">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Classics Stream</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p>
+                  This stream is for papers presented by their original authors.
+            </p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Upcoming Sessions</h3>
+        <article id="upcoming-events">
+          Something went wrong. Please use a modern browser or contact administrator.
+    </article>
+        <h3 id="past-events-title">Past Sessions</h3>
+        <article id="past-events">
+          Something went wrong. Please use a modern browser or contact administrator.
+    </article>
+      </section>
+
+      <section id="areas" className="container">
+
+        <h2>Subject Matter Areas</h2>
+        <div className="row">
+          <div className="col-lg-6" id="sma-links">
+
+          </div>
+          <div className="col-lg-6">
+            <iframe width="100%" height="600" seamless frameBorder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRY6QXhp9sU4Y_ede25AEAwkSnS-xcOCQhxJMUfiq4xtWB04chEpkyDgWvFHSD0zakgSqnxuNzTGwk6/pubchart?oid=1131229791&format=interactive"></iframe>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="container" id="get-engaged">
+        <hr />
+        <h2>Get Engaged</h2>
+        <p>
+          Want to get involved? Here are some ways you can join in the fun - or email/tweet at us if you have other
+          thoughts or ideas!
+    </p>
+
+        <h4>Contribute to TDLS</h4>
+        <div className="row">
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Lead or facilitate discussions</h5>
+                <p className="card-text">We'd love to have you! Please send us an email or tweet at us with any potential
+              topics that you want to cover.</p>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20am%20interested%20to%20speak%20about:%20"
+                  target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:I%20am%20interested%20to%20speak%20at%20TDLS" target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Improve this site</h5>
+                <p className="card-text">Amazing! We're open source, so feel free to clone our GitHub repo, make changes,
+                  and
+              submit a pull request - or you can email or tweet at us with your suggestions.</p>
+                <a href="https://github.com/TDLS/tdls.github.io/blob/master/README.md" target="_blank">
+                  <i className="fa fa-github fa-2x"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20Change%20suggestion%20for%20TDLS%20website:%20"
+                  target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:Change%20suggestion%20for%20TDLS%20website"
+                  target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Papers</h5>
+                <p className="card-text"> We're all ears. Please send us an email or tweet at us with your favorite paper
+                  and
+              we'll put it on our list.</p>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20think%20you%20should%20cover%20X" target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:I%20think%20you%20should%20cover%20X" target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Own a new stream</h5>
+                <p className="card-text">Awesome! Please check out the details link below to learn more about what it
+                  takes
+              to own a stream, and write to us with your ideas.</p>
+                <p>
+                  <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modal_own_stream">
+                    Details
+              </button>
+                </p>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20want%20to%20own%20a%20stream" target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:%20I%20want%20to%20own%20a%20stream" target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Stay up to date</h4>
+        <div className="row">
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Subscribe to Learn More about TDLS</h5>
+
+                <div id="mc_embed_signup">
+                  <form action="https://science.us20.list-manage.com/subscribe/post?u=c7831af29c0c46bd5ec4c04c7&amp;id=9e6c32b697"
+                    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
+                    target="_blank" noValidate>
+                    <div id="mc_embed_signup_scroll">
+                      <div className="indicates-required"><span className="asterisk">*</span> indicates required</div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-EMAIL">Email Address <span className="asterisk">*</span>
+                        </label>
+                        <input type="email" value="" name="EMAIL" className="required email" id="mce-EMAIL" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-FNAME">First Name </label>
+                        <input type="text" value="" name="FNAME" className="" id="mce-FNAME" />
+                      </div>
+                      <div className="mc-field-group">
+                        <label htmlFor="mce-LNAME">Last Name </label>
+                        <input type="text" value="" name="LNAME" className="" id="mce-LNAME" />
+                      </div>
+                      <div id="mce-responses" className="clear">
+                        <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
+                        <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
+                      </div>
+                      <div
+                        style={{ position: 'absolute', left: '-5000px' }}
+                        aria-hidden="true"><input type="text"
+                          name="b_c7831af29c0c46bd5ec4c04c7_9e6c32b697"
+                          tabIndex="-1" value="" /></div>
+                      <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                        className="button" /></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">YouTube</h5>
+                <p className="card-text">To get updates about our videos subscribe to our YouTube channel for a front row
+              seat.</p>
+                <div className="g-ytsubscribe" data-channelid="UCfk3pS8cCPxOgoleriIufyg" data-layout="default" data-theme="default"
+                  data-count="default"></div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Reddit</h5>
+                <p className="card-text">We post our summaries, thoughts, and conclusions on Reddit. Please follow us on
+              Reddit, and be sure to share your thoughts with us!</p>
+                <a href="https://www.reddit.com/user/tdls_to" target="_blank">
+                  <i className="fa fa-reddit fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h4>For organizations</h4>
+
+        <div className="row">
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Companies</h5>
+                <p className="card-text">If you want to host us, please send us an email or tweet at us</p>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20We%20want%20to%20host%20TDLS" target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:%20We%20want%20to%20host%20TDLS" target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Student Groups at Universities</h5>
+                <p className="card-text">If you want to co-host an event with us, please send us an email or tweet at us</p>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20We%20want%20to%20co-host%20an%20event%20with%20TDLS"
+                  target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:%20We%20want%20to%20co-host%20an%20event%20with%20TDLS"
+                  target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-sm-6">
+            <div className="card border-primary mb-3">
+              <div className="card-body">
+                <h5 className="card-title">Meetup Organizer</h5>
+                <p className="card-text">We know lots of great folks who can speak about technical topics; check them out on
+              our YouTube channel.</p>
+                <a href="https://www.youtube.com/c/TorontoDeepLearningSeries" target="_blank">
+                  <i className="fa fa-youtube fa-2x"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20" target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:collaboration%20with%20meetups" target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div >
+        </div >
+        <div className="modal" tabIndex="-1" role="dialog" id="modal_own_stream">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">What does it take to own a new stream?</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <ul>
+                  <li>You define the stream, including: why it should exist; what it includes; who the target
+                    audience
+                    is; suggestions for the discussion panel; whether the session format needs to be different from
+                  typical; event cadence/frequency; etc.</li>
+                  <li>You coordinate with the steering committee members to make sure that there is a venue sorted
+                    out
+                  (although you're not responsible to secure the venue)</li>
+                  <li>You coordinate with the steering committee members to ensure that the recording is sorted out
+                  (although you're not responsible for doing the recording)</li>
+                  <li>You coordinate the discussion panel (leads and facilitators) for your sessions (including the
+                  paper they will present)</li>
+                  <li>You're responsible for communications with the panel members (initial arrangement, 2 weeks
+                    before, and post event; follow up for the panel to send their slides in time for review (if
+                  necessary), and then for the final version)</li>
+                  <li>You moderate the sessions in your stream</li>
+                </ul>
+              </div>
+              <div className="modal-footer">
+                <a href="https://twitter.com/intent/tweet?text=@tdls_to%20I%20want%20to%20own%20a%20stream" target="_blank">
+                  <i className="fa fa-twitter fa-2x"></i>
+                </a>
+                <a href="mailto:tdls@torontomachinelearning.com?subject:%20I%20want%20to%20own%20a%20stream" target="_blank">
+                  <i className="fa fa-envelope fa-2x"></i>
+                </a>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <section className="container" id="about_us">
+        <hr />
+        <h2>About Us</h2>
+        <p>
+          <i> TDLS is a community of intellectually curious individuals centered around technical review and discussion
+        of advances in machine learning. </i>
+        </p>
+        <p>
+          We are a welcoming, supportive community of machine learning practitioner and researchers. Our technical
+          backgrounds are diverse; we come from industry and academia, with an array of experience, from avid learners to
+          experts in their fields.
+    </p>
+        <p>
+          Our group is centred around consistent meetings focused on meticulous but friendly discussions of advances in
+          machine learning (typically scientific publications). In our discussions, we strive to cover both intuitive
+          conceptual understanding and foundational mathematical details.
+    </p>
+
+        <h3 id="community">Our community in numbers! </h3>
+        <div className="row community-charts">
+          <div className="col-xl-4 col-lg-6 chart">
+            <iframe width="100%" height="500" seamless frameBorder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQH-xE_OvO_ZtTr8cwjAxB-QFQy9IFM841n_QF5mcrk6UVZDC-ltEijN67TebY-AQcHDniTc53kEl2Y/pubchart?oid=1837496004&amp;format=interactive"></iframe>
+          </div>
+          <div className="col-xl-4 col-lg-6 chart">
+            <iframe width="100%" height="500" seamless frameBorder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQH-xE_OvO_ZtTr8cwjAxB-QFQy9IFM841n_QF5mcrk6UVZDC-ltEijN67TebY-AQcHDniTc53kEl2Y/pubchart?oid=1981502753&amp;format=interactive"></iframe>
+          </div>
+          <div className="col-xl-4 col-lg-6 chart">
+            <iframe width="100%" height="500" seamless frameBorder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQH-xE_OvO_ZtTr8cwjAxB-QFQy9IFM841n_QF5mcrk6UVZDC-ltEijN67TebY-AQcHDniTc53kEl2Y/pubchart?oid=2092973435&amp;format=interactive"></iframe>
+          </div>
+        </div>
+
+        <h3 id="steering-committee">Steering Committee</h3>
+        <div className="row profile-list">
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/amir.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/amirfzpr/">
+                  <b>Amir Feizpour
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Founder and Head of Operations
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/ehsan.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/ehsanamjadian/">
+                  <b>Ehsan Amjadian
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Head of Research
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/felipe.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/felipe-perez-/">
+                  <b>Felipe Pérez
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  "Classics" Stream Lead
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/gordon.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/gordon-gibson-874b3130/">
+                  <b>Gordon Gibson
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  “Fast Track” Stream Lead
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/lindsay.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/lindsaydbrin/">
+                  <b>Lindsay Brin
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Chief Phrasing Officer and Inclusivity Lead
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/serena.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/serenamcdonnell/">
+                  <b>Serena McDonnell
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  "Main" Stream Lead
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/xiyang.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/">
+                  <b>Xiyang Chen
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Head of Technology and "Code Review" Stream Lead
+            </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 id="volunteers">TDLS Friends</h3>
+        <div className="row profile-list">
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/paul.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/paulfinlay314/">
+                  <b>Paul Finlay
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Sound Engineer
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/mark.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/markdonaldson888/">
+                  <b>Mark Donaldson
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Social Media Lead
+            </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-6">
+            <div className="media-top">
+              <img className="profile rounded-circle" src="static/images/helen.jpeg" className="mr-3" width="120px" />
+              <div className="media-body">
+                <a href="https://www.linkedin.com/in/helen-ngo/">
+                  <b>Helen Ngo
+                <i className="fa fa-linkedin-square"></i>
+                  </b>
+                </a>
+                <p>
+                  Former Steering Committee Member
+            </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Website Contributors</h3>
+        <p>We're open source, so feel free to clone our GitHub repo, make changes, and submit a pull request, and your
+      GitHub handle would show up here</p>
+        <article id="site-contributors">
+        </article>
+      </section>
+
+      <section className="container" id="useful_links" >
+        <hr />
+        <h2>Useful Links</h2>
+        <article id="useful-links"></article>
+      </section>
+    </main >,
+    <footer className="footer">
+      <div className="floater navbar-expand-lg navbar-dark fixed-bottom">
+        <div style={{ textAlign: 'center' }}>
+          <div className="pull-left copyright">
+            &copy; 2018-2019 Aggregate Intellect Inc.
+      </div>
+          <ul className="list-inline social-buttons">
+            <li className="list-inline-item">
+              <div className="g-ytsubscribe" data-channelid="UCfk3pS8cCPxOgoleriIufyg" data-layout="default" data-theme="default"
+                data-count="default"></div>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://www.youtube.com/c/TorontoDeepLearningSeries" target="_blank">
+                <i className="fa fa-youtube fa-2x"></i>
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://www.reddit.com/user/tdls_to" target="_blank">
+                <i className="fa fa-reddit fa-2x"></i>
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://twitter.com/tdls_to" target="_blank">
+                <i className="fa fa-twitter fa-2x"></i>
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://github.com/TDLS" target="_blank">
+                <i className="fa fa-github fa-2x"></i>
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="https://www.instagram.com/tdls_to/" target="_blank">
+                <i className="fa fa-instagram fa-2x"></i>
+              </a>
+            </li>
+            <li className="list-inline-item">
+              <a href="mailto:tdls@torontomachinelearning.com" target="_blank">
+                <i className="fa fa-envelope fa-2x"></i>
+              </a>
+            </li>
+          </ul >
+          <ul className="list-inline pull-right back-to-top">
+            <li className="list-inline-item">
+              <a href="#top">Back to top</a>
+            </li>
+          </ul>
+        </div >
+      </div >
+    </footer>,
+    <div className="modal" id="event-popup" tabIndex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
+    </div>,
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossOrigin="anonymous"></script>,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>,
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossOrigin="anonymous"></script>,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>,
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossOrigin="anonymous"></script>,
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" crossOrigin="anonymous"></script>,
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>,
+    <script src="static/main.js"></script>,
+    <script src="https://apis.google.com/js/platform.js"></script>
+
+  ]
+);
