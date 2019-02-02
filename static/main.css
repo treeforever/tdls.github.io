@@ -7,10 +7,15 @@
 /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
 We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 
-#main-navbar a {
+#main-navbar .nav-item a {
   color: white;
   font-weight: 500;
 }
+
+#main-navbar .dropdown-menu a {
+  color: black;
+}
+
 html {
   scroll-behavior: smooth;
 }
