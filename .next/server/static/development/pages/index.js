@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/settinghead/tdls/tdls-website/pages/index.js";
+var _jsxFileName = "/home/ubuntu/tdls/tdls.github.io/pages/index.js";
 
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -161,7 +161,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    charset: "utf-8",
+    charSet: "utf-8",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
@@ -175,21 +175,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       lineNumber: 13
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-    name: "description",
-    content: "Community of intellectually curious individuals centered around technical review and discussion of advances in machine learning.",
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
+    async: true,
+    src: "https://www.googletagmanager.com/gtag/js?id=UA-131780670-1",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
     },
     __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+    name: "description",
+    content: "Community of intellectually curious individuals centered around technical review and discussion of advances in machine learning.",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-    href: "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css",
+    href: "https://bootswatch.com/4/yeti/bootstrap.min.css",
     rel: "stylesheet",
     crossOrigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -197,7 +205,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 17
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -207,7 +215,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     crossOrigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 18
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -215,7 +223,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -223,7 +231,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 22
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -232,21 +240,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "static/images/tdls_logo.png",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 23
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
     id: "main-navbar",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 25
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
     className: "navbar navbar-expand-md navbar-dark fixed-top bg-dark",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 26
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -254,7 +262,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#welcome",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -264,7 +272,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 27
     },
     __self: this
   }), " TDLS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -277,14 +285,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Toggle navigation",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 28
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "navbar-toggler-icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 30
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -292,21 +300,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "navbarCollapse",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 32
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "navbar-nav mr-auto",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 33
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item dropdown",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -319,7 +327,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-expanded": "false",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 35
     },
     __self: this
   }, "Events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -327,7 +335,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-labelledby": "navbarDropdown",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 39
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -335,14 +343,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#streams",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 40
     },
     __self: this
   }, "Streams"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-divider",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 41
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -350,7 +358,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#upcoming-events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 42
     },
     __self: this
   }, "Upcoming Sessions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -358,14 +366,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#past-events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 43
     },
     __self: this
   }, "Past Sessions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 46
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -373,14 +381,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#areas",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 47
     },
     __self: this
   }, "Subject Areas")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 49
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -388,14 +396,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#get-engaged",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 50
     },
     __self: this
   }, "Get Engaged")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item dropdown",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 52
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -408,7 +416,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-expanded": "false",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: this
   }, "About Us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -416,7 +424,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-labelledby": "navbarDropdown",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 57
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -424,14 +432,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#about_us",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 58
     },
     __self: this
   }, "Who are we?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "dropdown-divider",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 59
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -439,7 +447,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#community",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 60
     },
     __self: this
   }, "Our Community"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -447,7 +455,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#steering-committee",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 61
     },
     __self: this
   }, "Steering Committee"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -455,7 +463,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#volunteers",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 62
     },
     __self: this
   }, "Volunteers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -463,21 +471,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#site-contributors",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 63
     },
     __self: this
   }, "Website Contributors"))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
     role: "main",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 70
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
     id: "welcome",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 71
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -487,14 +495,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-interval": "6000",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 72
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ol", {
     className: "carousel-indicators",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 73
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -503,7 +511,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 74
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -511,7 +519,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-slide-to": "1",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 75
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -519,21 +527,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-slide-to": "2",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 76
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-inner",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 79
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 80
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -542,27 +550,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     alt: "Second slide",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 81
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-caption d-none d-md-block bg-dark",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 82
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 83
     },
     __self: this
   }, "#tdls: intellectually curious individuals"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 86
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -571,27 +579,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     alt: "First slide",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86
+      lineNumber: 87
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-caption d-none d-md-block bg-dark",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87
+      lineNumber: 88
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88
+      lineNumber: 89
     },
     __self: this
   }, "#tdls: welcoming & supportive community"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 92
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -600,20 +608,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     alt: "Third slide",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 93
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "carousel-caption d-none d-md-block bg-dark",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 94
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 95
     },
     __self: this
   }, "#tdls: engaging technical discussions")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -623,7 +631,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-slide": "prev",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98
+      lineNumber: 99
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -631,14 +639,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 100
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "sr-only",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 101
     },
     __self: this
   }, "Previous")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -648,7 +656,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-slide": "next",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102
+      lineNumber: 103
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -656,14 +664,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 104
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "sr-only",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 105
     },
     __self: this
   }, "Next"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -671,13 +679,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#intro",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107
+      lineNumber: 108
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107
+      lineNumber: 108
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -685,34 +693,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "intro",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112
+      lineNumber: 113
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113
+      lineNumber: 114
     },
     __self: this
   }, "Toronto Deep Learning Series (#TDLS)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "abstract",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114
+      lineNumber: 115
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "lead",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115
+      lineNumber: 116
     },
     __self: this
   }, "TDLS is a community of intellectually curious individuals, centered around technical review and discussion of advances in machine learning."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120
+      lineNumber: 121
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -720,7 +728,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121
+      lineNumber: 122
     },
     __self: this
   }, "Our events...")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -728,20 +736,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126
+      lineNumber: 127
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127
+      lineNumber: 128
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "inline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128
+      lineNumber: 129
     },
     __self: this
   }, "Events"), "\xA0(", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -749,7 +757,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#upcoming-events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129
+      lineNumber: 130
     },
     __self: this
   }, "Upcoming"), ",", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -757,19 +765,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     href: "#past-events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 131
     },
     __self: this
   }, "Past"), ")", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131
+      lineNumber: 132
     },
     __self: this
   }, "We meet twice a week to review advances in machine learning in various \"streams\".", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132
+      lineNumber: 133
     },
     __self: this
   }), "Click on each stream name to know more about them and then explore our upcoming and past events."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -777,14 +785,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "streams",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135
+      lineNumber: 136
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136
+      lineNumber: 137
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -794,28 +802,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-target": "#modal_main_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137
+      lineNumber: 138
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend main",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138
+      lineNumber: 139
     },
     __self: this
   }, "\xA0"), "\xA0Main stream", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-question",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 140
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142
+      lineNumber: 143
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -825,28 +833,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-target": "#modal_classics_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143
+      lineNumber: 144
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend classics",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144
+      lineNumber: 145
     },
     __self: this
   }), "\xA0Classics Stream", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-question",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145
+      lineNumber: 146
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148
+      lineNumber: 149
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -856,28 +864,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-target": "#modal_fast_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149
+      lineNumber: 150
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend fasttrack",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150
+      lineNumber: 151
     },
     __self: this
   }), "\xA0Fast Track Stream", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-question",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151
+      lineNumber: 152
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154
+      lineNumber: 155
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -887,28 +895,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-target": "#modal_codereview_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 155
+      lineNumber: 156
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend codereview",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 156
+      lineNumber: 157
     },
     __self: this
   }), "\xA0Code Review Stream", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-question",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 157
+      lineNumber: 158
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160
+      lineNumber: 161
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -918,42 +926,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-target": "#modal_authors_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 161
+      lineNumber: 162
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend authors",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162
+      lineNumber: 163
     },
     __self: this
   }), "\xA0Authors Stream", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-question",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163
+      lineNumber: 164
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 166
+      lineNumber: 167
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend tentative",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 167
+      lineNumber: 168
     },
     __self: this
   }), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "legend-event-tentative",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 168
+      lineNumber: 169
     },
     __self: this
   }, "Tentative Sessions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -963,7 +971,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "modal_main_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 171
+      lineNumber: 172
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -971,28 +979,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     role: "document",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 172
+      lineNumber: 173
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 173
+      lineNumber: 174
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 174
+      lineNumber: 175
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "modal-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 175
+      lineNumber: 176
     },
     __self: this
   }, "Main Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1002,34 +1010,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Close",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 176
+      lineNumber: 177
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 177
+      lineNumber: 178
     },
     __self: this
   }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 180
+      lineNumber: 181
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 181
+      lineNumber: 182
     },
     __self: this
   }, "This stream is for recent papers. For these papers, our discussions are typically within a few months or up to a couple of years of publication.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 186
+      lineNumber: 187
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1038,7 +1046,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-dismiss": "modal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 187
+      lineNumber: 188
     },
     __self: this
   }, "Close"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1048,7 +1056,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "modal_classics_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 192
+      lineNumber: 193
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1056,28 +1064,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     role: "document",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 193
+      lineNumber: 194
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194
+      lineNumber: 195
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 195
+      lineNumber: 196
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "modal-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 196
+      lineNumber: 197
     },
     __self: this
   }, "Classics Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1087,33 +1095,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Close",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 197
+      lineNumber: 198
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198
+      lineNumber: 199
     },
     __self: this
   }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 201
+      lineNumber: 202
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202
+      lineNumber: 203
     },
     __self: this
   }, "This stream is for concept defining papers. These papers are typically older than those in the Main Stream."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 206
+      lineNumber: 207
     },
     __self: this
   }, "For inspiration, check out our ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1121,21 +1129,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 206
+      lineNumber: 207
     },
     __self: this
   }, "classic paper list ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-external-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 207
+      lineNumber: 208
     },
     __self: this
   })), ".")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209
+      lineNumber: 210
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1144,7 +1152,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-dismiss": "modal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 210
+      lineNumber: 211
     },
     __self: this
   }, "Close"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1154,7 +1162,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "modal_fast_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 215
+      lineNumber: 216
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1162,28 +1170,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     role: "document",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216
+      lineNumber: 217
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 217
+      lineNumber: 218
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 218
+      lineNumber: 219
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "modal-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 219
+      lineNumber: 220
     },
     __self: this
   }, "Fast Track Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1193,33 +1201,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Close",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 220
+      lineNumber: 221
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 221
+      lineNumber: 222
     },
     __self: this
   }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body yt-player",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 224
+      lineNumber: 225
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 225
+      lineNumber: 226
     },
     __self: this
   }, "This stream is for recent papers within a few weeks of publication."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 228
+      lineNumber: 229
     },
     __self: this
   }, "In our main stream, we build in time for revisions to settle and speakers to prepare. But when new papers seem particularly important to the machine learning community, we want to discuss them sooner! Hence, the Fast Track stream."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
@@ -1233,14 +1241,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     allowFullScreen: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 233
+      lineNumber: 234
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237
+      lineNumber: 238
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1249,7 +1257,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-dismiss": "modal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 238
+      lineNumber: 239
     },
     __self: this
   }, "Close"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1259,7 +1267,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "modal_codereview_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 243
+      lineNumber: 244
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1267,28 +1275,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     role: "document",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 244
+      lineNumber: 245
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 245
+      lineNumber: 246
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 246
+      lineNumber: 247
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "modal-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 247
+      lineNumber: 248
     },
     __self: this
   }, "Main Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1298,34 +1306,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Close",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 248
+      lineNumber: 249
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 249
+      lineNumber: 250
     },
     __self: this
   }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 252
+      lineNumber: 253
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253
+      lineNumber: 254
     },
     __self: this
   }, "This stream is for reviewing implementations of papers.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 257
+      lineNumber: 258
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1334,7 +1342,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-dismiss": "modal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258
+      lineNumber: 259
     },
     __self: this
   }, "Close"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1344,7 +1352,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "modal_authors_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 263
+      lineNumber: 264
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1352,28 +1360,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     role: "document",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 264
+      lineNumber: 265
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 265
+      lineNumber: 266
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 266
+      lineNumber: 267
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "modal-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 267
+      lineNumber: 268
     },
     __self: this
   }, "Classics Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1383,34 +1391,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Close",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 268
+      lineNumber: 269
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 269
+      lineNumber: 270
     },
     __self: this
   }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 272
+      lineNumber: 273
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 273
+      lineNumber: 274
     },
     __self: this
   }, "This stream is for papers presented by their original authors.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 277
+      lineNumber: 278
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1419,34 +1427,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-dismiss": "modal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 278
+      lineNumber: 279
     },
     __self: this
   }, "Close"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 284
+      lineNumber: 285
     },
     __self: this
   }, "Upcoming Sessions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
     id: "upcoming-events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 285
+      lineNumber: 286
     },
     __self: this
   }, "Something went wrong. Please use a modern browser or contact administrator."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     id: "past-events-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 288
+      lineNumber: 289
     },
     __self: this
   }, "Past Sessions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
     id: "past-events",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 289
+      lineNumber: 290
     },
     __self: this
   }, "Something went wrong. Please use a modern browser or contact administrator.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -1454,20 +1462,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 294
+      lineNumber: 295
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 296
+      lineNumber: 297
     },
     __self: this
   }, "Subject Matter Areas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 297
+      lineNumber: 298
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1475,14 +1483,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "sma-links",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 298
+      lineNumber: 299
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 301
+      lineNumber: 302
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
@@ -1494,7 +1502,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRY6QXhp9sU4Y_ede25AEAwkSnS-xcOCQhxJMUfiq4xtWB04chEpkyDgWvFHSD0zakgSqnxuNzTGwk6/pubchart?oid=1131229791&format=interactive",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 302
+      lineNumber: 303
     },
     __self: this
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -1502,73 +1510,73 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "get-engaged",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 308
+      lineNumber: 309
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 309
+      lineNumber: 310
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 310
+      lineNumber: 311
     },
     __self: this
   }, "Get Engaged"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 311
+      lineNumber: 312
     },
     __self: this
   }, "Want to get involved? Here are some ways you can join in the fun - or email/tweet at us if you have other thoughts or ideas!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 316
+      lineNumber: 317
     },
     __self: this
   }, "Contribute to TDLS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 317
+      lineNumber: 318
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 318
+      lineNumber: 319
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 319
+      lineNumber: 320
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 320
+      lineNumber: 321
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 321
+      lineNumber: 322
     },
     __self: this
   }, "Lead or facilitate discussions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 322
+      lineNumber: 323
     },
     __self: this
   }, "We'd love to have you! Please send us an email or tweet at us with any potential topics that you want to cover."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1576,14 +1584,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 324
+      lineNumber: 325
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 326
+      lineNumber: 327
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1591,49 +1599,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 328
+      lineNumber: 329
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 329
+      lineNumber: 330
     },
     __self: this
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 334
+      lineNumber: 335
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 335
+      lineNumber: 336
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 336
+      lineNumber: 337
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 337
+      lineNumber: 338
     },
     __self: this
   }, "Improve this site"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 338
+      lineNumber: 339
     },
     __self: this
   }, "Amazing! We're open source, so feel free to clone our GitHub repo, make changes, and submit a pull request - or you can email or tweet at us with your suggestions."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1641,14 +1649,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 341
+      lineNumber: 342
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-github fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 342
+      lineNumber: 343
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1656,14 +1664,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 344
+      lineNumber: 345
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 346
+      lineNumber: 347
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1671,49 +1679,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 348
+      lineNumber: 349
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 350
+      lineNumber: 351
     },
     __self: this
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 355
+      lineNumber: 356
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 356
+      lineNumber: 357
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 357
+      lineNumber: 358
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 358
+      lineNumber: 359
     },
     __self: this
   }, "Papers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 359
+      lineNumber: 360
     },
     __self: this
   }, " We're all ears. Please send us an email or tweet at us with your favorite paper and we'll put it on our list."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1721,14 +1729,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 362
+      lineNumber: 363
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 363
+      lineNumber: 364
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1736,55 +1744,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 365
+      lineNumber: 366
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 366
+      lineNumber: 367
     },
     __self: this
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 371
+      lineNumber: 372
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 372
+      lineNumber: 373
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 373
+      lineNumber: 374
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 374
+      lineNumber: 375
     },
     __self: this
   }, "Own a new stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 375
+      lineNumber: 376
     },
     __self: this
   }, "Awesome! Please check out the details link below to learn more about what it takes to own a stream, and write to us with your ideas."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 378
+      lineNumber: 379
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1794,7 +1802,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-target": "#modal_own_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 379
+      lineNumber: 380
     },
     __self: this
   }, "Details")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1802,14 +1810,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 383
+      lineNumber: 384
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 384
+      lineNumber: 385
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1817,62 +1825,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 386
+      lineNumber: 387
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 387
+      lineNumber: 388
     },
     __self: this
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 394
+      lineNumber: 395
     },
     __self: this
   }, "Stay up to date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 395
+      lineNumber: 396
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 396
+      lineNumber: 397
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 397
+      lineNumber: 398
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 398
+      lineNumber: 399
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 399
+      lineNumber: 400
     },
     __self: this
   }, "Subscribe to Learn More about TDLS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "mc_embed_signup",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 401
+      lineNumber: 402
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1885,49 +1893,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     noValidate: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 402
+      lineNumber: 403
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "mc_embed_signup_scroll",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 405
+      lineNumber: 406
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "indicates-required",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 406
+      lineNumber: 407
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "asterisk",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 406
+      lineNumber: 407
     },
     __self: this
   }, "*"), " indicates required"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mc-field-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 407
+      lineNumber: 408
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: "mce-EMAIL",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 408
+      lineNumber: 409
     },
     __self: this
   }, "Email Address ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "asterisk",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 408
+      lineNumber: 409
     },
     __self: this
   }, "*")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1938,21 +1946,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "mce-EMAIL",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 410
+      lineNumber: 411
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mc-field-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 412
+      lineNumber: 413
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: "mce-FNAME",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 413
+      lineNumber: 414
     },
     __self: this
   }, "First Name "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1963,21 +1971,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "mce-FNAME",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 414
+      lineNumber: 415
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "mc-field-group",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 416
+      lineNumber: 417
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: "mce-LNAME",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 417
+      lineNumber: 418
     },
     __self: this
   }, "Last Name "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1988,7 +1996,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "mce-LNAME",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 418
+      lineNumber: 419
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1996,7 +2004,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "clear",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 420
+      lineNumber: 421
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2007,7 +2015,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 421
+      lineNumber: 422
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2018,7 +2026,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 422
+      lineNumber: 423
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2029,7 +2037,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 424
+      lineNumber: 425
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2039,14 +2047,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     value: "",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 426
+      lineNumber: 427
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "clear",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 429
+      lineNumber: 430
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2057,42 +2065,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     className: "button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 429
+      lineNumber: 430
     },
     __self: this
   })))))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 437
+      lineNumber: 438
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 438
+      lineNumber: 439
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 439
+      lineNumber: 440
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 440
+      lineNumber: 441
     },
     __self: this
   }, "YouTube"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 441
+      lineNumber: 442
     },
     __self: this
   }, "To get updates about our videos subscribe to our YouTube channel for a front row seat."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2103,42 +2111,42 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-count": "default",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 443
+      lineNumber: 444
     },
     __self: this
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 448
+      lineNumber: 449
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 449
+      lineNumber: 450
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 450
+      lineNumber: 451
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 451
+      lineNumber: 452
     },
     __self: this
   }, "Reddit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 452
+      lineNumber: 453
     },
     __self: this
   }, "We post our summaries, thoughts, and conclusions on Reddit. Please follow us on Reddit, and be sure to share your thoughts with us!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2146,62 +2154,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 454
+      lineNumber: 455
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-reddit fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 455
+      lineNumber: 456
     },
     __self: this
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 461
+      lineNumber: 462
     },
     __self: this
   }, "For organizations"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 463
+      lineNumber: 464
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 464
+      lineNumber: 465
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 465
+      lineNumber: 466
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 466
+      lineNumber: 467
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 467
+      lineNumber: 468
     },
     __self: this
   }, "Companies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 468
+      lineNumber: 469
     },
     __self: this
   }, "If you want to host us, please send us an email or tweet at us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2209,14 +2217,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 469
+      lineNumber: 470
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 470
+      lineNumber: 471
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2224,49 +2232,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 472
+      lineNumber: 473
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 473
+      lineNumber: 474
     },
     __self: this
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 478
+      lineNumber: 479
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 479
+      lineNumber: 480
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 480
+      lineNumber: 481
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 481
+      lineNumber: 482
     },
     __self: this
   }, "Student Groups at Universities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 482
+      lineNumber: 483
     },
     __self: this
   }, "If you want to co-host an event with us, please send us an email or tweet at us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2274,14 +2282,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 483
+      lineNumber: 484
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 485
+      lineNumber: 486
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2289,49 +2297,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 487
+      lineNumber: 488
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 489
+      lineNumber: 490
     },
     __self: this
   }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-sm-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 494
+      lineNumber: 495
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card border-primary mb-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 495
+      lineNumber: 496
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 496
+      lineNumber: 497
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "card-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 497
+      lineNumber: 498
     },
     __self: this
   }, "Meetup Organizer"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 498
+      lineNumber: 499
     },
     __self: this
   }, "We know lots of great folks who can speak about technical topics; check them out on our YouTube channel."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2339,14 +2347,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 500
+      lineNumber: 501
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-youtube fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 501
+      lineNumber: 502
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2354,14 +2362,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 503
+      lineNumber: 504
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 504
+      lineNumber: 505
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2369,14 +2377,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 506
+      lineNumber: 507
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 507
+      lineNumber: 508
     },
     __self: this
   })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2386,7 +2394,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "modal_own_stream",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 513
+      lineNumber: 514
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2394,28 +2402,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     role: "document",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 514
+      lineNumber: 515
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 515
+      lineNumber: 516
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-header",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 516
+      lineNumber: 517
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "modal-title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 517
+      lineNumber: 518
     },
     __self: this
   }, "What does it take to own a new stream?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2425,70 +2433,70 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-label": "Close",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 518
+      lineNumber: 519
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 519
+      lineNumber: 520
     },
     __self: this
   }, "\xD7"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 522
+      lineNumber: 523
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 523
+      lineNumber: 524
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 524
+      lineNumber: 525
     },
     __self: this
   }, "You define the stream, including: why it should exist; what it includes; who the target audience is; suggestions for the discussion panel; whether the session format needs to be different from typical; event cadence/frequency; etc."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 528
+      lineNumber: 529
     },
     __self: this
   }, "You coordinate with the steering committee members to make sure that there is a venue sorted out (although you're not responsible to secure the venue)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 531
+      lineNumber: 532
     },
     __self: this
   }, "You coordinate with the steering committee members to ensure that the recording is sorted out (although you're not responsible for doing the recording)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 533
+      lineNumber: 534
     },
     __self: this
   }, "You coordinate the discussion panel (leads and facilitators) for your sessions (including the paper they will present)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 535
+      lineNumber: 536
     },
     __self: this
   }, "You're responsible for communications with the panel members (initial arrangement, 2 weeks before, and post event; follow up for the panel to send their slides in time for review (if necessary), and then for the final version)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 538
+      lineNumber: 539
     },
     __self: this
   }, "You moderate the sessions in your stream"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 541
+      lineNumber: 542
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2496,14 +2504,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 542
+      lineNumber: 543
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 543
+      lineNumber: 544
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -2511,14 +2519,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 545
+      lineNumber: 546
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 546
+      lineNumber: 547
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -2527,7 +2535,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-dismiss": "modal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 548
+      lineNumber: 549
     },
     __self: this
   }, "Close")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -2535,64 +2543,64 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "about_us",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 555
+      lineNumber: 556
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 556
+      lineNumber: 557
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 557
+      lineNumber: 558
     },
     __self: this
   }, "About Us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 558
+      lineNumber: 559
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 559
+      lineNumber: 560
     },
     __self: this
   }, " TDLS is a community of intellectually curious individuals centered around technical review and discussion of advances in machine learning. ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 562
+      lineNumber: 563
     },
     __self: this
   }, "We are a welcoming, supportive community of machine learning practitioner and researchers. Our technical backgrounds are diverse; we come from industry and academia, with an array of experience, from avid learners to experts in their fields."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 567
+      lineNumber: 568
     },
     __self: this
   }, "Our group is centred around consistent meetings focused on meticulous but friendly discussions of advances in machine learning (typically scientific publications). In our discussions, we strive to cover both intuitive conceptual understanding and foundational mathematical details."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     id: "community",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 573
+      lineNumber: 574
     },
     __self: this
   }, "Our community in numbers! "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row community-charts",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 574
+      lineNumber: 575
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-xl-4 col-lg-6 chart",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 575
+      lineNumber: 576
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
@@ -2604,14 +2612,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQH-xE_OvO_ZtTr8cwjAxB-QFQy9IFM841n_QF5mcrk6UVZDC-ltEijN67TebY-AQcHDniTc53kEl2Y/pubchart?oid=1837496004&format=interactive",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 576
+      lineNumber: 577
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-xl-4 col-lg-6 chart",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 578
+      lineNumber: 579
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
@@ -2623,14 +2631,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQH-xE_OvO_ZtTr8cwjAxB-QFQy9IFM841n_QF5mcrk6UVZDC-ltEijN67TebY-AQcHDniTc53kEl2Y/pubchart?oid=1981502753&format=interactive",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 579
+      lineNumber: 580
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-xl-4 col-lg-6 chart",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 581
+      lineNumber: 582
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("iframe", {
@@ -2642,35 +2650,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQH-xE_OvO_ZtTr8cwjAxB-QFQy9IFM841n_QF5mcrk6UVZDC-ltEijN67TebY-AQcHDniTc53kEl2Y/pubchart?oid=2092973435&format=interactive",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 582
+      lineNumber: 583
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     id: "steering-committee",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 586
+      lineNumber: 587
     },
     __self: this
   }, "Steering Committee"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row profile-list",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 587
+      lineNumber: 588
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 588
+      lineNumber: 589
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 589
+      lineNumber: 590
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement = {
@@ -2678,52 +2686,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/amir.jpeg"
   }, _defineProperty(_React$createElement, "className", "mr-3"), _defineProperty(_React$createElement, "width", "120px"), _defineProperty(_React$createElement, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 590
+    lineNumber: 591
   }), _defineProperty(_React$createElement, "__self", this), _React$createElement)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 591
+      lineNumber: 592
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/amirfzpr/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 592
+      lineNumber: 593
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 593
+      lineNumber: 594
     },
     __self: this
   }, "Amir Feizpour", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 594
+      lineNumber: 595
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 597
+      lineNumber: 598
     },
     __self: this
   }, "Founder and Head of Operations")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 603
+      lineNumber: 604
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 604
+      lineNumber: 605
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement2 = {
@@ -2731,52 +2739,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/ehsan.jpeg"
   }, _defineProperty(_React$createElement2, "className", "mr-3"), _defineProperty(_React$createElement2, "width", "120px"), _defineProperty(_React$createElement2, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 605
+    lineNumber: 606
   }), _defineProperty(_React$createElement2, "__self", this), _React$createElement2)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 606
+      lineNumber: 607
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/ehsanamjadian/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 607
+      lineNumber: 608
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 608
+      lineNumber: 609
     },
     __self: this
   }, "Ehsan Amjadian", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 609
+      lineNumber: 610
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 612
+      lineNumber: 613
     },
     __self: this
   }, "Head of Research")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 618
+      lineNumber: 619
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 619
+      lineNumber: 620
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement3 = {
@@ -2784,52 +2792,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/felipe.jpeg"
   }, _defineProperty(_React$createElement3, "className", "mr-3"), _defineProperty(_React$createElement3, "width", "120px"), _defineProperty(_React$createElement3, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 620
+    lineNumber: 621
   }), _defineProperty(_React$createElement3, "__self", this), _React$createElement3)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 621
+      lineNumber: 622
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/felipe-perez-/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 622
+      lineNumber: 623
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 623
+      lineNumber: 624
     },
     __self: this
   }, "Felipe P\xE9rez", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 624
+      lineNumber: 625
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 627
+      lineNumber: 628
     },
     __self: this
   }, "\"Classics\" Stream Lead")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 633
+      lineNumber: 634
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 634
+      lineNumber: 635
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement4 = {
@@ -2837,52 +2845,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/gordon.jpeg"
   }, _defineProperty(_React$createElement4, "className", "mr-3"), _defineProperty(_React$createElement4, "width", "120px"), _defineProperty(_React$createElement4, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 635
+    lineNumber: 636
   }), _defineProperty(_React$createElement4, "__self", this), _React$createElement4)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 636
+      lineNumber: 637
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/gordon-gibson-874b3130/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 637
+      lineNumber: 638
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 638
+      lineNumber: 639
     },
     __self: this
   }, "Gordon Gibson", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 639
+      lineNumber: 640
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 642
+      lineNumber: 643
     },
     __self: this
   }, "\u201CFast Track\u201D Stream Lead")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 648
+      lineNumber: 649
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 649
+      lineNumber: 650
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement5 = {
@@ -2890,52 +2898,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/lindsay.jpeg"
   }, _defineProperty(_React$createElement5, "className", "mr-3"), _defineProperty(_React$createElement5, "width", "120px"), _defineProperty(_React$createElement5, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 650
+    lineNumber: 651
   }), _defineProperty(_React$createElement5, "__self", this), _React$createElement5)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 651
+      lineNumber: 652
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/lindsaydbrin/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 652
+      lineNumber: 653
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 653
+      lineNumber: 654
     },
     __self: this
   }, "Lindsay Brin", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 654
+      lineNumber: 655
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 657
+      lineNumber: 658
     },
     __self: this
   }, "Chief Phrasing Officer and Inclusivity Lead")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 663
+      lineNumber: 664
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 664
+      lineNumber: 665
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement6 = {
@@ -2943,52 +2951,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/serena.jpeg"
   }, _defineProperty(_React$createElement6, "className", "mr-3"), _defineProperty(_React$createElement6, "width", "120px"), _defineProperty(_React$createElement6, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 665
+    lineNumber: 666
   }), _defineProperty(_React$createElement6, "__self", this), _React$createElement6)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 666
+      lineNumber: 667
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/serenamcdonnell/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 667
+      lineNumber: 668
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 668
+      lineNumber: 669
     },
     __self: this
   }, "Serena McDonnell", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 669
+      lineNumber: 670
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 672
+      lineNumber: 673
     },
     __self: this
   }, "\"Main\" Stream Lead")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 678
+      lineNumber: 679
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 679
+      lineNumber: 680
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement7 = {
@@ -2996,66 +3004,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/xiyang.jpeg"
   }, _defineProperty(_React$createElement7, "className", "mr-3"), _defineProperty(_React$createElement7, "width", "120px"), _defineProperty(_React$createElement7, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 680
+    lineNumber: 681
   }), _defineProperty(_React$createElement7, "__self", this), _React$createElement7)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 681
+      lineNumber: 682
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 682
+      lineNumber: 683
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 683
+      lineNumber: 684
     },
     __self: this
   }, "Xiyang Chen", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 684
+      lineNumber: 685
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 687
+      lineNumber: 688
     },
     __self: this
   }, "Head of Technology and \"Code Review\" Stream Lead"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     id: "volunteers",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 695
+      lineNumber: 696
     },
     __self: this
   }, "TDLS Friends"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row profile-list",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 696
+      lineNumber: 697
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 697
+      lineNumber: 698
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 698
+      lineNumber: 699
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement8 = {
@@ -3063,52 +3071,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/paul.jpeg"
   }, _defineProperty(_React$createElement8, "className", "mr-3"), _defineProperty(_React$createElement8, "width", "120px"), _defineProperty(_React$createElement8, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 699
+    lineNumber: 700
   }), _defineProperty(_React$createElement8, "__self", this), _React$createElement8)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 700
+      lineNumber: 701
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/paulfinlay314/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 701
+      lineNumber: 702
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 702
+      lineNumber: 703
     },
     __self: this
   }, "Paul Finlay", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 703
+      lineNumber: 704
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 706
+      lineNumber: 707
     },
     __self: this
   }, "Sound Engineer")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 712
+      lineNumber: 713
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 713
+      lineNumber: 714
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement9 = {
@@ -3116,52 +3124,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/mark.jpeg"
   }, _defineProperty(_React$createElement9, "className", "mr-3"), _defineProperty(_React$createElement9, "width", "120px"), _defineProperty(_React$createElement9, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 714
+    lineNumber: 715
   }), _defineProperty(_React$createElement9, "__self", this), _React$createElement9)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 715
+      lineNumber: 716
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/markdonaldson888/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 716
+      lineNumber: 717
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 717
+      lineNumber: 718
     },
     __self: this
   }, "Mark Donaldson", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 718
+      lineNumber: 719
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 721
+      lineNumber: 722
     },
     __self: this
   }, "Social Media Lead")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-lg-3 col-6",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 727
+      lineNumber: 728
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 728
+      lineNumber: 729
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", (_React$createElement10 = {
@@ -3169,57 +3177,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "static/images/helen.jpeg"
   }, _defineProperty(_React$createElement10, "className", "mr-3"), _defineProperty(_React$createElement10, "width", "120px"), _defineProperty(_React$createElement10, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 729
+    lineNumber: 730
   }), _defineProperty(_React$createElement10, "__self", this), _React$createElement10)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "media-body",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 730
+      lineNumber: 731
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://www.linkedin.com/in/helen-ngo/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 731
+      lineNumber: 732
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 732
+      lineNumber: 733
     },
     __self: this
   }, "Helen Ngo", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-linkedin-square",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 733
+      lineNumber: 734
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 736
+      lineNumber: 737
     },
     __self: this
   }, "Former Steering Committee Member"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 744
+      lineNumber: 745
     },
     __self: this
   }, "Website Contributors"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 745
+      lineNumber: 746
     },
     __self: this
   }, "We're open source, so feel free to clone our GitHub repo, make changes, and submit a pull request, and your GitHub handle would show up here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
     id: "site-contributors",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 747
+      lineNumber: 748
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -3227,40 +3235,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     id: "useful_links",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 751
+      lineNumber: 752
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 752
+      lineNumber: 753
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 753
+      lineNumber: 754
     },
     __self: this
   }, "Useful Links"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
     id: "useful-links",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 754
+      lineNumber: 755
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "footer",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 757
+      lineNumber: 758
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "floater navbar-expand-lg navbar-dark fixed-bottom",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 758
+      lineNumber: 759
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3269,28 +3277,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 759
+      lineNumber: 760
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pull-left copyright",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 760
+      lineNumber: 761
     },
     __self: this
   }, "\xA9 2018-2019 Aggregate Intellect Inc."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "list-inline social-buttons",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 763
+      lineNumber: 764
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 764
+      lineNumber: 765
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3301,14 +3309,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "data-count": "default",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 765
+      lineNumber: 766
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 768
+      lineNumber: 769
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -3316,21 +3324,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 769
+      lineNumber: 770
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-youtube fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 770
+      lineNumber: 771
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 773
+      lineNumber: 774
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -3338,21 +3346,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 774
+      lineNumber: 775
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-reddit fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 775
+      lineNumber: 776
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 778
+      lineNumber: 779
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -3360,21 +3368,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 779
+      lineNumber: 780
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-twitter fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 780
+      lineNumber: 781
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 783
+      lineNumber: 784
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -3382,21 +3390,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 784
+      lineNumber: 785
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-github fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 785
+      lineNumber: 786
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 788
+      lineNumber: 789
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -3404,21 +3412,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 789
+      lineNumber: 790
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-instagram fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 790
+      lineNumber: 791
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 793
+      lineNumber: 794
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -3426,35 +3434,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     target: "_blank",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 794
+      lineNumber: 795
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-envelope fa-2x",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 795
+      lineNumber: 796
     },
     __self: this
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "list-inline pull-right back-to-top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 799
+      lineNumber: 800
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "list-inline-item",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 800
+      lineNumber: 801
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#top",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 801
+      lineNumber: 802
     },
     __self: this
   }, "Back to top")))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3466,7 +3474,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     "aria-hidden": "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 807
+      lineNumber: 808
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
@@ -3475,14 +3483,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     crossOrigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 810
+      lineNumber: 811
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
     src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 812
+      lineNumber: 813
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
@@ -3491,14 +3499,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     crossOrigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 813
+      lineNumber: 814
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
     src: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 815
+      lineNumber: 816
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
@@ -3506,7 +3514,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     crossOrigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 816
+      lineNumber: 817
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
@@ -3514,7 +3522,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     crossOrigin: "anonymous",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 817
+      lineNumber: 818
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
@@ -3522,21 +3530,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     src: "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 818
+      lineNumber: 819
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
     src: "static/main.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 819
+      lineNumber: 820
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
     src: "https://apis.google.com/js/platform.js",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 820
+      lineNumber: 821
     },
     __self: this
   })];
@@ -3544,7 +3552,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
