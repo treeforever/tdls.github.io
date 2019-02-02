@@ -472,23 +472,6 @@ async function assembleEvents(
     table.draw();
   });
 
-  const contributors = await getContributors();
-  if (contributors && contributors.length) {
-    contributorsElem.innerHTML = `
-    <div class="row">
-    ${contributors.map(c => `
-      <div class="media-top"> 
-        <div class="col-lg-3 col-sm-6">
-          <a href="${c.html_url}" target="_blank" data-toggle="tooltip" title="${c.login} contributed ${c.contributions} commit(s)">
-            <img class="rounded-circle" src="${c.avatar_url}" class="mr-3" width="50px" />
-          </a> 
-        </div>
-      </div>
-    `).join('\n')}
-  
-    </div>`
-  }
-
   usefulLinksElem.innerHTML = `
   <ul>
   ${[
@@ -526,16 +509,6 @@ async function assembleEvents(
   </dl>
   `;
 
-}
-
-async function getContributors() {
-  const url = `https://api.github.com/repos/TDLS/tdls.github.io/contributors`;
-  const resp = await fetch(url, {
-    method: 'GET',
-    cache: 'default'
-  });
-  const raw = await resp.json();
-  return raw;
 }
 
 function splitEvents(events) {

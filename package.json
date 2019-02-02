@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/tdls/tdls.github.io#readme",
   "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^7.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"

@@ -1,7 +1,7 @@
 export default () => (
-    <header id="main-navbar">
+  <header id="main-navbar">
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a className="navbar-brand" href="#welcome"><img src="static/images/tdls_logo.svg" style={{ height: "30px" }} /> TDLS</a>
+      <a className="navbar-brand" href="/"><img src="static/images/tdls_logo.svg" style={{ height: "30px" }} /> TDLS</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -27,18 +27,7 @@ export default () => (
             <a className="nav-link" href="#get-engaged">Get Engaged</a>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              About Us
-          </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#about_us">Who are we?</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#community">Our Community</a>
-              <a className="dropdown-item" href="#steering-committee">Steering Committee</a>
-              <a className="dropdown-item" href="#volunteers">Volunteers</a>
-              <a className="dropdown-item" href="#site-contributors">Website Contributors</a>
-            </div>
+            <a className="nav-link" href="/about">About Us</a>
           </li>
         </ul>
       </div>
