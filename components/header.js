@@ -4,7 +4,7 @@ export default () => (
   <header id="main-navbar">
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <Link href="/">
-        <a className="navbar-brand"><img src="static/images/tdls_logo.svg"
+        <a className="navbar-brand"><img src="/static/images/tdls_logo.svg"
           style={{ height: "30px" }} /> TDLS</a>
       </Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"

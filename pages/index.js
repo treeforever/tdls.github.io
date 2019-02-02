@@ -19,7 +19,7 @@ export default () => (
       <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css" />
 
-      <link rel="icon" type="image/png" href="static/images/tdls_logo.png" />
+      <link rel="icon" type="image/png" href="/static/images/tdls_logo.png" />
     </Head>,
     <Header />,
     <main role="main">
@@ -33,19 +33,19 @@ export default () => (
 
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src="static/images/slide_02.jpeg" alt="Second slide" />
+              <img className="d-block w-100" src="/static/images/slide_02.jpeg" alt="Second slide" />
               <div className="carousel-caption d-none d-md-block bg-dark">
                 <h5>#tdls: intellectually curious individuals</h5>
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src="static/images/slide_01.jpeg" alt="First slide" />
+              <img className="d-block w-100" src="/static/images/slide_01.jpeg" alt="First slide" />
               <div className="carousel-caption d-none d-md-block bg-dark">
                 <h5>#tdls: welcoming & supportive community</h5>
               </div>
             </div>
             <div className="carousel-item">
-              <img className="d-block w-100" src="static/images/slide_03.jpeg" alt="Third slide" />
+              <img className="d-block w-100" src="/static/images/slide_03.jpeg" alt="Third slide" />
               <div className="carousel-caption d-none d-md-block bg-dark">
                 <h5>#tdls: engaging technical discussions</h5>
               </div>
@@ -528,7 +528,7 @@ export default () => (
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossOrigin="anonymous"></script>,
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" crossOrigin="anonymous"></script>,
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>,
-    <script src="static/main.js"></script>,
+    <script src="/static/main.js"></script>,
     <script src="https://apis.google.com/js/platform.js"></script>
 
   ]

@@ -45,7 +45,7 @@ const About = ({ contributors }) => [
     <div className="row profile-list">
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/amir.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/amir.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/amirfzpr/">
               <b>Amir Feizpour
@@ -60,7 +60,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/ehsan.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/ehsan.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/ehsanamjadian/">
               <b>Ehsan Amjadian
@@ -75,7 +75,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/felipe.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/felipe.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/felipe-perez-/">
               <b>Felipe Pérez
@@ -90,7 +90,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/gordon.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/gordon.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/gordon-gibson-874b3130/">
               <b>Gordon Gibson
@@ -105,7 +105,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/lindsay.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/lindsay.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/lindsaydbrin/">
               <b>Lindsay Brin
@@ -120,7 +120,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/serena.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/serena.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/serenamcdonnell/">
               <b>Serena McDonnell
@@ -135,7 +135,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/xiyang.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/xiyang.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/">
               <b>Xiyang Chen
@@ -154,7 +154,7 @@ const About = ({ contributors }) => [
     <div className="row profile-list">
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/paul.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/paul.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/paulfinlay314/">
               <b>Paul Finlay
@@ -169,7 +169,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/mark.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/mark.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/markdonaldson888/">
               <b>Mark Donaldson
@@ -184,7 +184,7 @@ const About = ({ contributors }) => [
       </div>
       <div className="col-lg-3 col-6">
         <div className="media-top">
-          <img className="profile rounded-circle" src="static/images/helen.jpeg" className="mr-3" width="120px" />
+          <img className="profile rounded-circle" src="/static/images/helen.jpeg" className="mr-3" width="120px" />
           <div className="media-body">
             <a href="https://www.linkedin.com/in/helen-ngo/">
               <b>Helen Ngo
