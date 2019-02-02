@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/header'
+import Footer from '../components/footer'
 import ThemesAndSuch from '../components/themes-and-such';
 
 export default () => (
@@ -18,7 +19,6 @@ export default () => (
       <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css" />
 
-      <link href="static/main.css" rel="stylesheet" />
       <link rel="icon" type="image/png" href="static/images/tdls_logo.png" />
     </Head>,
     <Header />,
@@ -515,56 +515,7 @@ export default () => (
         <article id="useful-links"></article>
       </section>
     </main >,
-    <footer className="footer">
-      <div className="floater navbar-expand-lg navbar-dark fixed-bottom">
-        <div style={{ textAlign: 'center' }}>
-          <div className="pull-left copyright">
-            &copy; 2018-2019 Aggregate Intellect Inc.
-      </div>
-          <ul className="list-inline social-buttons">
-            <li className="list-inline-item">
-              <div className="g-ytsubscribe" data-channelid="UCfk3pS8cCPxOgoleriIufyg" data-layout="default" data-theme="default"
-                data-count="default"></div>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://www.youtube.com/c/TorontoDeepLearningSeries" target="_blank">
-                <i className="fa fa-youtube fa-2x"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://www.reddit.com/user/tdls_to" target="_blank">
-                <i className="fa fa-reddit fa-2x"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://twitter.com/tdls_to" target="_blank">
-                <i className="fa fa-twitter fa-2x"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://github.com/TDLS" target="_blank">
-                <i className="fa fa-github fa-2x"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="https://www.instagram.com/tdls_to/" target="_blank">
-                <i className="fa fa-instagram fa-2x"></i>
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="mailto:tdls@torontomachinelearning.com" target="_blank">
-                <i className="fa fa-envelope fa-2x"></i>
-              </a>
-            </li>
-          </ul >
-          <ul className="list-inline pull-right back-to-top">
-            <li className="list-inline-item">
-              <a href="#top">Back to top</a>
-            </li>
-          </ul>
-        </div >
-      </div >
-    </footer>,
+    <Footer />,
     <div className="modal" id="event-popup" tabIndex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
     </div>,
 

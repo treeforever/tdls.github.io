@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 
-import Header from '../components/header';
+import Header from '../components/header'
+import Footer from '../components/footer'
 import Head from 'next/head'
 import ThemesAndSuch from '../components/themes-and-such';
 
@@ -11,7 +12,7 @@ const About = ({ contributors }) => [
   <Header />,
   <section className="container" id="about_us">
     <hr />
-    <h2>About Us</h2>
+    <h2>About TDLS</h2>
     <p>
       <i> TDLS is a community of intellectually curious individuals centered around technical review and discussion
         of advances in machine learning. </i>
@@ -217,7 +218,8 @@ const About = ({ contributors }) => [
       </article> : null
     }
 
-  </section>
+  </section>,
+  <Footer />
 ];
 
 
