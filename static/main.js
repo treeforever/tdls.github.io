@@ -142,7 +142,7 @@ async function showEvent(eventId) {
           <button 
           type="button" id="copy-link" class="btn btn-info"
           >Copy link</button>
-          <a href="#get-engaged" class="btn btn-primary" data-dismiss="modal">Get Engaged</a>
+          <a href="/get-engaged" class="btn btn-primary" data-dismiss="modal">Get Engaged</a>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>

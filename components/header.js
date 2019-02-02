@@ -29,7 +29,9 @@ export default () => (
             <a className="nav-link" href="#areas">Subject Areas</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#get-engaged">Get Engaged</a>
+            <Link href="/get-engaged">
+              <a className="nav-link" >Get Engaged</a>
+            </Link>
           </li>
           <li className="nav-item dropdown">
             <Link href="/about">
