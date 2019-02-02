@@ -1,7 +1,12 @@
+import Link from 'next/link';
+
 export default () => (
   <header id="main-navbar">
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a className="navbar-brand" href="/"><img src="static/images/tdls_logo.svg" style={{ height: "30px" }} /> TDLS</a>
+      <Link href="/">
+        <a className="navbar-brand"><img src="static/images/tdls_logo.svg"
+          style={{ height: "30px" }} /> TDLS</a>
+      </Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -27,7 +32,9 @@ export default () => (
             <a className="nav-link" href="#get-engaged">Get Engaged</a>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link" href="/about">About Us</a>
+            <Link href="/about">
+              <a className="nav-link" >About Us</a>
+            </Link>
           </li>
         </ul>
       </div>
