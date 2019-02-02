@@ -13,7 +13,7 @@ export default () => (
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131780670-1"></script>
       <meta name="description" content="Community of intellectually curious individuals centered around technical review and discussion of advances in machine learning." />
-      <link href="https://bootswatch.com/4/yeti/bootstrap.min.css" rel="stylesheet" crossOrigin="anonymous" />
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" crossOrigin="anonymous" />
       <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous" />
