@@ -1,6 +1,5 @@
 import Head from 'next/head'
 
-
 export default () => (
   [
     <Head>
@@ -408,15 +407,15 @@ export default () => (
                       <div className="mc-field-group">
                         <label htmlFor="mce-EMAIL">Email Address <span className="asterisk">*</span>
                         </label>
-                        <input type="email" value="" name="EMAIL" className="required email" id="mce-EMAIL" />
+                        <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" />
                       </div>
                       <div className="mc-field-group">
                         <label htmlFor="mce-FNAME">First Name </label>
-                        <input type="text" value="" name="FNAME" className="" id="mce-FNAME" />
+                        <input type="text" name="FNAME" className="" id="mce-FNAME" />
                       </div>
                       <div className="mc-field-group">
                         <label htmlFor="mce-LNAME">Last Name </label>
-                        <input type="text" value="" name="LNAME" className="" id="mce-LNAME" />
+                        <input type="text" name="LNAME" className="" id="mce-LNAME" />
                       </div>
                       <div id="mce-responses" className="clear">
                         <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
@@ -426,7 +425,7 @@ export default () => (
                         style={{ position: 'absolute', left: '-5000px' }}
                         aria-hidden="true"><input type="text"
                           name="b_c7831af29c0c46bd5ec4c04c7_9e6c32b697"
-                          tabIndex="-1" value="" /></div>
+                          tabIndex="-1" /></div>
                       <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
                         className="button" /></div>
                     </div>
