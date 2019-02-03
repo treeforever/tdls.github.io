@@ -53,8 +53,12 @@ const UpcomingEventItem = ({ event: ev, leadLink, facLinks }) => {
           {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type].toLowerCase()}]` : ''}
           &nbsp;{ev.title.toLowerCase()}
         </a>
-        {ev.paper ? <a target="_blank" href={ev.paper}>&nbsp;
-        <i className="fa fa-file-text-o"></i></a> : null}
+        &nbsp;{ev.paper ? <a target="_blank" href={ev.paper}>
+          &nbsp;<i className="fa fa-file-text-o"></i></a> : null}
+        &nbsp;{ev.code_official ? <a target="_blank" href={ev.code_official}>
+          &nbsp;<i className="fa fa-github"></i></a> : null}
+        &nbsp;{ev.code_unofficial ? <a target="_blank" href={ev.code_unofficial}>
+          &nbsp;<i className="fa fa-github"></i></a> : null}
       </h5>
       {ev.lead.indexOf('?') < 0 ? <Fragment>
         Discussion Lead: <strong>{nameToLink(ev.lead, leadLink)}</strong>
