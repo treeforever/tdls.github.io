@@ -7,18 +7,9 @@ import Footer from '../components/footer'
 import SharedBodyScripts from '../components/shared-body-scripts'
 import ThemesAndSuch from '../components/themes-and-such';
 import { UpcomingEvents, PastEvents } from '../components/event-related';
-import ModalVideo from 'react-modal-video';
-import { ModalVideoContext } from '../components/youtube-modal';
+import { YouTubeModalWrapper } from '../components/youtube-modal';
 
 export default () => {
-  const [{ isOpen, modalYoutubeId }, setModalState] = useState({ isOpen: false });
-  const openYoutube = (youtubeId) => {
-    setModalState({ isOpen: true, modalYoutubeId: youtubeId });
-  }
-
-  const closeYoutubeModal = () => {
-    setModalState({ isOpen: false });
-  }
   return (
     <Fragment>
       <Head>
@@ -37,9 +28,7 @@ export default () => {
         <link rel="icon" type="image/png" href="/static/images/tdls_logo.png" />
       </Head>
       <Header />
-      <ModalVideoContext.Provider
-        value={(youtubeId) => openYoutube(youtubeId)}
-      >
+      <YouTubeModalWrapper>
         <main role="main">
           <section id="welcome">
             <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
@@ -300,20 +289,11 @@ export default () => {
             </article>
           </section>
         </main>
-
-        <ModalVideo
-          channel='youtube'
-          isOpen={isOpen}
-          videoId={modalYoutubeId}
-          onClose={closeYoutubeModal}
-          autoplay={true}
-        />
         <div className="modal" id="event-popup" tabIndex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
         </div>
-      </ModalVideoContext.Provider>
+      </YouTubeModalWrapper>
       <Footer />
       <SharedBodyScripts />
-
     </Fragment>
   );
 }
