@@ -26,7 +26,7 @@ export const UpcomingEvents = ({ }) => {
   return (
     <ul className="list-group upcoming-event-list">
       {
-        // display only first 5
+        // display only first 3
         events.slice(0, 3).map(event => {
           const leadLink = linkedInDict[event.lead];
           const facLinks = event.facilitators.map(n => linkedInDict[n]);
@@ -50,8 +50,8 @@ const UpcomingEventItem = ({ event: ev, leadLink, facLinks }) => {
       </p>
       <h5 className="title">
         <a className="title" href={`/#/events/${getEventId(ev)}`}>
-          {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
-          {ev.title.toLowerCase()}
+          {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type].toLowerCase()}]` : ''}
+          &nbsp;{ev.title.toLowerCase()}
         </a>
         {ev.paper ? <a target="_blank" href={ev.paper}>&nbsp;
         <i className="fa fa-file-text-o"></i></a> : null}

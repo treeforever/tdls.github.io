@@ -2,9 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // main script entry point
   assembleEvents(
-    document.getElementById('upcoming-events'),
-    document.getElementById('past-events'),
-    document.getElementById('site-contributors'),
     document.getElementById('useful-links'),
     document.getElementById('sma-links')
   );
@@ -307,8 +304,7 @@ function venueToLink(name) {
   }
 }
 
-async function assembleEvents(
-  pastElem, usefulLinksElem, smaLinksElem) {
+async function assembleEvents(pastElem, usefulLinksElem, smaLinksElem) {
   const pastEvents = [];
 
   pastElem.innerHTML = `
