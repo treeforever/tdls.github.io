@@ -112,6 +112,12 @@ a.scroll-button span {
   transform: translateX(-50%);
 }
 
+#welcome .carousel-caption {
+  font-style: italic;
+  letter-spacing: 0.12em;
+  border-radius: 10px;
+}
+
 .tdls-intro {
   padding-top: 40px;
   left: 0px;
@@ -122,6 +128,7 @@ a.scroll-button span {
   max-width: 850px;
   opacity: 0.8;
 }
+
 
 #events .event-link {
   color: #5a5a5a;
