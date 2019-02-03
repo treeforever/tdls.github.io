@@ -49,16 +49,16 @@ export default () => {
               </ol>
 
               <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <img className="d-block w-100" src="/static/images/slide_02.jpeg" alt="Second slide" />
-                  <div className="carousel-caption d-none d-md-block bg-dark">
-                    <h3>#tdls: intellectually curious individuals</h3>
-                  </div>
-                </div>
                 <div className="carousel-item">
                   <img className="d-block w-100" src="/static/images/slide_01.jpeg" alt="First slide" />
                   <div className="carousel-caption d-none d-md-block bg-dark">
                     <h3>#tdls: welcoming & supportive community</h3>
+                  </div>
+                </div>
+                <div className="carousel-item active">
+                  <img className="d-block w-100" src="/static/images/slide_02.jpeg" alt="Second slide" />
+                  <div className="carousel-caption d-none d-md-block bg-dark">
+                    <h3>#tdls: intellectually curious individuals</h3>
                   </div>
                 </div>
                 <div className="carousel-item">
