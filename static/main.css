@@ -10,6 +10,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 #main-navbar .nav-item a {
   color: white;
   font-weight: 500;
+  letter-spacing: 0.07em;
 }
 
 #main-navbar .dropdown-menu a {

@@ -308,37 +308,8 @@ function venueToLink(name) {
 }
 
 async function assembleEvents(
-  upcomingElem, pastElem, contributorsElem, usefulLinksElem, smaLinksElem) {
-  const { pastEvents, futureEvents } = await getEventsAndGroupings();
-
-  upcomingElem.innerHTML = `
-  <ul class="list-group upcoming-event-list">
-  ${
-    // display only first 5
-    (await Promise.all(futureEvents.slice(0, 3).map(async ev => {
-      const leadLink = await nameToLink(ev.lead);
-      const facLinks = await Promise.all(ev.facilitators.map(nameToLink));
-      return `
-        <li class="list-group-item ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
-        <p>
-          ${WEEKDAYS[ev.date.getDay()]}, 
-          ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
-        </p>
-        <h5 class="title">
-          <a class="title" href="#/events/${getEventId(ev)}">
-            ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
-            ${ev.title.toLowerCase()}
-          </a>
-           ${ev.paper ? `<a target="_blank" href="${ev.paper}">&nbsp;<i class="fa fa-file-text-o"></i></a>` : ''}
-        </h5>
-        ${ev.lead.indexOf('?') < 0 ? `Discussion Lead: <strong>${leadLink}</strong>` : ''}
-        ${ev.facilitators.length == 0 ? '' : ' | Facilitators: ' + facLinks.map(f => `<strong>${f}</strong>`).join(', ')}
-        </li>
-      `;
-    }))).join('')
-    }
-  </ul>
-  `;
+  pastElem, usefulLinksElem, smaLinksElem) {
+  const pastEvents = [];
 
   pastElem.innerHTML = `
   <table class="table table-striped table-condensed past-event-list" id="past-event-list">
@@ -424,53 +395,54 @@ async function assembleEvents(
     pageLength: 5
   });
 
-  const { subjects, streams } = await getEventsAndGroupings();
-  const subjectFilterElem = document.querySelector('#subject-filter-area');
-  subjectFilterElem.innerHTML = `
-    <div class="horizontal-elem">
-    By subject: 
-    </div>
-    <div class="horizontal-elem">
-      <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
-        ${ subjects.map(s => `
-          <option value="${spacedToDashed(s)}">${s}</option>
-        `).join('')}
-      </select>
-    </div>
-  `;
-  const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
-  $(subjectFilterSelect).on('changed.bs.select', () => {
-    if ($(subjectFilterSelect).val() && $(subjectFilterSelect).val().length > 0) {
-      $(subjectFilterSelect).parent().addClass('active');
-    } else {
-      $(subjectFilterSelect).parent().removeClass('active');
-    }
-    table.draw();
-  });
+  // const { subjects, streams } = await getEventsAndGroupings();
+  // const subjectFilterElem = document.querySelector('#subject-filter-area');
+  // subjectFilterElem.innerHTML = `
+  //   <div class="horizontal-elem">
+  //   By subject: 
+  //   </div>
+  //   <div class="horizontal-elem">
+  //     <select id="subject-filter" class="selectpicker" multiple data-max-options="3">
+  //       ${ subjects.map(s => `
+  //         <option value="${spacedToDashed(s)}">${s}</option>
+  //       `).join('')}
+  //     </select>
+  //   </div>
+  // `;
+  // const subjectFilterSelect = subjectFilterElem.querySelector('#subject-filter');
+  // $(subjectFilterSelect).on('changed.bs.select', () => {
+  //   if ($(subjectFilterSelect).val() && $(subjectFilterSelect).val().length > 0) {
+  //     $(subjectFilterSelect).parent().addClass('active');
+  //   } else {
+  //     $(subjectFilterSelect).parent().removeClass('active');
+  //   }
+  //   table.draw();
+  // });
 
-  const streamFilterElem = document.querySelector('#stream-filter-area');
-  streamFilterElem.innerHTML = `
-    <div class="horizontal-elem">
-    By stream: 
-    </div>
-    <div class="horizontal-elem">
-      <select id="stream-filter" class="selectpicker">
-          <option value="all">[All]</option>
-        ${ streams.map(s => `
-          <option>${s}</option>
-        `).join('')}
-      </select>
-    </div>
-  `;
-  const streamFilterSelect = streamFilterElem.querySelector('#stream-filter');
-  $(streamFilterSelect).on('changed.bs.select', () => {
-    if ($(streamFilterSelect).val() !== 'all') {
-      $(streamFilterSelect).parent().addClass('active');
-    } else {
-      $(streamFilterSelect).parent().removeClass('active');
-    }
-    table.draw();
-  });
+  // const streamFilterElem = document.querySelector('#stream-filter-area');
+  // streamFilterElem.innerHTML = `
+  //   <div class="horizontal-elem">
+  //   By stream: 
+  //   </div>
+  //   <div class="horizontal-elem">
+  //     <select id="stream-filter" class="selectpicker">
+  //         <option value="all">[All]</option>
+  //       ${ streams.map(s => `
+  //         <option>${s}</option>
+  //       `).join('')}
+  //     </select>
+  //   </div>
+  // `;
+
+  // const streamFilterSelect = streamFilterElem.querySelector('#stream-filter');
+  // $(streamFilterSelect).on('changed.bs.select', () => {
+  //   if ($(streamFilterSelect).val() !== 'all') {
+  //     $(streamFilterSelect).parent().addClass('active');
+  //   } else {
+  //     $(streamFilterSelect).parent().removeClass('active');
+  //   }
+  //   table.draw();
+  // });
 
   usefulLinksElem.innerHTML = `
   <ul>
@@ -491,23 +463,23 @@ async function assembleEvents(
   </ul>
   `;
 
-  smaLinksElem.innerHTML = `
-    <dl>
-    ${SMA.map(([g, areas]) => `
-    <dt>${g}</dt>
-    <dd>
-      <ul class="list-unstyled">
-      ${areas.map(([title, desc]) => `
-      <li>
-        ${subjects.indexOf(title) < 0 ? title : `<a href="/#/subjects/${spacedToDashed(title)}">${title}</a>`}
-         ${desc ? `(${desc})` : ''}
-      </li>
-      `).join('')}
-      </ul>
-    </dd>
-    `).join('')}
-  </dl>
-  `;
+  // smaLinksElem.innerHTML = `
+  //   <dl>
+  //   ${SMA.map(([g, areas]) => `
+  //   <dt>${g}</dt>
+  //   <dd>
+  //     <ul class="list-unstyled">
+  //     ${areas.map(([title, desc]) => `
+  //     <li>
+  //       ${subjects.indexOf(title) < 0 ? title : `<a href="/#/subjects/${spacedToDashed(title)}">${title}</a>`}
+  //        ${desc ? `(${desc})` : ''}
+  //     </li>
+  //     `).join('')}
+  //     </ul>
+  //   </dd>
+  //   `).join('')}
+  // </dl>
+  // `;
 
 }
 
@@ -583,85 +555,6 @@ async function getRawLinkedInData() {
   return raw;
 }
 
-
-const getEventsAndGroupings = runOnlyOnce(async () => {
-  const data = await getRawEventData();
-  const [rawHeader, ...rawRows] = data.values;
-
-  // convert raw JSON rows to our own event data type
-  const events = rawRows.map(
-    rawR => rawRowToRow(rawHeader, rawR)).filter(
-      //only care about rows that have both title and lead
-      e => e.title && e.lead
-    );
-
-  const [pastEvents, futureEvents] = splitEvents(events);
-
-  const subjects = pastEvents.reduce((subjects, ev) => {
-    const newSubjects = [];
-    for (sub of ev.subjects) {
-      if (subjects.indexOf(sub) < 0) {
-        newSubjects.push(sub);
-      }
-    }
-    return subjects.concat(newSubjects);
-  }, []);
-
-  const streams = pastEvents.reduce((streams, ev) => {
-    const newStreams = [];
-    if (streams.indexOf(ev.type) < 0) {
-      newStreams.push(ev.type);
-    }
-    return streams.concat(newStreams);
-  }, []);
-
-  return { pastEvents, futureEvents, subjects, streams };
-});
-
-const getLinkedInProfiles = runOnlyOnce(async () => {
-  const data = await getRawLinkedInData();
-  const linkedInProfileByName = {};
-  const [rawHeader, ...rawRows] = data.values;
-  rawRows.forEach(r => {
-    const name = r[rawHeader.indexOf('Name')];
-    const link = r[rawHeader.indexOf('LinkedIn')];
-    if (link) {
-      linkedInProfileByName[name.trim()] = link.trim();
-    }
-  });
-  return linkedInProfileByName;
-});
-
-
-// cache-enabled, guarantees only one fetch
-function runOnlyOnce(fetcher) {
-  let executeStatus = 'unfetched';
-  let executeP = null;
-  let cachedResult = null;
-
-  return () => {
-    if (executeStatus === 'fetching') {
-      return executeP;
-    } else if (executeStatus === 'unfetched') {
-      executeStatus = 'fetching';
-      executeP = new Promise(async (resolve) => {
-        cachedResult = await fetcher();
-
-        executeStatus = 'fetched';
-        executeP = null;
-
-        resolve(cachedResult);
-
-      });
-      return executeP;
-    } else // fetched
-    {
-      return new Promise((resolve) => {
-        resolve(cachedResult);
-      });
-    }
-  }
-}
 
 const READABLE_EVENT_TYPE = {
   'classics': 'Classics',

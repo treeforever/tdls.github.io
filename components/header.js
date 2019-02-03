@@ -12,7 +12,7 @@ export default () => (
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Events
             </a>
