@@ -43,16 +43,19 @@ export const UpcomingEvents = ({ }) => {
 }
 
 const UpcomingEventItem = ({ event: ev, leadLink, facLinks }) => {
+  const date = (
+    <p>
+      {WEEKDAYS[ev.date.getDay()]},&nbsp;
+{ev.date.getDate()}-{MONTH_NAMES[ev.date.getMonth()]}-{ev.date.getYear() + 1900}
+    </p>
+  );
   return (
     <li className={'list-group-item' + (ev.type ? ' event-' + ev.type : '') + (isTentative(ev) ? ' tentative' : '')}>
-      <p>
-        {WEEKDAYS[ev.date.getDay()]},&nbsp;
-  {ev.date.getDate()}-{MONTH_NAMES[ev.date.getMonth()]}-{ev.date.getYear() + 1900}
-      </p>
+      {date}
       <h5 className="title">
         <a className="title" href={`/#/events/${getEventId(ev)}`}>
-          {ev.type !== 'main' && `[${READABLE_EVENT_TYPE[ev.type].toLowerCase()}]`}
-          &nbsp;{ev.title.toLowerCase()}
+          {ev.type !== 'main' && `[${READABLE_EVENT_TYPE[ev.type].toLowerCase()}] `}
+          {ev.title.toLowerCase()}
         </a>
         &nbsp;{ev.paper && <a target="_blank" href={ev.paper}>
           &nbsp;<i className="fa fa-file-text-o"></i></a>}
@@ -69,7 +72,11 @@ const UpcomingEventItem = ({ event: ev, leadLink, facLinks }) => {
       {ev.facilitators.length !== 0 && (
         <Fragment>
           &nbsp;| Facilitators: {
-            ev.facilitators.map((f, i) => <strong key={i}>{nameToLink(f, facLinks[i])}</strong>)
+            ev.facilitators.map((f, i) => (
+              <Fragment key={i}>
+                <strong key={i}>{nameToLink(f, facLinks[i])}</strong>&nbsp;
+              </Fragment>
+            ))
           }
         </Fragment>
       )}
@@ -104,7 +111,7 @@ export const PastEvents = ({ }) => {
     slidesToScroll: 4,
     responsive: [
       {
-        breakpoint: 1360,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,

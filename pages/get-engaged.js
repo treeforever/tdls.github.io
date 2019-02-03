@@ -103,7 +103,6 @@ const GetEngaged = ({ }) => [
         <div className="card border-primary mb-3">
           <div className="card-body">
             <h5 className="card-title">Subscribe to Learn More about TDLS</h5>
-
             <div id="mc_embed_signup">
               <form action="https://science.us20.list-manage.com/subscribe/post?u=c7831af29c0c46bd5ec4c04c7&amp;id=9e6c32b697"
                 method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
