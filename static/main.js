@@ -212,27 +212,27 @@ function eventExpired(ev) {
   return ev.date < new Date();
 }
 
-// subject filter implementation
-$.fn.dataTable.ext.search.push((_, data) => {
-  const val = $('#subject-filter').val();
-  if (!val || val.length === 0) {
-    return true;
-  } else {
-    const subjects = data[1].split(',').map(s => spacedToDashed(s.trim()));
-    return matchAll(val, subjects);
-  }
-});
+// // subject filter implementation
+// $.fn.dataTable.ext.search.push((_, data) => {
+//   const val = $('#subject-filter').val();
+//   if (!val || val.length === 0) {
+//     return true;
+//   } else {
+//     const subjects = data[1].split(',').map(s => spacedToDashed(s.trim()));
+//     return matchAll(val, subjects);
+//   }
+// });
 
-// stream filter implementation
-$.fn.dataTable.ext.search.push((_, data) => {
-  const val = $('#stream-filter').val();
-  if (!val || val.toLowerCase() === 'all') {
-    return true;
-  } else {
-    const stream = data[2].trim();
-    return val === stream;
-  }
-});
+// // stream filter implementation
+// $.fn.dataTable.ext.search.push((_, data) => {
+//   const val = $('#stream-filter').val();
+//   if (!val || val.toLowerCase() === 'all') {
+//     return true;
+//   } else {
+//     const stream = data[2].trim();
+//     return val === stream;
+//   }
+// });
 
 function matchAll(queries, candidates) {
   return queries.every(q => !!candidates.find(c => c === q));
@@ -308,92 +308,24 @@ function spacedToDashed(s) {
 
 
 
-async function assembleEvents(pastElem, usefulLinksElem, smaLinksElem) {
-  const pastEvents = [];
-
-  pastElem.innerHTML = `
-  <table class="table table-striped table-condensed past-event-list" id="past-event-list">
-  <thead><tr>${
-    ['Details'].map(lbl => `
-  <th></th>
-  <th></th>
-  <th></th>
-  <th>${lbl}</th>
-  `).join('')
-    }</tr>
-  </thead>
-  <tbody>
-  ${(await Promise.all(pastEvents.map(async ev => `
-  <tr class="event-${ev.type}">
-    <td>
-    ${toShortDateString(ev.date)}
-    </td>
-    <td>
-    ${ev.subjects.join(', ')}
-    </td>
-    <td>
-    ${ev.type}
-    </td>
-    <td class="align-middle ${ev.type ? 'event-' + ev.type : ''} ${isTentative(ev) ? 'tentative' : ''}">
-      <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-sm-12">
-          ${toShortDateString(ev.date)}
-        </div>
-        <div class="col-lg-4 col-sm-12">
-          <p class="title">
-            <a class="title" href="#/events/${getEventId(ev)}">
-              ${ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]` : ''}
-              ${ev.title.toLowerCase()}</a>
-          </p>
-        </div>
-        <div class="col-lg-3 col-sm-12">
-          <p>Discussion lead by ${await nameToLink(ev.lead)} 
-          ${ev.facilitators.length != 0 ? ` and facilitated by 
-          ${(await Promise.all(ev.facilitators.map(nameToLink))).join(' & ')}` : ''}
-          <br />Venue: <strong>${venueToLink(ev.venue)}</strong></p>
-        </div> 
-        <div class="col-lg-1 col-12">
-          ${ev.video ? ytThumbLink(ev.video) : ''}
-        </div>
-        <div class="col-lg-2 col-12">
-          <div class="toolbar">
-            &nbsp;<a class="title" href="#/events/${getEventId(ev)}"><i class="fa fa-share-alt fa-lg"></i></a>
-            ${ev.paper ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a>` : ''}
-            ${ev.video ? `&nbsp;<a target="_blank" href="${ev.paper}"><i class="fa fa-play-circle fa-lg"></i></a>` : ''}
-            ${ev.slides ? `&nbsp;<a target="_blank" href="/static/${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a>` : ''}
-            ${ev.reddit ? `&nbsp;<a target="_blank" href="${ev.reddit}"><i class="fa fa-reddit fa-lg"></i></a>` : ''}
-            ${ev.code_official ? `&nbsp;<a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-            ${ev.code_unofficial ? `&nbsp;<a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a>` : ''}
-            ${ev.dataset1 ? `&nbsp;<a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a>` : ''}
-            ${ev.dataset2 ? `&nbsp;<a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a>` : ''}
-          </div>
-        </div>       
-      </div>
-      </div>
-    </td>
-  </tr>
-  `))).join('')}
-  </tbody>
-  </table>
-`;
+async function assembleEvents(usefulLinksElem, smaLinksElem) {
 
   // load up DataTable for cool gadgets such as pagination, sorting and search
-  const dataTableElem = pastElem.querySelector('#past-event-list');
-  const table = $(dataTableElem).DataTable({
-    order: [[0, "desc"]],
-    // https://datatables.net/reference/option/dom
-    dom: `
-      <'row'<'col-sm-12 col-md-12 filter-tools' <"#stream-filter-area"> <"#subject-filter-area"> f l>>
-      <'row'<'col-sm-12'tr>>
-      <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
-    columnDefs: [
-      { orderSequence: ["desc"], targets: [0] },
-      // subjects
-      { visible: false, targets: [0, 1, 2] },
-    ],
-    pageLength: 5
-  });
+  // const dataTableElem = pastElem.querySelector('#past-event-list');
+  // const table = $(dataTableElem).DataTable({
+  //   order: [[0, "desc"]],
+  //   // https://datatables.net/reference/option/dom
+  //   dom: `
+  //     <'row'<'col-sm-12 col-md-12 filter-tools' <"#stream-filter-area"> <"#subject-filter-area"> f l>>
+  //     <'row'<'col-sm-12'tr>>
+  //     <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
+  //   columnDefs: [
+  //     { orderSequence: ["desc"], targets: [0] },
+  //     // subjects
+  //     { visible: false, targets: [0, 1, 2] },
+  //   ],
+  //   pageLength: 5
+  // });
 
   // const { subjects, streams } = await getEventsAndGroupings();
   // const subjectFilterElem = document.querySelector('#subject-filter-area');
@@ -444,25 +376,6 @@ async function assembleEvents(pastElem, usefulLinksElem, smaLinksElem) {
   //   table.draw();
   // });
 
-  usefulLinksElem.innerHTML = `
-  <ul>
-  ${[
-      ["Distill Pub", "https://distill.pub/about/"],
-      ["Papers with Code", "https://paperswithcode.com/"],
-      ["ArXiv", "https://arxiv.org/archive/cs"],
-      ["Arxiv Sanity", "http://www.arxiv-sanity.com/"],
-      ["State of the Art in AI", "https://www.stateoftheart.ai/"],
-      ["TDLS Classic Papers", "https://docs.google.com/spreadsheets/d/1PTaFyE2AsgTd0p7A5aHvEw0lLzw-9OXJC8Wa1Bg10ug"],
-    ].map(([name, link]) => `
-    <li>
-      <a href="${link}" target="_blank">
-        <p class="card-title">${name}</p> 
-      </a>
-    </li>
-  `).join('\n')}
-  </ul>
-  `;
-
   // smaLinksElem.innerHTML = `
   //   <dl>
   //   ${SMA.map(([g, areas]) => `
@@ -500,6 +413,8 @@ function ytThumbLink(url) {
   </a>
   `
 }
+
+console.log('wwww')
 
 async function getRawEventData() {
   const SHEET_ID = '1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE';

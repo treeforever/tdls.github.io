@@ -7,7 +7,11 @@ export default () => (
       </div>
         <ul className="list-inline social-buttons">
           <li className="list-inline-item">
-            <div className="g-ytsubscribe" data-channelid="UCfk3pS8cCPxOgoleriIufyg" data-layout="default" data-theme="default"
+            <div
+              className="g-ytsubscribe"
+              data-channelid="UCfk3pS8cCPxOgoleriIufyg"
+              data-layout="default"
+              data-theme="default"
               data-count="default"></div>
           </li>
           <li className="list-inline-item">

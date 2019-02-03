@@ -247,7 +247,7 @@ function nameToLink(name, link) {
     return name;
   } else {
     return (
-      <a className="person-name" href={link} target="_blank">
+      <a key={name} className="person-name" href={link} target="_blank">
         {name}&nbsp;
         <i className="fa fa-linkedin-square"></i>
       </a>

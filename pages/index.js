@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Head from 'next/head'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import SharedBodyScripts from '../components/shared-body-scripts'
 import ThemesAndSuch from '../components/themes-and-such';
 import { UpcomingEvents, PastEvents } from '../components/event-related';
 import ModalVideo from 'react-modal-video';
@@ -279,7 +280,24 @@ export default () => {
           <section className="container" id="useful_links" >
             <hr />
             <h2>Useful Links</h2>
-            <article id="useful-links"></article>
+            <article id="useful-links">
+              <ul>
+                {[
+                  ["Distill Pub", "https://distill.pub/about/"],
+                  ["Papers with Code", "https://paperswithcode.com/"],
+                  ["ArXiv", "https://arxiv.org/archive/cs"],
+                  ["Arxiv Sanity", "http://www.arxiv-sanity.com/"],
+                  ["State of the Art in AI", "https://www.stateoftheart.ai/"],
+                  ["TDLS Classic Papers", "https://docs.google.com/spreadsheets/d/1PTaFyE2AsgTd0p7A5aHvEw0lLzw-9OXJC8Wa1Bg10ug"],
+                ].map(([name, link]) => (
+                  <li key={name}>
+                    <a href={link} target="_blank">
+                      <p className="card-title">{name}</p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </article>
           </section>
         </main>
 
@@ -292,18 +310,10 @@ export default () => {
         />
         <div className="modal" id="event-popup" tabIndex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
         </div>
-        <Footer />
       </ModalVideoContext.Provider>
+      <Footer />
+      <SharedBodyScripts />
 
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossOrigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" crossOrigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossOrigin="anonymous"></script>
-      <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" crossOrigin="anonymous"></script>
-      <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-      <script src="/static/main.js"></script>
-      <script src="https://apis.google.com/js/platform.js"></script>
     </Fragment>
   );
 }
