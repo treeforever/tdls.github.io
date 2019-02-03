@@ -270,29 +270,38 @@ a.scroll-button span {
   color: #ccc;
 }
 
-.past-event-list .event-fasttrack .title {
+
+.slick-next:before, .slick-prev:before {
+  color: black;
+}
+
+.past-event-list .event-fasttrack, .past-event-list .event-fasttrack a {
   color:  var(--fasttrack-color);
 }
 
-.past-event-list .event-classics .title {
+.past-event-list .event-classics, .past-event-list .event-classics a {
   color:  var(--classics-color);
 }
 
-
-.past-event-list .event-fasttrack .title {
+.past-event-list .event-fasttrack, .past-event-list .event-fasttrack a {
   color:  var(--fasttrack-color);
 }
 
-.past-event-list .event-codereview .title {
+.past-event-list .event-main, .past-event-list .event-main a {
+  color:  var(--main-color);
+}
+
+.past-event-list .event-codereview, .past-event-list .event-codereview a {
   color:  var(--codereview-color);
 }
 
-.past-event-list .event-authors .title {
+.past-event-list .event-authors, .past-event-list .event-authors a {
   color:  var(--authors-color);
 }
 
-#past-event-list .title {
+.past-event-list .title {
   font-style: italic;
+  font-size: 1.2em;
 }
 
 .modal-dialog .modal-header {
@@ -349,7 +358,7 @@ a.scroll-button span {
   display: block;
   position: absolute;
   background-position: center; 
-  background-size: 60% 60%;
+  background-size: 20% 20%;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -365,8 +374,12 @@ a.scroll-button span {
   left: 0;
 } */
 
-#past-event-list .toolbar {
-  margin-top: 10px;
+.past-event-list .toolbar {
+  text-align: right;
+}
+
+.past-event-list .toolbar a {
+  margin-right: 10px;
 }
 
 #past-event-list_length {
@@ -420,6 +433,15 @@ a.scroll-button span {
 #sma-links a {
   color: var(--main-color);
 }
+.slick-track
+{
+    display: flex !important;
+}
+
+.slick-slide
+{
+    height: inherit !important;
+}
 
 #get-engaged h4 {
   font-style: italic;
@@ -430,6 +452,11 @@ a.scroll-button span {
 #events h3 {
   margin-top: 30px;
   margin-bottom: 20px;
+}
+
+.past-event-list .event .date {
+  text-align: right;
+  margin-top: 1em;
 }
 
 .carousel-caption {

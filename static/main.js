@@ -23,8 +23,10 @@ async function handleHashChange(newURL) {
     return;
   } else {
     const hash = newURL.substring(newURL.indexOf('#') + 1);
+
     if (hash.startsWith('/events/')) {
       const eventId = hash.substring('/events/'.length);
+
       await showEvent(eventId);
     } else if (hash.startsWith('/subjects/')) {
       const subject = hash.substring('/subjects/'.length);
@@ -50,7 +52,6 @@ async function showEvent(eventId) {
   const ev = futureEvents.find(ev => getEventId(ev) === eventId) || pastEvents.find(ev => getEventId(ev) === eventId);
 
   const expired = eventExpired(ev);
-
   $('#event-popup').html(`
   <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
       <div class="modal-content">
@@ -139,7 +140,7 @@ async function showEvent(eventId) {
           <button 
           type="button" id="copy-link" class="btn btn-info"
           >Copy link</button>
-          <a href="/get-engaged" class="btn btn-primary" data-dismiss="modal">Get Engaged</a>
+          <a href="/get-engaged" class="btn btn-primary">Get Engaged</a>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -251,6 +252,28 @@ async function nameToLink(name) {
   }
 }
 
+function getYouTubeId(url) {
+  if (!url) {
+    return null;
+  }
+  let id = '';
+  url = url.replace(/(>|<)/gi, '').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+  if (url[2] !== undefined) {
+    id = url[2].split(/[^0-9a-z_\-]/i);
+    id = id[0];
+  }
+  else {
+    id = url;
+  }
+  return id;
+}
+
+
+function ytThumb(url) {
+  const id = getYouTubeId(url);
+  return `https://img.youtube.com/vi/${id}/0.jpg`;
+}
+
 const SMA = [
   ['General Areas of Machine Learning', [
     ['Deep Learning', 'various architectures, explainability, relation to geometry, etc'],
@@ -283,26 +306,7 @@ function spacedToDashed(s) {
   return s.toLowerCase().replace(/ /g, '-');
 }
 
-function venueToLink(name) {
-  const url = {
-    'RBC': 'https://www.rbcroyalbank.com',
-    'Rangle': 'https://rangle.io',
-    'Randstad Technologies': 'https://www.randstad.ca/our-divisions/technologies/',
-    'Ryerson': 'https://www.ryerson.ca/',
-    'Shopify': 'https://www.shopify.ca/',
-    'SAS': 'https://www.sas.com/en_ca/home.html',
-    'Aviva': 'https://www.aviva.ca/en/',
-  }[name];
-  if (!url) {
-    return name;
-  } else {
-    return `
-    <a class="venue-name" href="${url}" target="_blank">
-      ${name}&nbsp;<i class="fa fa-external-link"></i>
-    </a>
-    `;
-  }
-}
+
 
 async function assembleEvents(pastElem, usefulLinksElem, smaLinksElem) {
   const pastEvents = [];
@@ -479,32 +483,6 @@ async function assembleEvents(pastElem, usefulLinksElem, smaLinksElem) {
 
 }
 
-function splitEvents(events) {
-  // split into the past and future
-  let past = [];
-  let future = [];
-  events.forEach(e => {
-    if (!eventExpired(e)) { future.push(e); }
-    else { past.push(e); }
-  });
-  past = past.sort((e1, e2) => e1.date - e2.date);
-  future = future.sort((e1, e2) => e1.date - e2.date);
-
-  return [past, future];
-}
-
-function getYouTubeId(url) {
-  let id = '';
-  url = url.replace(/(>|<)/gi, '').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-  if (url[2] !== undefined) {
-    id = url[2].split(/[^0-9a-z_\-]/i);
-    id = id[0];
-  }
-  else {
-    id = url;
-  }
-  return id;
-}
 
 function ytThumb(url) {
   const id = getYouTubeId(url);
@@ -603,6 +581,124 @@ function rawRowToRow(rawHeader, rawRow) {
     reddit
   }
 }
+
+
+function splitEvents(events) {
+  // split into the past and future
+  let past = [];
+  let future = [];
+  events.forEach(e => {
+    if (!eventExpired(e)) { future.push(e); }
+    else { past.push(e); }
+  });
+  past = past.sort((e1, e2) => e2.date - e1.date);
+  future = future.sort((e1, e2) => e1.date - e2.date);
+  return [past, future];
+}
+
+
+
+// cache-enabled, guarantees only one fetch
+function runOnlyOnce(fetcher) {
+  let executeStatus = 'unfetched';
+  let executeP = null;
+  let cachedResult = null;
+
+  return () => {
+    if (executeStatus === 'fetching') {
+      return executeP;
+    } else if (executeStatus === 'unfetched') {
+      executeStatus = 'fetching';
+      executeP = new Promise(async (resolve) => {
+        cachedResult = await fetcher();
+
+        executeStatus = 'fetched';
+        executeP = null;
+
+        resolve(cachedResult);
+
+      });
+      return executeP;
+    } else // fetched
+    {
+      return new Promise((resolve) => {
+        resolve(cachedResult);
+      });
+    }
+  }
+}
+
+const getLinkedInProfiles = runOnlyOnce(async () => {
+  const data = await getRawLinkedInData();
+  const linkedInProfileByName = {};
+  const [rawHeader, ...rawRows] = data.values;
+  rawRows.forEach(r => {
+    const name = r[rawHeader.indexOf('Name')];
+    const link = r[rawHeader.indexOf('LinkedIn')];
+    if (link) {
+      linkedInProfileByName[name.trim()] = link.trim();
+    }
+  });
+  return linkedInProfileByName;
+});
+
+
+
+function venueToLink(name) {
+  // const url = {
+  //   'RBC': 'https://www.rbcroyalbank.com',
+  //   'Rangle': 'https://rangle.io',
+  //   'Randstad Technologies': 'https://www.randstad.ca/our-divisions/technologies/',
+  //   'Ryerson': 'https://www.ryerson.ca/',
+  //   'Shopify': 'https://www.shopify.ca/',
+  //   'SAS': 'https://www.sas.com/en_ca/home.html',
+  //   'Aviva': 'https://www.aviva.ca/en/',
+  // }[name];
+  // if (!url) {
+  //   return name;
+  // } else {
+  //   return (
+  //     <a className="venue-name" href={url} target="_blank">
+  //       {name}&nbsp;<i className="fa fa-external-link"></i>
+  //     </a>
+  //   );
+  // }
+  return name;
+}
+
+const getEventsAndGroupings = runOnlyOnce(async () => {
+  const data = await getRawEventData();
+  const [rawHeader, ...rawRows] = data.values;
+
+  // convert raw JSON rows to our own event data type
+  const events = rawRows.map(
+    rawR => rawRowToRow(rawHeader, rawR)).filter(
+      //only care about rows that have both title and lead
+      e => e.title && e.lead
+    );
+
+  const [pastEvents, futureEvents] = splitEvents(events);
+
+  const subjects = pastEvents.reduce((subjects, ev) => {
+    const newSubjects = [];
+    for (let sub of ev.subjects) {
+      if (subjects.indexOf(sub) < 0) {
+        newSubjects.push(sub);
+      }
+    }
+    return subjects.concat(newSubjects);
+  }, []);
+
+  const streams = pastEvents.reduce((streams, ev) => {
+    const newStreams = [];
+    if (streams.indexOf(ev.type) < 0) {
+      newStreams.push(ev.type);
+    }
+    return streams.concat(newStreams);
+  }, []);
+
+  return { pastEvents, futureEvents, subjects, streams };
+})
 
 function fixOffset() {
   const HISTORY_SUPPORT = !!(history && history.pushState);
