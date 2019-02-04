@@ -1,7 +1,10 @@
-import { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Slider from "react-slick";
 
-import React, { useState, useEffect } from 'react';
+import { WEEKDAYS, MONTH_NAMES } from '../utils/datetime';
+import { venueToLink } from '../utils/venue';
+import { READABLE_EVENT_TYPE, nameToLink } from '../utils/event';
+
 // import { getEventsAndGroupings, getLinkedInProfiles } from '../utils/event';
 import { ModalVideoContext } from '../components/youtube-modal';
 
@@ -32,7 +35,7 @@ export const UpcomingEvents = ({ }) => {
           const leadLink = linkedInDict[event.lead];
           const facLinks = event.facilitators.map(n => linkedInDict[n]);
           return (
-            <UpcomingEventItem
+            <UpcomingEventItem key={getEventId(event)}
               {...{ event, leadLink, facLinks }}
             />
           );
@@ -247,17 +250,4 @@ function getEventId(ev) {
   // TODO: this event hashing unique by date, but if we have two events
   // on the same date in the future we are screwed 
   return "" + toShortDateString(ev.date);
-}
-
-function nameToLink(name, link) {
-  if (!link) {
-    return name;
-  } else {
-    return (
-      <a key={name} className="person-name" href={link} target="_blank">
-        {name}&nbsp;
-        <i className="fa fa-linkedin-square"></i>
-      </a>
-    );
-  }
 }

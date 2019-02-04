@@ -6,176 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sma-links')
   );
 
-  registerRoutes();
-  handleHashChange(window.location.href);
   fixOffset();
   fixNavbarCollapse();
-})
-
-function registerRoutes() {
-  window.addEventListener("hashchange", ({ newURL }) => {
-    handleHashChange(newURL);
-  }, true);
-}
-
-async function handleHashChange(newURL) {
-  if (!newURL) {
-    return;
-  } else {
-    const hash = newURL.substring(newURL.indexOf('#') + 1);
-
-    if (hash.startsWith('/events/')) {
-      const eventId = hash.substring('/events/'.length);
-
-      await showEvent(eventId);
-    } else if (hash.startsWith('/subjects/')) {
-      const subject = hash.substring('/subjects/'.length);
-      const pastEventsElem = document.getElementById('past-events');
-      $('#subject-filter').val(subject);
-      $('#subject-filter').change();
-
-      setTimeout(() => {
-        pastEventsElem.scrollIntoView({ behavior: 'smooth' });
-      }, 200);
-    }
-  }
-}
+});
 
 function fixNavbarCollapse() {
   $('.navbar-collapse a:not(.dropdown-toggle)').on('click', function () {
     $('.navbar-toggler').click(); //bootstrap 4.x
   });
 }
-
-async function showEvent(eventId) {
-  const { pastEvents, futureEvents } = await getEventsAndGroupings();
-  const ev = futureEvents.find(ev => getEventId(ev) === eventId) || pastEvents.find(ev => getEventId(ev) === eventId);
-
-  const expired = eventExpired(ev);
-  $('#event-popup').html(`
-  <div class="modal-dialog modal-lg modal-dialog-centered event-${ev.type}" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="title">
-              ${ev.title}
-          </h4>
-          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          
-        </div>
-        <div class="modal-body ${isTentative(ev) ? 'tentative' : ''}">
-          <dl class="row">
-            <dt class="col-sm-4">Date:</dt> 
-            <dd class="col-sm-8">
-              ${WEEKDAYS[ev.date.getDay()]}, 
-              ${ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
-              ${expired ? '(This is a past event.)' : ''}
-            </dd>
-            ${!expired ? ` 
-              <dt class="col-sm-4">Venue:</dt> 
-              <dd class="col-sm-8">
-                (TDLS members: please refer to Slack or your calendar invite for location)
-              </dd>`   : `
-              <dt class="col-sm-4">Venue:</dt> 
-              <dd class="col-sm-8">
-                ${venueToLink(ev.venue)}
-              </dd>  
-            `}
-            ${ev.lead.indexOf('?') < 0 ? `
-              <dt class="col-sm-4">Discussion lead: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><strong>${await nameToLink(ev.lead)}</strong>` : ''}</dd>
-            ${ev.facilitators.length == 0 ? '' : `
-              <dt class="col-sm-4">Discussion facilitators: <i class="fa fa-external-link"></i></dt> 
-              <dd class="col-sm-8">${((await Promise.all(ev.facilitators.map(nameToLink))).map(f => `<strong>${f}</strong>`)).join(', ')}</dd>
-            `}
-            ${ev.video ? `
-            <dt class="col-sm-4">Recording: <i class="fa fa-external-link"></i></dt>
-            <dd class="col-sm-8">${ytThumbLink(ev.video)}</dd>
-          ` : ''}
-            ${ev.paper ? `
-              <dt class="col-sm-4">Paper: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.paper}"><i class="fa fa-file-text-o fa-lg"></i></a></dd>
-            ` : ''}
-            ${ev.slides ? `
-              <dt class="col-sm-4">Slides: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="/static/${ev.slides}"><i class="fa fa-file-powerpoint-o fa-lg"></i></a></dd>
-            ` : ''}            
-            ${ev.reddit ? `
-              <dt class="col-sm-4">Reddit: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.reddit}"><i class="fa fa fa-reddit fa-lg"></i></a></dd>
-            ` : ''}     
-            ${ev.code_official ? `
-              <dt class="col-sm-4">Official Code: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.code_official}"><i class="fa fa-github fa-lg"></i></a></dd>
-            ` : ''}
-            ${ev.code_unofficial ? `
-              <dt class="col-sm-4">Unofficial Code: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.code_unofficial}"><i class="fa fa-github fa-lg"></i></a></dd>
-            ` : ''}
-            ${ev.dataset1 ? `
-              <dt class="col-sm-4">${ev.dataset2 ? `Dataset 1` : `Dataset`}: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.dataset1}"><i class="fa fa-database fa-lg"></i></a></dd>
-            ` : ''}
-            ${ev.dataset2 ? `
-              <dt class="col-sm-4">Dataset 2: <i class="fa fa-external-link"></i></dt>
-              <dd class="col-sm-8"><a target="_blank" href="${ev.dataset2}"><i class="fa fa-database fa-lg"></i></a></dd>
-            ` : ''}
-            ${!expired ? ` 
-            <dt class="col-sm-4">Agenda:</dt> 
-            <dd class="col-sm-8">
-              <ul class="list-unstyled">
-                <li>5:30-6:15,   arrivals and socializing</li>
-                <li>6:15-6:30    intros and announcements</li>
-                <li>6:30-7:15,   algorithm review</li>
-                <li>7:15-8:00,   results and discussions</li>
-              </ul>
-            </dd>`   : ''
-    }
-            <dt class="col-sm-4">Category:</dt> <dd class="col-sm-8">${READABLE_EVENT_TYPE[ev.type]}</dd>
-          </dl>
-        </div>
-        <div class="modal-footer">
-          <button 
-          type="button" id="copy-link" class="btn btn-info"
-          >Copy link</button>
-          <a href="/get-engaged" class="btn btn-primary">Get Engaged</a>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  `);
-
-  $('#event-popup #copy-link').on('mouseup', async () => {
-    await copyToClipboard(window.location.href);
-
-    $('#event-popup #copy-link').popover({
-      content: 'Link to this event was copied to clipboard.',
-      placement: 'left',
-      trigger: 'focus'
-    })
-  });
-
-  const onModalClose = (e) => {
-    history.pushState(null, null, '#/events');
-    $('event-popup').off('onModalClose');
-  };
-
-  $('#event-popup').on('hidden.bs.modal', onModalClose);
-  $('#event-popup').modal();
-}
-
-const WEEKDAYS = [
-  'Sunday', 'Monday', 'Tuesday', 'Wednesday',
-  'Thursday', 'Friday', 'Saturday'
-]
-
-const MONTH_NAMES = [
-  "Jan", "Feb", "Mar", "April", "May", "Jun",
-  "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
-];
-
 
 function pad(num) {
   // pad single digit number with zero
@@ -208,9 +47,6 @@ async function copyToClipboard(text) {
   }
 }
 
-function eventExpired(ev) {
-  return ev.date < new Date();
-}
 
 // // subject filter implementation
 // $.fn.dataTable.ext.search.push((_, data) => {
@@ -414,8 +250,6 @@ function ytThumbLink(url) {
   `
 }
 
-console.log('wwww')
-
 async function getRawEventData() {
   const SHEET_ID = '1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE';
   const KEY = 'AIzaSyAUMihCUtNS35espxycitPYrTE_78W93Ps';
@@ -442,15 +276,6 @@ async function getRawLinkedInData() {
   });
   const raw = await resp.json();
   return raw;
-}
-
-
-const READABLE_EVENT_TYPE = {
-  'classics': 'Classics',
-  'fasttrack': 'Fast Track',
-  'main': 'Main Stream',
-  'authors': 'Authors Stream',
-  'codereview': 'Code Review'
 }
 
 function rawRowToRow(rawHeader, rawRow) {
@@ -511,6 +336,9 @@ function splitEvents(events) {
   return [past, future];
 }
 
+function eventExpired(ev) {
+  return ev && ev.date < new Date();
+}
 
 
 // cache-enabled, guarantees only one fetch
@@ -556,30 +384,6 @@ const getLinkedInProfiles = runOnlyOnce(async () => {
   });
   return linkedInProfileByName;
 });
-
-
-
-function venueToLink(name) {
-  // const url = {
-  //   'RBC': 'https://www.rbcroyalbank.com',
-  //   'Rangle': 'https://rangle.io',
-  //   'Randstad Technologies': 'https://www.randstad.ca/our-divisions/technologies/',
-  //   'Ryerson': 'https://www.ryerson.ca/',
-  //   'Shopify': 'https://www.shopify.ca/',
-  //   'SAS': 'https://www.sas.com/en_ca/home.html',
-  //   'Aviva': 'https://www.aviva.ca/en/',
-  // }[name];
-  // if (!url) {
-  //   return name;
-  // } else {
-  //   return (
-  //     <a className="venue-name" href={url} target="_blank">
-  //       {name}&nbsp;<i className="fa fa-external-link"></i>
-  //     </a>
-  //   );
-  // }
-  return name;
-}
 
 const getEventsAndGroupings = runOnlyOnce(async () => {
   const data = await getRawEventData();

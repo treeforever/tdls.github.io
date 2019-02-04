@@ -1,6 +1,28 @@
 
 import fetch from 'isomorphic-unfetch'
 
+export const READABLE_EVENT_TYPE = {
+  'classics': 'Classics',
+  'fasttrack': 'Fast Track',
+  'main': 'Main Stream',
+  'authors': 'Authors Stream',
+  'codereview': 'Code Review'
+}
+
+export function nameToLink(name, link) {
+  if (!link) {
+    return name;
+  } else {
+    return (
+      <a key={name} className="person-name" href={link} target="_blank">
+        {name}&nbsp;
+        <i className="fa fa-linkedin-square"></i>
+      </a>
+    );
+  }
+}
+
+
 async function fetchRawEventData() {
   const SHEET_ID = '1WghUEANwzE1f8fD_sdTvM9BEmr1C9bZjPlFSIJX9iLE';
   const KEY = 'AIzaSyAUMihCUtNS35espxycitPYrTE_78W93Ps';
