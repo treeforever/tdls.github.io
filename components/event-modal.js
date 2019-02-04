@@ -61,7 +61,8 @@ export const EventModalWrapper = ({ children }) => {
     >
       {children}
       {ev &&
-        <Modal show={isOpen} size="lg" onHide={closeEventModal}>
+        <Modal centered={true}
+          show={isOpen} size="lg" onHide={closeEventModal}>
           <Modal.Header closeButton>
             <Modal.Title className="title">{ev.title}</Modal.Title>
           </Modal.Header>
