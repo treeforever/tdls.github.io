@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Slider from "react-slick";
 
 import { WEEKDAYS, MONTH_NAMES } from '../utils/datetime';
-import { venueToLink } from '../utils/venue';
 
 import {
   READABLE_EVENT_TYPE, getEventId, isTentative,
@@ -10,7 +9,6 @@ import {
   toShortDateString
 } from '../utils/event';
 import { ytThumb } from '../utils/youtube';
-import { ModalVideoContext } from '../components/youtube-modal';
 
 export const UpcomingEvents = ({ }) => {
   const [{ events }, setEventsData] = useState({ events: [] });
@@ -203,19 +201,9 @@ const EventCard = ({ event: ev, leadLink, facLinks }) => {
   return (
 
     <div className={"event card " + (ev.type ? ' event-' + ev.type : '')}>
-      {
-        ev.video ? <ModalVideoContext.Consumer>
-          {(openYoutube) => (
-            <a type="button" onClick={() => openYoutube(getYouTubeId(ev.video))}>
-              <div className="youtube-thumb-outer">
-                {thumb}
-                <div className="overlay">
-                </div>
-              </div>
-            </a>
-          )}
-        </ModalVideoContext.Consumer> : thumb
-      }
+      <a href={`/#/events/${getEventId(ev)}`}>
+        {thumb}
+      </a>
 
       <div className="card-body">
         {cardTitle}
