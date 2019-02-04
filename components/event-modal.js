@@ -109,7 +109,7 @@ export const EventModalWrapper = ({ children }) => {
               {[
                 [ev.video, 'Recording', ytThumbLink],
                 [ev.paper, 'Paper', iconLinkFn('fa-file-text-o')],
-                [ev.slides, 'Slides', iconLinkFn('fa-file-powerpoint-o')],
+                [ev.slides, 'Slides', link => iconLinkFn('fa-file-powerpoint-o')(`/static/${link}`)],
                 [ev.reddit, 'Reddit post', iconLinkFn('fa-reddit')],
                 [ev.code_official, 'Official code', iconLinkFn('fa-github')],
                 [ev.code_unofficial, 'Unofficial code', iconLinkFn('fa-github')],
