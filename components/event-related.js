@@ -3,9 +3,13 @@ import Slider from "react-slick";
 
 import { WEEKDAYS, MONTH_NAMES } from '../utils/datetime';
 import { venueToLink } from '../utils/venue';
-import { READABLE_EVENT_TYPE, nameToLink } from '../utils/event';
 
-// import { getEventsAndGroupings, getLinkedInProfiles } from '../utils/event';
+import {
+  READABLE_EVENT_TYPE, getEventId, isTentative,
+  nameToLink, getEventsAndGroupings, getLinkedInProfiles,
+  toShortDateString
+} from '../utils/event';
+import { ytThumb } from '../utils/youtube';
 import { ModalVideoContext } from '../components/youtube-modal';
 
 export const UpcomingEvents = ({ }) => {
@@ -244,10 +248,4 @@ function SampleNextArrow({ className, style, onClick }) {
       onClick={onClick}
     />
   );
-}
-
-function getEventId(ev) {
-  // TODO: this event hashing unique by date, but if we have two events
-  // on the same date in the future we are screwed 
-  return "" + toShortDateString(ev.date);
 }

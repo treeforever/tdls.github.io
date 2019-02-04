@@ -5,7 +5,11 @@ import { Button } from 'react-bootstrap';
 import { ModalVideoContext } from '../components/youtube-modal';
 import { WEEKDAYS, MONTH_NAMES } from '../utils/datetime';
 import { venueToLink } from '../utils/venue';
-import { READABLE_EVENT_TYPE, nameToLink } from '../utils/event';
+import { ytThumb } from '../utils/youtube';
+import {
+  READABLE_EVENT_TYPE, getEventId, isTentative,
+  nameToLink, getEventsAndGroupings, getLinkedInProfiles
+} from '../utils/event';
 
 export const EventModalContext = React.createContext();
 
@@ -65,9 +69,9 @@ export const EventModalWrapper = ({ children }) => {
             <dl className="row">
               <dt className="col-sm-4">Date:</dt>
               <dd className="col-sm-8">
-                {WEEKDAYS[ev.date.getDay()]},
-              {ev.date.getDate()}-${MONTH_NAMES[ev.date.getMonth()]}-${ev.date.getYear() + 1900}
-                {expired && '(This is a past event.)'}
+                {WEEKDAYS[ev.date.getDay()]},&nbsp;
+              {ev.date.getDate()}-{MONTH_NAMES[ev.date.getMonth()]}-{ev.date.getYear() + 1900}
+                {expired && ' (This is a past event.)'}
               </dd>
               {!expired ? (
                 <Fragment>
@@ -145,6 +149,19 @@ export const EventModalWrapper = ({ children }) => {
   );
 };
 
+function ytThumbLink(url) {
+  return (
+    <a className="youtube" href={url} target="_blank">
+      <div className="youtube-thumb-outer">
+        <img src={ytThumb(url)} />
+        <div className="overlay">
+        </div>
+      </div>
+    </a>
+  )
+
+}
+
 async function copyLink() {
   await copyToClipboard(window.location.href);
 }
@@ -162,3 +179,4 @@ async function copyToClipboard(text) {
 function eventExpired(ev) {
   return ev && ev.date < new Date();
 }
+
