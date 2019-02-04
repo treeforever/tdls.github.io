@@ -536,6 +536,13 @@ img.profile {
   }
 }
 
+
+@media (max-width: 576px) {
+  .modal .modal-header .title {
+    font-size: 1.2em;
+  }
+}
+
 div.committee {
   align-items: center;
 }

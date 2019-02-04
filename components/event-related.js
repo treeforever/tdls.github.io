@@ -1,9 +1,14 @@
-import { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Slider from "react-slick";
 
-import React, { useState, useEffect } from 'react';
-// import { getEventsAndGroupings, getLinkedInProfiles } from '../utils/event';
-import { ModalVideoContext } from '../components/youtube-modal';
+import { WEEKDAYS, MONTH_NAMES } from '../utils/datetime';
+
+import {
+  READABLE_EVENT_TYPE, getEventId, isTentative,
+  nameToLink, getEventsAndGroupings, getLinkedInProfiles,
+  toShortDateString
+} from '../utils/event';
+import { ytThumb } from '../utils/youtube';
 
 export const UpcomingEvents = ({ }) => {
   const [{ events }, setEventsData] = useState({ events: [] });
@@ -32,7 +37,7 @@ export const UpcomingEvents = ({ }) => {
           const leadLink = linkedInDict[event.lead];
           const facLinks = event.facilitators.map(n => linkedInDict[n]);
           return (
-            <UpcomingEventItem
+            <UpcomingEventItem key={getEventId(event)}
               {...{ event, leadLink, facLinks }}
             />
           );
@@ -159,25 +164,19 @@ export const PastEvents = ({ }) => {
 
 const EventCard = ({ event: ev, leadLink, facLinks }) => {
   const cardTitle = (
-    <a className="title card-title" href={`/#/events/${getEventId(ev)}`}>
-      {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]`.toLowerCase() + ' ' : null}
-      {ev.title.toLowerCase()}
-    </a>
+    <Fragment>
+      <style jsx>{`
+      .title {
+        margin-bottom: 5px;
+        display: block;
+      }
+    `}</style>
+      <a className="title card-title" href={`/#/events/${getEventId(ev)}`}>
+        {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]`.toLowerCase() + ' ' : null}
+        {ev.title.toLowerCase()}
+      </a>
+    </Fragment>
   )
-  const cardDesc = (
-    <p className="card-text">
-      Discussion lead by {nameToLink(ev.lead, leadLink)}
-      {ev.facilitators.length != 0 ? (
-        <Fragment>
-          and facilitated by {
-            ev.facilitators.map(
-              (f, i) => nameToLink(f, facLinks[i])
-            )
-          }
-        </Fragment>
-      ) : null}
-      <br />Venue: <strong>{venueToLink(ev.venue)}</strong></p>
-  );
 
   const [{ isOpen }, setData] = useState({ isOpen: false });
 
@@ -200,24 +199,14 @@ const EventCard = ({ event: ev, leadLink, facLinks }) => {
   );
 
   return (
+
     <div className={"event card " + (ev.type ? ' event-' + ev.type : '')}>
-      {
-        ev.video ? <ModalVideoContext.Consumer>
-          {(openYoutube) => (
-            <a type="button" onClick={() => openYoutube(getYouTubeId(ev.video))}>
-              <div className="youtube-thumb-outer">
-                {thumb}
-                <div className="overlay">
-                </div>
-              </div>
-            </a>
-          )}
-        </ModalVideoContext.Consumer> : thumb
-      }
+      <a href={`/#/events/${getEventId(ev)}`}>
+        {thumb}
+      </a>
 
       <div className="card-body">
         {cardTitle}
-        {cardDesc}
         {toolbar}
         <p className="card-text date">
           <small className="text-muted">
@@ -241,23 +230,4 @@ function SampleNextArrow({ className, style, onClick }) {
       onClick={onClick}
     />
   );
-}
-
-function getEventId(ev) {
-  // TODO: this event hashing unique by date, but if we have two events
-  // on the same date in the future we are screwed 
-  return "" + toShortDateString(ev.date);
-}
-
-function nameToLink(name, link) {
-  if (!link) {
-    return name;
-  } else {
-    return (
-      <a key={name} className="person-name" href={link} target="_blank">
-        {name}&nbsp;
-        <i className="fa fa-linkedin-square"></i>
-      </a>
-    );
-  }
 }

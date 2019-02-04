@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import Head from 'next/head'
 import Header from '../components/header'
@@ -8,6 +8,38 @@ import SharedBodyScripts from '../components/shared-body-scripts'
 import ThemesAndSuch from '../components/themes-and-such';
 import { UpcomingEvents, PastEvents } from '../components/event-related';
 import { YouTubeModalWrapper } from '../components/youtube-modal';
+import { EventModalWrapper, EventModalContext } from '../components/event-modal';
+
+
+const EventRoutingHandler = ({ openEventModal }) => {
+
+  function registerRoutes() {
+    window.addEventListener("hashchange", ({ newURL }) => {
+      handleHashChange(newURL);
+    }, true);
+  }
+
+  async function handleHashChange(newURL) {
+    if (!newURL) {
+      return;
+    } else {
+      const hash = newURL.substring(newURL.indexOf('#') + 1);
+
+      if (hash.startsWith('/events/')) {
+        const eventId = hash.substring('/events/'.length);
+        openEventModal(eventId);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      registerRoutes();
+      handleHashChange(window.location.href);
+    }
+  }, []);
+  return null;
+}
 
 export default () => {
   return (
@@ -28,7 +60,12 @@ export default () => {
         <link rel="icon" type="image/png" href="/static/images/tdls_logo.png" />
       </Head>
       <Header />
-      <YouTubeModalWrapper>
+      <EventModalWrapper>
+        <EventModalContext.Consumer>
+          {
+            (openEventModal) => <EventRoutingHandler openEventModal={openEventModal} />
+          }
+        </EventModalContext.Consumer>
         <main role="main">
           <section id="welcome">
             <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
@@ -79,7 +116,7 @@ export default () => {
                 TDLS is a community of intellectually curious individuals, centered around technical
                 review and discussion
                 of advances in machine learning.
-      </p>
+                </p>
               <p>
                 <a className="btn" href="#events">Our events...</a>
               </p>
@@ -187,12 +224,12 @@ export default () => {
                   <div className="modal-body yt-player">
                     <p>
                       This stream is for recent papers within a few weeks of publication.
-            </p>
+                      </p>
                     <p>
                       In our main stream, we build in time for revisions to settle and speakers to prepare. But when new
                       papers seem particularly important to the machine learning community, we want to discuss them sooner!
                       Hence, the Fast Track stream.
-            </p>
+                      </p>
                     <iframe style={{ width: '100%', minHeight: '300px' }} src="https://www.youtube.com/embed/1jkmNnHs18M"
                       frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen></iframe>
@@ -289,9 +326,7 @@ export default () => {
             </article>
           </section>
         </main>
-        <div className="modal" id="event-popup" tabIndex="-1" role="dialog" aria-labelledby="eventPopup" aria-hidden="true">
-        </div>
-      </YouTubeModalWrapper>
+      </EventModalWrapper>
       <Footer />
       <SharedBodyScripts />
     </Fragment>
