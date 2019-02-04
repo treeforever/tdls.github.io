@@ -166,25 +166,19 @@ export const PastEvents = ({ }) => {
 
 const EventCard = ({ event: ev, leadLink, facLinks }) => {
   const cardTitle = (
-    <a className="title card-title" href={`/#/events/${getEventId(ev)}`}>
-      {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]`.toLowerCase() + ' ' : null}
-      {ev.title.toLowerCase()}
-    </a>
+    <Fragment>
+      <style jsx>{`
+      .title {
+        margin-bottom: 5px;
+        display: block;
+      }
+    `}</style>
+      <a className="title card-title" href={`/#/events/${getEventId(ev)}`}>
+        {ev.type !== 'main' ? `[${READABLE_EVENT_TYPE[ev.type]}]`.toLowerCase() + ' ' : null}
+        {ev.title.toLowerCase()}
+      </a>
+    </Fragment>
   )
-  const cardDesc = (
-    <p className="card-text">
-      Discussion lead by {nameToLink(ev.lead, leadLink)}
-      {ev.facilitators.length != 0 ? (
-        <Fragment>
-          and facilitated by {
-            ev.facilitators.map(
-              (f, i) => nameToLink(f, facLinks[i])
-            )
-          }
-        </Fragment>
-      ) : null}
-      <br />Venue: <strong>{venueToLink(ev.venue)}</strong></p>
-  );
 
   const [{ isOpen }, setData] = useState({ isOpen: false });
 
@@ -207,6 +201,7 @@ const EventCard = ({ event: ev, leadLink, facLinks }) => {
   );
 
   return (
+
     <div className={"event card " + (ev.type ? ' event-' + ev.type : '')}>
       {
         ev.video ? <ModalVideoContext.Consumer>
@@ -224,7 +219,6 @@ const EventCard = ({ event: ev, leadLink, facLinks }) => {
 
       <div className="card-body">
         {cardTitle}
-        {cardDesc}
         {toolbar}
         <p className="card-text date">
           <small className="text-muted">
